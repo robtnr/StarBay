@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Gestore</title>
+<title>Inserimento prodotto stella</title>
 <meta charset="UTF-8" />
 <meta name="keywords"
 	content="stelle, venditaonline, binocolo, telescopio, star, e-commerce">
@@ -29,18 +29,42 @@
 		<div class="row">
 			<section class="col-md-10 col-md-offset-1">
 				<div class="row">
-					
-					<div id="menu_gestione" class="col-md-6 col-md-offset-3">
-					<img id="tool" alt="tool" src="images/gestore.png">
-						<ul>
-							<li>Inserimento prodotto<a href="inserimento_prodotto_stella.jsp"><img src="images/arrow.png">Stella</a><a href="#"><img src="images/arrow.png">Store</a></li>
-							<li>Modifica prodotto<a href="#"><img src="images/arrow.png">Stella</a><a href="#"><img src="images/arrow.png">Store</a></li>
-							<li>Elimina prodotto<a href="#"><img src="images/arrow.png">Stella</a><a href="#"><img src="images/arrow.png">Store</a></li>
-							<li><a href="#">Elimina Utente </a></li>
-							<li>Visualizza<a href="#"><img src="images/arrow.png">Guadagno</a><a href="#"><img src="images/arrow.png">Ricavo</a></li>
-							<li><a href="#">Visualizza guadagno per singolo prodotto</a></li>
-						</ul>
-					</div>
+						<form class="col-md-8 col-md-offset-2" style="margin-top:20px;margin-bottom:20px;">
+							<center><label style="font-size:20px; margin-bottom:10px;">Inserimento del prodotto stella</label></center>
+							<div id="divNome" class="form-group">
+								<label id="labelNome" for="inputNome">Nome</label>
+								<input id="inputNome" class="form-control" name="nome" placeholder="Nome" type="text" onblur="controlloNome(this)"/>
+								<span id="spanNome" style="display: none" class="help-block"></span>
+								<span id="iconNome" style="display: none" class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+							<div id="divPrezzo" class="form-group">
+								<label id="labelPrezzo" for="inputPrezzo">Prezzo</label>
+								<input id="inputPrezzo" class="form-control" name="prezzo" placeholder="Prezzo" type="text" onblur="controlloPrezzo(this)"/>
+								<span id="spanPrezzo" style="display: none" class="help-block"></span>
+								<span id="iconPrezzo" style="display: none" class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+							<div id="divCoordinate" class="form-group">
+								<label id="labelCoordinate" for="inputCoordinate">Coordinate</label>
+								<input id="inputCoordinate" class="form-control" name="coordinate" placeholder="Coordinate" type="text" onblur="controlloCoordinate(this)"/>
+								<span id="spanCoordinate" style="display: none" class="help-block"></span>
+								<span id="iconCoordinate" style="display: none" class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+							<div id="divDescrizione" class="form-group">
+								<label for="comment">Descrizione:</label>
+								<textarea class="form-control" rows="5" id="comment"></textarea>
+							</div>
+							<div id="divSrc" class="form-group">
+								<label id="labelSrc" for="inputSrc">Src:</label>
+								<label class="btn btn-default btn-file">
+	    						Browse <input type="file" name="src" style="display: none;">
+								</label>
+							</div>
+							<div>
+								<button id="buttonLogin" onclick="" class="btn btn-default col-md-4 col-md-offset-4">
+									Inserisci
+								</button>
+							</div>
+						</form>					
 
 				</div>
 			</section>
