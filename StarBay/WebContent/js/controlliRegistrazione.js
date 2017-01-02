@@ -1,7 +1,27 @@
 
+	function controllaDati()
+	{
+		controlloNome(document.getElementById("inputNome"));
+		controlloCognome(document.getElementById("inputCognome"));
+		controlloComune(document.getElementById("inputComune"));
+		controlloIndirizzo(document.getElementById("inputIndirizzo"));
+		controlloEmail(document.getElementById("inputEmail"));
+		controlloUsername(document.getElementById("inputUsername"));
+		controlloPassword(document.getElementById("inputPassword"));
+		controlloIBAN(document.getElementById("inputIBAN"));
+	}
+
 	function controlloNome(x)
 	{
-		if(x.value.length > 30)
+		if(x.value == "")
+		{
+			document.getElementById("divNome").removeAttribute("class");
+			document.getElementById("labelNome").removeAttribute("class");
+			document.getElementById("spanNome").style.display="none";
+			document.getElementById("iconNome").removeAttribute("class");
+			document.getElementById("iconNome").style.display="none";
+		}
+		else if(x.value.length > 30)
 		{
 			document.getElementById("divNome").setAttribute("class", "form-group has-error has-feedback");
 			document.getElementById("labelNome").setAttribute("class", "control-label");
@@ -32,7 +52,15 @@
 
 	function controlloCognome(x)
 	{
-		if(x.value.length > 30)
+		if(x.value == "")
+		{
+			document.getElementById("divCognome").removeAttribute("class");
+			document.getElementById("labelCognome").removeAttribute("class");
+			document.getElementById("spanCognome").style.display="none";
+			document.getElementById("iconCognome").removeAttribute("class");
+			document.getElementById("iconCognome").style.display="none";
+		}
+		else if(x.value.length > 30)
 		{
 			document.getElementById("divCognome").setAttribute("class", "form-group has-error has-feedback");
 			document.getElementById("labelCognome").setAttribute("class", "control-label");
@@ -63,7 +91,15 @@
 
 	function controlloComune(x)
 	{
-		if(x.value.length > 30)
+		if(x.value == "")
+		{
+			document.getElementById("divComune").removeAttribute("class");
+			document.getElementById("labelComune").removeAttribute("class");
+			document.getElementById("spanComune").style.display="none";
+			document.getElementById("iconComune").removeAttribute("class");
+			document.getElementById("iconComune").style.display="none";
+		}
+		else if(x.value.length > 30)
 		{
 			document.getElementById("divComune").setAttribute("class", "form-group has-error has-feedback");
 			document.getElementById("labelComune").setAttribute("class", "control-label");
@@ -94,7 +130,15 @@
 
 	function controlloIndirizzo(x)
 	{
-		if(x.value.length > 40)
+		if(x.value == "")
+		{
+			document.getElementById("divIndirizzo").removeAttribute("class");
+			document.getElementById("labelIndirizzo").removeAttribute("class");
+			document.getElementById("spanIndirizzo").style.display="none";
+			document.getElementById("iconIndirizzo").removeAttribute("class");
+			document.getElementById("iconIndirizzo").style.display="none";
+		}
+		else if(x.value.length > 40)
 		{
 			document.getElementById("divIndirizzo").setAttribute("class", "form-group has-error has-feedback");
 			document.getElementById("labelIndirizzo").setAttribute("class", "control-label");
@@ -125,7 +169,15 @@
 
 	function controlloEmail(x)
 	{
-		if(x.value.length > 40)
+		if(x.value == "")
+		{
+			document.getElementById("divEmail").removeAttribute("class");
+			document.getElementById("labelEmail").removeAttribute("class");
+			document.getElementById("spanEmail").style.display="none";
+			document.getElementById("iconEmail").removeAttribute("class");
+			document.getElementById("iconEmail").style.display="none";
+		}
+		else if(x.value.length > 40)
 		{
 			document.getElementById("divEmail").setAttribute("class", "form-group has-error has-feedback");
 			document.getElementById("labelEmail").setAttribute("class", "control-label");
@@ -156,7 +208,15 @@
 
 	function controlloUsername(x)
 	{
-		if(x.value.length > 30 && x.value.length < 8)
+		if(x.value == "")
+		{
+			document.getElementById("divUsername").removeAttribute("class");
+			document.getElementById("labelUsername").removeAttribute("class");
+			document.getElementById("spanUsername").style.display="none";
+			document.getElementById("iconUsername").removeAttribute("class");
+			document.getElementById("iconUsername").style.display="none";
+		}
+		else if(x.value.length > 30 && x.value.length < 8)
 		{
 			document.getElementById("divUsername").setAttribute("class", "form-group has-error has-feedback");
 			document.getElementById("labelUsername").setAttribute("class", "control-label");
@@ -187,7 +247,15 @@
 
 	function controlloPassword(x)
 	{
-		if(x.value.length > 30 && x.value.length < 8)
+		if(x.value == "")
+		{
+			document.getElementById("divPassword").removeAttribute("class");
+			document.getElementById("labelPassword").removeAttribute("class");
+			document.getElementById("spanPassword").style.display="none";
+			document.getElementById("iconPassword").removeAttribute("class");
+			document.getElementById("iconPassword").style.display="none";
+		}
+		else if(x.value.length > 30 && x.value.length < 8)
 		{
 			document.getElementById("divPassword").setAttribute("class", "form-group has-error has-feedback");
 			document.getElementById("labelPassword").setAttribute("class", "control-label");
@@ -218,7 +286,15 @@
 
 	function controlloIBAN(x)
 	{
-		if(x.value.length != 27)
+		if(x.value == "")
+		{
+			document.getElementById("divIBAN").removeAttribute("class");
+			document.getElementById("labelIBAN").removeAttribute("class");
+			document.getElementById("spanIBAN").style.display="none";
+			document.getElementById("iconIBAN").removeAttribute("class");
+			document.getElementById("iconIBAN").style.display="none";
+		}
+		else if(x.value.length != 27)
 		{
 			document.getElementById("divIBAN").setAttribute("class", "form-group has-error has-feedback");
 			document.getElementById("labelIBAN").setAttribute("class", "control-label");
