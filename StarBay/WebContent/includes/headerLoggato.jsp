@@ -6,7 +6,7 @@
 					<a href="index.jsp"><img src="images/logo.png" class="img-responsive"></a>
 				</div>
 				<div id="benvenuto">
-				Benvenuto <a href="#">Admin</a>
+				Benvenuto <a href="#">Sara</a>
 				</div>
 			</header>	
 		</div>

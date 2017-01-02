@@ -339,6 +339,62 @@ button#bottonePiu:hover
     background-color: #cbcbcb;
 }
 
+/*Menu Gestore*/
+
+#menu_gestione
+{
+	font-family: "Times New Roman", Georgia, Serif;
+    height: auto;
+    background-color: #070d19;
+    color: #ffc307;
+    margin-bottom: 150px;
+    margin-top: 100px;
+    text-align:center;
+    border-radius:5px;
+    padding: 1px 5px;
+}
+
+#menu_gestione ul
+{
+	list-style-image: url('../images/star_li.png');
+}
+
+#menu_gestione ul li
+{
+	padding:10px;
+	font-size:20px;
+	color: #ffc307;
+}
+
+#menu_gestione ul li a img
+{
+	margin-top: -5px;
+    margin-right: 8px;
+    width: 20px;
+}
+
+#menu_gestione a
+{
+	text-decoration: none;
+	font-size:20px;
+	color: #ffc307;
+	padding-left: 16px;
+}
+
+#menu_gestione a:hover
+{
+	font-size:20px;
+	color: #cbcbcb;
+}
+
+#tool
+{
+	position: relative;
+    width: 40px;
+    top: -7px;
+    left: 232px;
+}
+
 
 /*Mappa*/
 
