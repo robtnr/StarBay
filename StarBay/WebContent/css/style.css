@@ -250,6 +250,14 @@ button#bottonePiu:hover
 {
 	opacity: 0.8;
 }
+/*Mappa*/
+
+#mappa_frame
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 700px;
+}
 
 /*Footer*/
 

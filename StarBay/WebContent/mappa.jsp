@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Stelle</title>
+<title>Mappa</title>
 <meta charset="UTF-8" />
 <meta name="keywords"
 	content="stelle, venditaonline, binocolo, telescopio, star, e-commerce">
@@ -30,73 +30,9 @@
 		<div class="row">
 			<section class="col-md-10 col-md-offset-1">
 				<div class="row">
-					<article class="col-md-3">
-						<div id="box_article">
-							<div id="new">
-							</div>
-							<div id="immagine_article_new">
-								<img src="images/stella.png" class="img-responsive">
-							</div>
-							<div id="descrizione_pagina">Donec leo, vivamus fermentum
-								nibh in augue praesent a lacus at urna congue rutrum wisi
-								maecenas ligula.</div>
-							<div id="compra_articolo">
-								<div id="prezzo">
-									PREZZO: <span id="cifra">38.00</span> &euro;
-								</div>
-								<button type="button" id="bottonePiu">
-									<span><img src="images/carrello_piu.png"
-										alt="Aggiungi al carrello" title="Aggiungi al carrello"></span>
-								</button>
-							</div>
-						</div>
-					</article>
 					
-					<article class="col-md-3">
-						<div id="box_article">
-							<div id="new">
-							</div>
-							<div id="immagine_article_new">
-								<img src="images/stella.png" class="img-responsive">
-							</div>
-							<div id="descrizione_pagina">Donec leo, vivamus fermentum
-								nibh in augue praesent a lacus at urna congue rutrum wisi
-								maecenas ligula.</div>
-							<div id="compra_articolo">
-								<div id="prezzo">
-									PREZZO: <span id="cifra">38.00</span> &euro;
-								</div>
-								<button type="button" id="bottonePiu">
-									<span><img src="images/carrello_piu.png"
-										alt="Aggiungi al carrello" title="Aggiungi al carrello"></span>
-								</button>
-							</div>
-						</div>
-					</article>
+					<iframe class="col-md-12" id="mappa_frame" src="http://www.google.com/sky/"></iframe>
 					
-					<article class="col-md-3">
-						<div id="box_article">
-							<div id="new">
-							</div>
-							<div id="immagine_article_new">
-								<img src="images/stella.png" class="img-responsive">
-							</div>
-							<div id="descrizione_pagina">Donec leo, vivamus fermentum
-								nibh in augue praesent a lacus at urna congue rutrum wisi
-								maecenas ligula.</div>
-							<div id="compra_articolo">
-								<div id="prezzo">
-									PREZZO: <span id="cifra">38.00</span> &euro;
-								</div>
-								<button type="button" id="bottonePiu">
-									<span><img src="images/carrello_piu.png"
-										alt="Aggiungi al carrello" title="Aggiungi al carrello"></span>
-								</button>
-							</div>
-						</div>
-					</article>
-					
-
 				</div>
 			</section>
 		</div>

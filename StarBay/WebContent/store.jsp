@@ -23,7 +23,7 @@
 </head>
 <body>
 
-	<%@ include file="includes/headerLoggato.jsp"%>
+	<%@ include file="includes/headerNonLoggato.jsp"%>
 	<%@ include file="includes/menu.jsp"%>
 
 	<div class="container">
