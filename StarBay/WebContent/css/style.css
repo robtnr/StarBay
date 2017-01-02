@@ -250,6 +250,96 @@ button#bottonePiu:hover
 {
 	opacity: 0.8;
 }
+
+/*Carrello*/
+
+#scontrino
+{
+	background-color: #070d19;
+    color: #ffc307;
+    height: auto;
+    margin-top: 100px;
+    margin-bottom: 200px;
+    font-family: "Times New Roman", Georgia, Serif;
+}
+
+#scontrino img
+{
+	width: 20px;
+}
+
+#scontrino img:hover
+{
+	opacity: 0.8;
+}
+
+#scontrino_sup
+{
+	padding-top: 5px;
+	font-size: 25px;
+	text-align: center;
+}
+
+#scontrino_sup p
+{
+	font-size: 18px;
+	padding-top:10px; 
+}
+
+#scontrino_med
+{
+	width: 100%;
+}
+
+#scontrino_bar hr
+{
+	margin-top: 15px;
+	border: 1px dashed #ffc307;
+}
+
+#scontrino_tot
+{
+	padding-left: 5px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+#scontrino_tot p
+{
+	float: right;
+    display: inline;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-right: 12px;
+}
+
+#tabella_scontrino thead,tr,td,th
+{
+	border:0px solid #ddd!important
+}
+
+
+.submit_acquista
+{
+	background-color: #ffc307;
+    font-size: 18px;
+    height: 30px;
+    border-radius: 9px;
+    margin-left: 160px;
+    margin-top: 25px;
+    border: 0px;
+    width: 80px;
+    color: #070d19;
+    margin-bottom: 10px;
+}
+
+#scontrino_acquista input[type="submit"]:hover 
+{
+    background-color: #cbcbcb;
+}
+
+
 /*Mappa*/
 
 #mappa_frame
