@@ -20,6 +20,8 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/style.css">
+<script
+	src="js/controlliProdottoStella.js"></script>
 </head>
 <body>
 
@@ -33,30 +35,30 @@
 							<center><label style="font-size:20px; margin-bottom:10px;">Inserimento del prodotto stella</label></center>
 							<div id="divNome" class="form-group">
 								<label id="labelNome" for="inputNome">Nome</label>
-								<input id="inputNome" class="form-control" name="nome" placeholder="Nome" type="text" onblur="controlloNome(this)"/>
+								<input required id="inputNome" class="form-control" name="nome" placeholder="Nome" type="text" onblur="controlloNome(this)"/>
 								<span id="spanNome" style="display: none" class="help-block"></span>
 								<span id="iconNome" style="display: none" class="glyphicon glyphicon-remove form-control-feedback"></span>
 							</div>
 							<div id="divPrezzo" class="form-group">
 								<label id="labelPrezzo" for="inputPrezzo">Prezzo</label>
-								<input id="inputPrezzo" class="form-control" name="prezzo" placeholder="Prezzo" type="text" onblur="controlloPrezzo(this)"/>
+								<input required id="inputPrezzo" class="form-control" name="prezzo" placeholder="Prezzo" type="text" onblur="controlloPrezzo(this)"/>
 								<span id="spanPrezzo" style="display: none" class="help-block"></span>
 								<span id="iconPrezzo" style="display: none" class="glyphicon glyphicon-remove form-control-feedback"></span>
 							</div>
 							<div id="divCoordinate" class="form-group">
 								<label id="labelCoordinate" for="inputCoordinate">Coordinate</label>
-								<input id="inputCoordinate" class="form-control" name="coordinate" placeholder="Coordinate" type="text" onblur="controlloCoordinate(this)"/>
+								<input required id="inputCoordinate" class="form-control" name="coordinate" placeholder="Coordinate" type="text" onblur="controlloCoordinate(this)"/>
 								<span id="spanCoordinate" style="display: none" class="help-block"></span>
 								<span id="iconCoordinate" style="display: none" class="glyphicon glyphicon-remove form-control-feedback"></span>
 							</div>
 							<div id="divDescrizione" class="form-group">
 								<label for="comment">Descrizione:</label>
-								<textarea class="form-control" rows="5" id="comment"></textarea>
+								<textarea required class="form-control" rows="5" id="comment"></textarea>
 							</div>
 							<div id="divSrc" class="form-group">
 								<label id="labelSrc" for="inputSrc">Src:</label>
 								<label class="btn btn-default btn-file">
-	    						Browse <input type="file" name="src" style="display: none;">
+	    						Browse <input required type="file" name="src" style="display: none;">
 								</label>
 							</div>
 							<div>
