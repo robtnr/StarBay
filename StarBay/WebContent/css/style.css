@@ -1,0 +1,349 @@
+/*Font menu*/
+@font-face {
+font-family: myFont;
+src: url(airplanes.ttf);
+}
+
+body
+{
+	background-color: #070d19;
+}
+
+/*Caratteristiche principali dell'header*/
+header
+{
+	background: url(../images/header.jpg) no-repeat;
+	height: 183px;
+}
+
+/*Logo*/
+#logoContainer
+{
+	margin: 0 auto;
+    width: 350px;
+}
+
+/*Benvenuto*/
+
+#benvenuto
+{
+	display: inline;
+    width: auto;
+    height: auto;
+    background-color: #070d19;
+    font-family: "myFont";
+    color: #ffc307;
+    font-size: 23px;
+    position: relative;
+    top: -32px;
+    float: right;
+	padding: 5px;
+    padding-left: 14px;
+    padding-right: 11px;
+    right: -14px;
+    border-top-left-radius: 22px;
+}
+
+#benvenuto a
+{
+	color: #ffc307;
+}
+
+#benvenuto a:hover
+{
+	color: #cbcbcb;
+	text-decoration: none;
+}
+
+@media screen and (max-width: 768px)
+{
+	#benvenuto
+	{
+		display: inline;
+	    width: auto;
+	    height: auto;
+	    background-color: #070d19;
+	    font-family: "myFont";
+	    color: #ffc307;
+	    font-size: 20px;
+	    position: relative;
+	    top: 9px;
+	    float: right;
+		padding: 5px;
+	    padding-left: 14px;
+	    padding-right: 11px;
+	    right: -15px;
+	    border-top-left-radius: 22px;
+	}
+}
+
+/*Menu*/
+#menu
+{
+	background-color: #070d19;
+	font-family: "myFont";
+	border: none;
+
+}
+
+#mainNavBar
+{
+	margin-left: -27px;
+}
+
+#mainNavBar li a 
+{
+    color: #ffc307;
+    font-size: 30px;
+    margin-left: 10px;
+    margin-top: 2px;
+}
+
+#mainNavBar li.attivo a
+{
+    color: #cbcbcb;
+}
+
+#mainNavBar li a:hover 
+{
+    color: #cbcbcb;
+}
+
+#bottoneMobile
+{
+	float:left;
+	margin-left: 5px;
+	border-color: #ffc307;
+}
+
+.navbar-toggle
+{
+	background-color: #070d19;
+}
+
+div#mainNavBar.navbar-collapse.collapse.in
+{
+	border: none;
+}
+
+.input-group
+{
+	float: left;
+	margin-left:-39px; 
+	width: 1px;
+}
+
+#carrello img
+{
+	width: 35px;
+}
+
+button#buttonCarrello
+{
+	padding:0px; 
+	height:0px; 
+	margin-left:24px; 
+	margin-bottom:3px; 
+	margin-top:17px; 
+	background-color:#070d19; 
+	border:none;
+}
+
+button#buttonCarrello:hover
+{
+	opacity: 0.5;
+}
+
+/*Section*/
+
+section
+{
+	background-color: #cbcbcb;
+	height: auto;
+}
+
+/*Article*/
+
+article
+{
+    float: left;
+    width: 225px;
+    height: 280px;
+    margin-left: 40px;
+    margin-top: 30px;
+    margin-right: 20px;
+    margin-bottom: 25px;
+    background-color: #cbcbcb;
+}
+
+#box_article
+{
+	float: left;
+	font-size: 15px;
+	font-family: "Times New Roman", Georgia, Serif;
+	color: #ffc307;
+	background-color: #070d19;
+	width: 225px;
+    height: 280px;
+    box-shadow: 2px 2px 5px black;
+}
+
+#immagine_article img
+{
+	width: 100%;
+	height: 125px;
+}
+
+#immagine_article_new img
+{
+	width: 100%;
+	height: 125px;
+	margin-top: -55px;
+}
+
+
+#new
+{
+	position: relative;
+	width: 55px;
+	height: 55px;
+	top: -9px;
+	left: -10px;
+}
+
+#new img
+{
+	width: 55px;
+	height: 55px;
+	
+}
+
+#descrizione_pagina
+{
+    margin-left: 4px;
+    margin-top: 3px;
+}
+
+#compra_articolo
+{
+    margin-left: 25px;
+    margin-top: 20px;
+}
+
+#prezzo
+{
+	display:inline;
+    font-weight: bold;
+}
+
+button#bottonePiu
+{
+	background-color: #070d19;
+    width: 0;
+    height: 0;
+    border: none;
+    display: inline;
+    margin-left:20px;
+}
+
+button#bottonePiu:hover
+{
+	opacity: 0.8;
+}
+
+/*Footer*/
+
+footer
+{
+	height: 100px;
+	background-color: #070d19;
+	color: #ffc307;
+	font-family: myFont;
+	font-size: 14px;
+}
+
+#copyright
+{
+	text-align: center;
+	margin-top: 10px;
+}
+#copyright img
+{
+	margin-top: -10px;
+}
+
+/*Accedi(Modal)*/
+
+button#buttonChiudi
+{
+	opacity:1;
+}
+
+button#buttonChiudi:hover
+{
+	opacity:0.5;
+}
+
+div#modalContent
+{
+	background-color:#070d19;
+	color: #ffc307;
+	width: 75%;
+	margin:0 auto;
+	margin-top:200px
+
+}
+
+div#modalContent.modal-header
+{
+	border-bottom: 1px solid red; 
+}
+
+div#modalContent,div#modalHeader,div#modalBody,div#modalFooter
+{
+	border-bottom:none;
+	border-top: none;  
+}
+
+div#modalHeader
+{
+	border-bottom: 1px solid #cbcbcb;
+}
+
+button#buttonLogin
+{
+	background-color:#ffc307; 
+	border:none;
+	color: black;	
+}
+
+button#buttonLogin:hover
+{
+	opacity: 0.5;
+}
+
+div#modalFooter
+{
+    font-family: myFont;
+    font-size: 15px;
+}
+
+div#modalFooter a
+{
+	color: #ffc307;
+	text-decoration: underline;	
+
+}
+
+div#modalFooter a:hover
+{
+	color: #cbcbcb;
+	text-decoration: underline;	
+
+}
+
+div#formRegistrazione
+{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
