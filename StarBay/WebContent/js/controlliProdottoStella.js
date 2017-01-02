@@ -35,7 +35,9 @@
 			document.getElementById("spanCoordinate").style.display="block";
 			document.getElementById("iconCoordinate").setAttribute("class", "glyphicon glyphicon-ok form-control-feedback");
 			document.getElementById("iconCoordinate").style.display="block";
+			return true;
 		}
+		return false;
 	}
 
 	function controlloDescrizione(x)
@@ -65,7 +67,9 @@
 			document.getElementById("spanDescrizione").style.display="block";
 			document.getElementById("iconDescrizione").setAttribute("class", "glyphicon glyphicon-ok form-control-feedback");
 			document.getElementById("iconDescrizione").style.display="block";
+			return true;
 		}
+		return false;
 	}
 
 	function controlloSrc(x)
@@ -95,7 +99,9 @@
 			document.getElementById("spanSrc").style.display="block";
 			document.getElementById("iconSrc").setAttribute("class", "glyphicon glyphicon-ok form-control-feedback");
 			document.getElementById("iconSrc").style.display="block";
+			return true;
 		}
+		return false;
 	}
 
 	function controlloPrezzo(x)
@@ -134,7 +140,9 @@
 			document.getElementById("spanPrezzo").style.display="block";
 			document.getElementById("iconPrezzo").setAttribute("class", "glyphicon glyphicon-ok form-control-feedback");
 			document.getElementById("iconPrezzo").style.display="block";
+			return true;
 		}
+		return false;
 	}
 
 	function controlloNome(x)
@@ -173,5 +181,7 @@
 			document.getElementById("spanNome").style.display="block";
 			document.getElementById("iconNome").setAttribute("class", "glyphicon glyphicon-ok form-control-feedback");
 			document.getElementById("iconNome").style.display="block";
+			return true;
 		}
+		return false;
 	}

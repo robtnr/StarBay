@@ -36,7 +36,9 @@
 			document.getElementById("spanDescrizione").style.display="block";
 			document.getElementById("iconDescrizione").setAttribute("class", "glyphicon glyphicon-ok form-control-feedback");
 			document.getElementById("iconDescrizione").style.display="block";
+			return true;
 		}
+		return false;
 	}
 
 	function controlloSrc(x)
@@ -66,7 +68,9 @@
 			document.getElementById("spanSrc").style.display="block";
 			document.getElementById("iconSrc").setAttribute("class", "glyphicon glyphicon-ok form-control-feedback");
 			document.getElementById("iconSrc").style.display="block";
+			return true;
 		}
+		return false;
 	}
 
 	function controlloPrezzoAcquisto(x)
@@ -105,7 +109,9 @@
 			document.getElementById("spanPrezzoAcquisto").style.display="block";
 			document.getElementById("iconPrezzoAcquisto").setAttribute("class", "glyphicon glyphicon-ok form-control-feedback");
 			document.getElementById("iconPrezzoAcquisto").style.display="block";
+			return true;
 		}
+		return false;
 	}
 
 function controlloPrezzoVendita(x)
@@ -144,7 +150,9 @@ function controlloPrezzoVendita(x)
 			document.getElementById("spanPrezzoVendita").style.display="block";
 			document.getElementById("iconPrezzoVendita").setAttribute("class", "glyphicon glyphicon-ok form-control-feedback");
 			document.getElementById("iconPrezzoVendita").style.display="block";
+			return true;
 		}
+		return false;
 	}
 
 	function controlloNome(x)
@@ -183,7 +191,9 @@ function controlloPrezzoVendita(x)
 			document.getElementById("spanNome").style.display="block";
 			document.getElementById("iconNome").setAttribute("class", "glyphicon glyphicon-ok form-control-feedback");
 			document.getElementById("iconNome").style.display="block";
+			return true;
 		}
+		return false;
 	}
 
 function controlloQuantita(x)
@@ -222,5 +232,7 @@ function controlloQuantita(x)
 			document.getElementById("spanQuantita").style.display="block";
 			document.getElementById("iconQuantita").setAttribute("class", "glyphicon glyphicon-ok form-control-feedback");
 			document.getElementById("iconQuantita").style.display="block";
+			return true;
 		}
+		return false;
 	}

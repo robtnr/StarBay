@@ -47,7 +47,9 @@
 			document.getElementById("spanNome").style.display="block";
 			document.getElementById("iconNome").setAttribute("class", "glyphicon glyphicon-ok form-control-feedback");
 			document.getElementById("iconNome").style.display="block";
+			return true;
 		}
+		return false;
 	}
 
 	function controlloCognome(x)
@@ -86,7 +88,9 @@
 			document.getElementById("spanCognome").style.display="block";
 			document.getElementById("iconCognome").setAttribute("class", "glyphicon glyphicon-ok form-control-feedback");
 			document.getElementById("iconCognome").style.display="block";
+			return true;
 		}
+		return false;
 	}
 
 	function controlloComune(x)
@@ -125,7 +129,9 @@
 			document.getElementById("spanComune").style.display="block";
 			document.getElementById("iconComune").setAttribute("class", "glyphicon glyphicon-ok form-control-feedback");
 			document.getElementById("iconComune").style.display="block";
+			return true;
 		}
+		return false;
 	}
 
 	function controlloIndirizzo(x)
@@ -164,7 +170,9 @@
 			document.getElementById("spanIndirizzo").style.display="block";
 			document.getElementById("iconIndirizzo").setAttribute("class", "glyphicon glyphicon-ok form-control-feedback");
 			document.getElementById("iconIndirizzo").style.display="block";
+			return true;
 		}
+		return false;
 	}
 
 	function controlloEmail(x)
@@ -203,7 +211,9 @@
 			document.getElementById("spanEmail").style.display="block";
 			document.getElementById("iconEmail").setAttribute("class", "glyphicon glyphicon-ok form-control-feedback");
 			document.getElementById("iconEmail").style.display="block";
+			return true;
 		}
+		return false;
 	}
 
 	function controlloUsername(x)
@@ -242,7 +252,9 @@
 			document.getElementById("spanUsername").style.display="block";
 			document.getElementById("iconUsername").setAttribute("class", "glyphicon glyphicon-ok form-control-feedback");
 			document.getElementById("iconUsername").style.display="block";
+			return true;
 		}
+		return false;
 	}
 
 	function controlloPassword(x)
@@ -281,7 +293,9 @@
 			document.getElementById("spanPassword").style.display="block";
 			document.getElementById("iconPassword").setAttribute("class", "glyphicon glyphicon-ok form-control-feedback");
 			document.getElementById("iconPassword").style.display="block";
+			return true;
 		}
+		return false;
 	}
 
 	function controlloIBAN(x)
@@ -320,5 +334,7 @@
 			document.getElementById("spanIBAN").style.display="block";
 			document.getElementById("iconIBAN").setAttribute("class", "glyphicon glyphicon-ok form-control-feedback");
 			document.getElementById("iconIBAN").style.display="block";
+			return true;
 		}
+		return false;
 	}
