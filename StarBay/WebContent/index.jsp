@@ -146,12 +146,12 @@
 							<form>
 								<div class="form-group">
 									<label for="inputUserName">Username</label> <input
-										class="form-control" placeHolder="Username" type="text"
+										class="form-control" name="username" placeHolder="Username" type="text"
 										id="inputUsername" />
 								</div>
 								<div class="form-group">
 									<label for="inputPassword">Password</label> <input
-										class="form-control" placeHolder="Password" type="password"
+										class="form-control" name="password" placeHolder="Password" type="password"
 										id="inputUsername" />
 								</div>
 								<div>
