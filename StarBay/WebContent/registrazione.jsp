@@ -36,28 +36,28 @@
 							<input class="form-control" name="cognome" placeHolder="Cognome" type="text" id="inputCognome"/>
 					    </div>
 					    <div class="form-group">
-							<label for="inputNome">Comune</label>
+							<label for="inputComune">Comune</label>
 							<input class="form-control" name="comune" placeHolder="Comune" type="text" id="inputComune"/>
 					    </div>
 					    <div class="form-group">
-							<label for="inputNome">Indirizzo</label>
+							<label for="inputIndirizzo">Indirizzo</label>
 							<input class="form-control" name="indirizzo" placeHolder="Indirizzo" type="text" id="inputIndirizzo"/>
 					    </div>
 					    <div class="form-group">
-							<label for="inputNome">Email</label>
+							<label for="inputEmail">Email</label>
 							<input class="form-control" name="email" placeHolder="Email" type="text" id="inputEmail"/>
 					    </div>
 						<div class="form-group">
 							<label for="inputUserName">Username</label>
-							<input class="form-control" placeHolder="Username" type="text" id="inputUsername"/>
+							<input class="form-control" name="username" placeHolder="Username" type="text" id="inputUsername"/>
 					    </div>
 						<div class="form-group">
 							<label for="inputPassword">Password</label>
-							<input class="form-control" placeHolder="Password" type="password" id="inputUsername"/>
+							<input class="form-control" name="password" placeHolder="Password" type="password" id="inputUsername"/>
 						</div>
 						<div class="form-group">
-							<label for="inputUserName">IBAN</label>
-							<input class="form-control" placeHolder="IBAN" type="text" id="inputIban"/>
+							<label for="inputIBAN">IBAN</label>
+							<input class="form-control" name="iban" placeHolder="IBAN" type="text" id="inputIban"/>
 					    </div>
 						<div>
 							<button id="buttonLogin" type="submit" class="btn btn-default col-md-4 col-md-offset-4">
