@@ -1,3 +1,35 @@
+<script type="text/javascript">
+		window.onload = function() 
+		{
+			cambia_classe_attivo();
+		}
+		
+		function cambia_classe_attivo()
+		{
+			document.getElementById("home").removeAttribute("class");
+			document.getElementById("stelle").removeAttribute("class");
+			document.getElementById("store").removeAttribute("class");
+			document.getElementById("mappa").removeAttribute("class");
+			var titolo = document.getElementsByTagName("TITLE")[0].innerHTML;
+			if(titolo=="StarBay")
+				{
+				document.getElementById("home").setAttribute("class","attivo");
+				}
+			if(titolo=="Stelle")
+				{
+				document.getElementById("stelle").setAttribute("class","attivo");
+				}
+			if(titolo=="Store")
+			{
+			document.getElementById("store").setAttribute("class","store");
+			}
+			if(titolo=="Mappa")
+			{
+			document.getElementById("mappa").setAttribute("class","attivo");
+			}
+		}
+</script>
+
 <div class="container">
 		<!-- Creazione Menu-->
 		<div class="row">
@@ -14,10 +46,10 @@
 					<!-- Menu -->
 					<div class="collapse navbar-collapse" id="mainNavBar">
 						<ul class="nav navbar-nav">
-							<li class="attivo"><a href="index.jsp">home</a></li>
-							<li><a href="stelle.jsp">stelle</a></li>
-							<li><a href="store.jsp">store</a></li>
-							<li><a href="mappa.jsp">mappa</a></li>
+							<li id="home" class="attivo"><a href="index.jsp">home</a></li>
+							<li id="stelle"><a href="stelle.jsp">stelle</a></li>
+							<li id="store"><a href="store.jsp">store</a></li>
+							<li id="mappa"><a href="mappa.jsp">mappa</a></li>
 						</ul>
 					<ul class="nav navbar-nav navbar-right" style="margin-right:-116px;">
 				    	<li><a data-toggle="modal" href="#MyModal">accedi</a></li>
