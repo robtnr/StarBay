@@ -31,7 +31,7 @@
 				<div class="row">
 					
 					<div id="menu_gestione" class="col-md-6 col-md-offset-3">
-					<img id="tool" alt="tool" src="images/tool.png">
+					<img id="tool" alt="tool" src="images/gestore.png">
 						<ul>
 							<li>Inserimento prodotto<a href="#"><img src="images/arrow.png">Stella</a><a href="#"><img src="images/arrow.png">Store</a></li>
 							<li>Modifica prodotto<a href="#"><img src="images/arrow.png">Stella</a><a href="#"><img src="images/arrow.png">Store</a></li>
