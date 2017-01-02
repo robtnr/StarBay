@@ -21,7 +21,7 @@
 				}
 			if(titolo=="Store")
 			{
-			document.getElementById("store").setAttribute("class","store");
+			document.getElementById("store").setAttribute("class","attivo");
 			}
 			if(titolo=="Mappa")
 			{
