@@ -24,7 +24,7 @@
 			<section class="col-md-10 col-md-offset-1">
 				<div class="row">
 					<div id="formRegistrazione" class="col-md-4 col-md-offset-4">
-						<form>
+						<form action"#">
 							<div id="divNome" class="form-group">
 								<label id="labelNome" for="inputNome">Nome</label>
 								<input required id="inputNome" class="form-control" name="nome" placeholder="Nome" type="text" onblur="controlloNome(this)"/>
@@ -74,17 +74,18 @@
 								<span id="iconIBAN" style="display: none" class="glyphicon glyphicon-remove form-control-feedback"></span>
 							</div>
 							<div>
-								<button id="buttonLogin" onclick="" class="btn btn-default col-md-4 col-md-offset-4">
-									Registrati
-								</button>
+								
 							</div>
 						</form>
+						<button id="buttonLogin" onclick="controlloDati()" class="btn btn-default col-md-4 col-md-offset-4">
+									Registrati
+								</button>
 					</div>
 				</div>
 			</section>
 		</div>
 	</div>
-	
+
 	<%@ include file="includes/footer.jsp"%>
 	
 	<div id="MyModal" class="modal fade" role="dialog">

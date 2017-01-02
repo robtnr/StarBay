@@ -1,15 +1,16 @@
 
-	function controllaDati()
-	{
-		controlloNome(document.getElementById("inputNome"));
-		controlloCognome(document.getElementById("inputCognome"));
-		controlloComune(document.getElementById("inputComune"));
-		controlloIndirizzo(document.getElementById("inputIndirizzo"));
-		controlloEmail(document.getElementById("inputEmail"));
-		controlloUsername(document.getElementById("inputUsername"));
-		controlloPassword(document.getElementById("inputPassword"));
-		controlloIBAN(document.getElementById("inputIBAN"));
-	}
+function controlloDati()
+{
+	if(controlloNome(document.getElementById("inputNome")))
+		if(controlloCognome(document.getElementById("inputCognome")))
+			if(controlloComune(document.getElementById("inputComune")))
+				if(controlloIndirizzo(document.getElementById("inputIndirizzo")))
+					if(controlloEmail(document.getElementById("inputEmail")))
+						if(controlloUsername(document.getElementById("inputUsername")))
+							if(controlloPassword(document.getElementById("inputPassword")))
+								if(controlloIBAN(document.getElementById("inputIBAN")))
+									alert("Registrazione avvenuta con successo!");
+}
 
 	function controlloNome(x)
 	{
@@ -317,7 +318,7 @@
 			document.getElementById("iconIBAN").setAttribute("class", "glyphicon glyphicon-remove form-control-feedback");
 			document.getElementById("iconIBAN").style.display="block";
 		}
-		else if (/[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{4}[0-9]{7}([a-zA-Z0-9]?){0,16}/.test(x.value) == false)
+		else if (/[A-Z]{2}[0-9]{2}[A-Z0-9]{4}[0-9]{7}([A-Z0-9]?){0,16}/.test(x.value) == false)
 		{
 			document.getElementById("divIBAN").setAttribute("class", "form-group has-error has-feedback");
 			document.getElementById("labelIBAN").setAttribute("class", "control-label");
