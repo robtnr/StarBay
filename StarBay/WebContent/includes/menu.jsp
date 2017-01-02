@@ -54,7 +54,7 @@
 					<ul class="nav navbar-nav navbar-right" style="margin-right:-116px;">
 				    	<li><a data-toggle="modal" href="#MyModal">accedi</a></li>
 				    	<li>
-							<button type="submit" id="buttonCarrello" class="btn btn-default">
+							<button type="submit" id="buttonCarrello" class="btn btn-default" onclick="window.location.href='carrello.jsp'"">
 								<span id="carrello"><img src="images/carrello.png" title="Accedi al carrello"></span>
 							</button>
 				    	</li>
