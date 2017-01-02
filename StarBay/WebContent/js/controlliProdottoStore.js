@@ -1,13 +1,14 @@
 
-	function controllaDati()
-	{
-		controlloPrezzoVendita(document.getElementById("inputPrezzoVendita"));
-		controlloQuantita(document.getElementById("inputQuantita"));
-		controlloDescrizione(document.getElementById("inputDescrizione"));
-		controlloSrc(document.getElementById("inputSrc"));
-		controlloPrezzoAcquisto(document.getElementById("inputPrezzoAcquisto"));
-		controlloNome(document.getElementById("inputNome"));
-	}
+function controlloDati()
+{
+	if(controlloPrezzoVendita(document.getElementById("inputPrezzoVendita")))
+		if(controlloQuantita(document.getElementById("inputQuantita")))
+			if(controlloDescrizione(document.getElementById("inputDescrizione")))
+				if(controlloSrc(document.getElementById("inputSrc")))
+					if(controlloPrezzoAcquisto(document.getElementById("inputPrezzoAcquisto")))
+						if(controlloNome(document.getElementById("inputNome")))
+							alert("Inserimento avvenuto con successo!");
+}
 
 		function controlloDescrizione(x)
 	{

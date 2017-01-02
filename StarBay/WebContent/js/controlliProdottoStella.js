@@ -1,12 +1,13 @@
 
-	function controllaDati()
-	{
-		controlloCoordinate(document.getElementById("inputCoordinate"));
-		controlloDescrizione(document.getElementById("inputDescrizione"));
-		controlloSrc(document.getElementById("inputSrc"));
-		controlloPrezzo(document.getElementById("inputPrezzo"));
-		controlloNome(document.getElementById("inputNome"));
-	}
+function controlloDati()
+{
+	if(controlloCoordinate(document.getElementById("inputCoordinate")))
+		if(controlloDescrizione(document.getElementById("inputDescrizione")))
+			if(controlloSrc(document.getElementById("inputSrc")))
+				if(controlloPrezzo(document.getElementById("inputPrezzo")))
+					if(controlloNome(document.getElementById("inputNome")))
+						alert("Inserimento avvenuto con succeso!");
+}
 
 	function controlloCoordinate(x)
 	{
