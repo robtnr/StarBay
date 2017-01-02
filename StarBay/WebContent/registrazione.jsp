@@ -15,6 +15,10 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+	<%@ include file="includes/headerNonLoggato.jsp"%>
+	<%@ include file="includes/menu.jsp"%>
+	
 	<div class="container">
 		<div class="row">
 			<section class="col-md-10 col-md-offset-1">
@@ -80,7 +84,9 @@
 			</section>
 		</div>
 	</div>
-
+	
+	<%@ include file="includes/footer.jsp"%>
+	
 	<div id="MyModal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content" id="modalContent"> 

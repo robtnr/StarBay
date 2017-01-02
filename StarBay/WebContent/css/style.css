@@ -55,8 +55,21 @@ header
 	text-decoration: none;
 }
 
+#logout
+{
+	width:25px;
+	margin-left: 13px;
+    margin-top: -6px;
+}
+
+img#logout:hover
+{
+	opacity:0.8;
+}
+
 @media screen and (max-width: 768px)
 {
+	/*Mobile div Benvenuto*/
 	#benvenuto
 	{
 		display: inline;
@@ -72,8 +85,16 @@ header
 		padding: 5px;
 	    padding-left: 14px;
 	    padding-right: 11px;
+	    padding-bottom:11px;
 	    right: -15px;
 	    border-top-left-radius: 22px;
+	}
+	
+	#logout
+	{
+		width:25px;
+		margin-left: 13px;
+	    margin-top: -6px;
 	}
 }
 
