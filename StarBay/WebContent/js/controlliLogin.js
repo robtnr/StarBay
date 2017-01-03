@@ -3,7 +3,12 @@ function controlloDati()
 	var c1 = controlloUsername(document.getElementById("inputUsername"));
 	var c2 = controlloPassword(document.getElementById("inputPassword"));
 	if((c1 && c2))
+	{
 		alert("OK - implementare reindirizzamento alla pagina personale");
+		var http = new XMLHttpRequest();
+		http.open("POST", "/ServletLoginUtente", true);
+		http.send();
+	}
 }
 
 function controlloUsername(x)
