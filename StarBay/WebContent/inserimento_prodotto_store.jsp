@@ -35,25 +35,25 @@
 							<center><label style="font-size:20px; margin-bottom:10px;">Inserimento del prodotto store</label></center>
 							<div id="divNome" class="form-group">
 								<label id="labelNome" for="inputNome">Nome</label>
-								<input required id="inputNome" class="form-control" name="nome" placeholder="Nome" type="text" onblur="controlloNome(this)"/>
+								<input id="inputNome" class="form-control" name="nome" placeholder="Nome" type="text" onblur="controlloNome(this)"/>
 								<span id="spanNome" style="display: none" class="help-block"></span>
 								<span id="iconNome" style="display: none" class="glyphicon glyphicon-remove form-control-feedback"></span>
 							</div>
 							<div id="divPrezzoAcquisto" class="form-group">
 								<label id="labelPrezzoAcquisto" for="inputPrezzoAcquisto">Prezzo d'acquisto</label>
-								<input required id="inputPrezzoAcquisto" class="form-control" name="prezzoAcquisto" placeholder="Prezzo d'acquisto" type="text" onblur="controlloPrezzoAcquisto(this)"/>
+								<input id="inputPrezzoAcquisto" class="form-control" name="prezzoAcquisto" placeholder="Prezzo d'acquisto" type="text" onblur="controlloPrezzoAcquisto(this)"/>
 								<span id="spanPrezzoAcquisto" style="display: none" class="help-block"></span>
 								<span id="iconPrezzoAcquisto" style="display: none" class="glyphicon glyphicon-remove form-control-feedback"></span>
 							</div>
 							<div id="divPrezzoVendita" class="form-group">
 								<label id="labelPrezzoVendita" for="inputPrezzoVendita">Prezzo di vendita</label>
-								<input required id="inputPrezzoVendita" class="form-control" name="prezzoVendita" placeholder="Prezzo di vendita" type="text" onblur="controlloPrezzoVendita(this)"/>
+								<input id="inputPrezzoVendita" class="form-control" name="prezzoVendita" placeholder="Prezzo di vendita" type="text" onblur="controlloPrezzoVendita(this)"/>
 								<span id="spanPrezzoVendita" style="display: none" class="help-block"></span>
 								<span id="iconPrezzoVendita" style="display: none" class="glyphicon glyphicon-remove form-control-feedback"></span>
 							</div>
 							<div id="divQuantita" class="form-group">
 								<label id="labelQuantita" for="inputQuantita">Quantità</label>
-								<input required id="inputQuantita" class="form-control" name="quantita" placeholder="Quantità" type="text" onblur="controlloQuantita(this)"/>
+								<input id="inputQuantita" class="form-control" name="quantita" placeholder="Quantità" type="text" onblur="controlloQuantita(this)"/>
 								<span id="spanQuantita" style="display: none" class="help-block"></span>
 								<span id="iconQuantita" style="display: none" class="glyphicon glyphicon-remove form-control-feedback"></span>
 							</div>
