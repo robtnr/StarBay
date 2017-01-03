@@ -154,7 +154,7 @@
 										id="inputUsername" />
 								</div>
 								<div>
-									<button id="buttonLogin" type="submit"
+									<button id="buttonLogin" onclick=""
 										class="btn btn-default col-md-2 col-md-offset-5">Login
 									</button>
 								</div>
