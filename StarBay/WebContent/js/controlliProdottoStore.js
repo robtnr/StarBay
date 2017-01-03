@@ -52,7 +52,7 @@ function controlloDati()
 	var c6 = controlloSrc(document.getElementById("inputSrc"));
 	
 	if ((c1 && c2 && c3 && c4 && c5 && c6))
-		alert("Inserimento avvenuto con successo!");
+		document.getElementById("form").submit();
 }
 
 function controlloDescrizione(x)
@@ -79,7 +79,7 @@ function controlloDescrizione(x)
 	{
 		document.getElementById("divDescrizione").setAttribute("class", "form-group has-success has-feedback");
 		document.getElementById("labelDescrizione").setAttribute("class", "control-label");
-		document.getElementById("spanDescrizione").innerHTML = "OK";
+		document.getElementById("spanDescrizione").innerHTML = "";
 		document.getElementById("spanDescrizione").style.display="block";
 		document.getElementById("iconDescrizione").setAttribute("class", "glyphicon glyphicon-ok form-control-feedback");
 		document.getElementById("iconDescrizione").style.display="block";

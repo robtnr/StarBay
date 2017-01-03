@@ -20,14 +20,14 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import it.starbay.gestionebean.Stella;
+import it.starbay.gestionebean.Store;
 
-@WebServlet("/ServletInserimentoProdottoStella")
-public class ServletInserimentoProdottoStella extends HttpServlet {
+@WebServlet("/ServletInserimentoProdottoStore")
+public class ServletInserimentoProdottoStore extends HttpServlet {
 
 	// location to store file uploaded
     private static final String UPLOAD_DIRECTORY = "img";
- 
+    
     // upload settings
     private static final int MEMORY_THRESHOLD   = 1024 * 1024 * 3;  // 3MB
     private static final int MAX_FILE_SIZE      = 1024 * 1024 * 40; // 40MB
@@ -35,21 +35,22 @@ public class ServletInserimentoProdottoStella extends HttpServlet {
     private ArrayList<String> parametri;
 	
 	private String nome;
-	private double prezzo;
-	private String coordinate;
+	private double prezzoAcquisto;
+	private double prezzoVendita;
 	private String descrizione;
+	private int quantita;
 	private String src;
-	private Stella s;
+	private Store s;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{		
-		prendiParametri(request, response);			
-		creaOggettoStella();
+		prendiParametri(request, response);				
+		creaOggettoStore();
 		
 		try 
 		{
 			ManagerProdotti mp = new ManagerProdotti();
-			mp.registraProdottoStella(s);
+			mp.registraProdottoStore(s);
 		}
 		catch (Exception e) 
 		{
@@ -124,19 +125,21 @@ public class ServletInserimentoProdottoStella extends HttpServlet {
         }
 	}
 
-	private void creaOggettoStella() 
+	private void creaOggettoStore() 
 	{
 		nome = parametri.get(0);
-		prezzo = Double.parseDouble(parametri.get(1));
-		coordinate = parametri.get(2);
-		descrizione = parametri.get(3);
-		src = parametri.get(4);
+		prezzoAcquisto = Double.parseDouble(parametri.get(1));
+		prezzoVendita = Double.parseDouble(parametri.get(2));
+		quantita = Integer.parseInt(parametri.get(3));
+		descrizione = parametri.get(4);
+		src = parametri.get(5);
 		
-		s = new Stella();
+		s = new Store();
 		s.setNome(nome);
-		s.setPrezzo(prezzo);
-		s.setCoordinate(coordinate);
+		s.setPrezzoAcquisto(prezzoAcquisto);
+		s.setPrezzoVendita(prezzoVendita);
 		s.setDescrizione(descrizione);
+		s.setQuantita(quantita);
 		s.setSrc(src);
 		GregorianCalendar oggi = new GregorianCalendar();
 		int gg = oggi.get(Calendar.DAY_OF_MONTH);
@@ -145,7 +148,7 @@ public class ServletInserimentoProdottoStella extends HttpServlet {
 		
 		s.setData("" + aa + "-" + (mm+1) + "-" + gg);
 	}
-
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		doGet(request, response);

@@ -44,21 +44,7 @@ function controlloDati()
 	var c4 = controlloDescrizione(document.getElementById("inputDescrizione"));
 	var c5 = controlloSrc(document.getElementById("inputSrc"));
 	if((c1 && c2 && c3 && c4 && c5))
-	{
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				alert("Inserimento avvenuto con succeso!");
-			}
-		};
-		xhttp.open("GET", "ServletInserimentoProdottoStella", true);
-		xhttp.setRequestHeader("nome", document.getElementById("inputNome").value);
-		xhttp.setRequestHeader("prezzo", document.getElementById("inputPrezzo").value);
-		xhttp.setRequestHeader("coordinate", document.getElementById("inputCoordinate").value);
-		xhttp.setRequestHeader("descrizione", document.getElementById("inputDescrizione").value);
-		xhttp.setRequestHeader("src", document.getElementById("inputSrc").value);
-		xhttp.send();
-	}
+		document.getElementById("form").submit();
 }
 
 function controlloCoordinate(x)
@@ -118,7 +104,7 @@ function controlloDescrizione(x)
 	{
 		document.getElementById("divDescrizione").setAttribute("class", "form-group has-success has-feedback");
 		document.getElementById("labelDescrizione").setAttribute("class", "control-label");
-		document.getElementById("spanDescrizione").innerHTML = "OK";
+		document.getElementById("spanDescrizione").innerHTML = "";
 		document.getElementById("spanDescrizione").style.display="block";
 		document.getElementById("iconDescrizione").setAttribute("class", "glyphicon glyphicon-ok form-control-feedback");
 		document.getElementById("iconDescrizione").style.display="block";

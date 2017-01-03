@@ -31,11 +31,10 @@
 		<div class="row">
 			<section class="col-md-10 col-md-offset-1">
 				<div class="row">
-					<form class="col-md-8 col-md-offset-2"
+					<form id="form" method="POST" action="ServletInserimentoProdottoStore" enctype="multipart/form-data" class="col-md-8 col-md-offset-2"
 						style="margin-top: 20px; margin-bottom: 20px;">
 						<center>
-							<label style="font-size: 20px; margin-bottom: 10px;">Inserimento
-								del prodotto store</label>
+							<label style="font-size: 20px; margin-bottom: 10px;">Inserimento del prodotto store</label>
 						</center>
 						<div id="divNome" class="form-group">
 							<label id="labelNome" for="inputNome">Nome</label> <input
@@ -73,18 +72,20 @@
 								class="glyphicon glyphicon-remove form-control-feedback"></span>
 						</div>
 						<div id="divDescrizione" class="form-group">
-							<label for="comment">Descrizione:</label>
-							<textarea required class="form-control" rows="5" id="comment"></textarea>
-						</div>
-						<div id="divSrc" class="form-group">
-							<label id="labelSrc" for="inputSrc">Src:</label> <label
-								class="btn btn-default btn-file"> Browse <input required
-								type="file" name="src" style="display: none;">
-							</label>
-						</div>
+								<label id="labelDescrizione" for="inputDescrizione">Descrizione</label>
+								<textarea id="inputDescrizione" class="form-control" name="descrizione" row="5" type="text" onblur="controlloDescrizione(this)"></textarea>
+								<span id="spanDescrizione" style="display: none" class="help-block"></span>
+								<span id="iconDescrizione" style="display: none" class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+							<div id="divSrc" class="form-group">
+								<label id="labelSrc" for="inputSrc">Src</label>
+								<input id="inputSrc" class="form-control" name="src" type="file" onblur="controlloSrc(this)" />
+								<span id="spanSrc" style="display: none" class="help-block"></span>
+								<span id="iconSrc" style="display: none" class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+						</form>	
 						<div>
-							<button id="buttonLogin" onclick="controlloDati()"
-								class="btn btn-default col-md-4 col-md-offset-4">
+							<button id="buttonLogin" onclick="controlloDati()" class="btn btn-default col-md-4 col-md-offset-4">
 								Inserisci</button>
 						</div>
 					</form>
