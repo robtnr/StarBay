@@ -25,17 +25,11 @@ public class CallDatabase
 	public Connection getConnection() throws ClassNotFoundException, SQLException
 	{
 		Class.forName("org.sqlite.JDBC");
-		String url_database=System.getProperty("user.dir");
-		String dbUrl = protocol + url_database+ "database/" + dbName;
+		String dbUrl = protocol + dbName;
 		Connection connection = DriverManager.getConnection(dbUrl,userInfo);
 		return (connection);
 	}
 	
-	public String ciao() throws IOException
-	{
-		String url_database= new File(".").getCanonicalPath();;
-		return url_database;
-	}
 	
 	
 }

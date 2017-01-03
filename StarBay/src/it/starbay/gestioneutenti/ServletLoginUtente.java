@@ -21,8 +21,7 @@ public class ServletLoginUtente extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		CallDatabase db = new CallDatabase();
-		System.out.println(db.ciao());
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
