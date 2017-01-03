@@ -9,7 +9,7 @@ function controlloDati()
 	var c6 = controlloUsername(document.getElementById("inputUsername"));
 	var c7 = controlloPassword(document.getElementById("inputPassword"));
 	var c8 = controlloIBAN(document.getElementById("inputIBAN"));
-	if ((c1 & c2 & c3 & c4 & c5 & c6 & c7 & c8))
+	if ((c1 && c2 && c3 && c4 && c5 && c6 && c7 && c8))
 		alert("Registrazione avvenuta con successo!");
 }
 

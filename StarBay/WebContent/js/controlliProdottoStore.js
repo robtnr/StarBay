@@ -1,13 +1,15 @@
 
 function controlloDati()
 {
-	c1 = controlloPrezzoVendita(document.getElementById("inputPrezzoVendita"));
-	c2 = controlloQuantita(document.getElementById("inputQuantita"));
-	c3 = controlloDescrizione(document.getElementById("inputDescrizione"));
-	c4 = controlloSrc(document.getElementById("inputSrc"));
-	c5 = controlloPrezzoAcquisto(document.getElementById("inputPrezzoAcquisto"));
-	c6 = controlloNome(document.getElementById("inputNome"));
-	if ((c1 & c2 & c3 & c4 & c5))
+	var c1 = controlloNome(document.getElementById("inputNome"));
+	var c2 = controlloPrezzoAcquisto(document.getElementById("inputPrezzoAcquisto"));
+	var c3 = controlloPrezzoVendita(document.getElementById("inputPrezzoVendita"));
+	var c4 = controlloQuantita(document.getElementById("inputQuantita"));
+	var c5 = controlloDescrizione(document.getElementById("inputDescrizione"));
+	var c6 = controlloQuantita(document.getElementById("inputQuantita"));
+	var c7 = controlloSrc(document.getElementById("inputSrc"));
+	
+	if ((c1 && c2 && c3 && c4 && c5 && c6 && c7))
 		alert("Inserimento avvenuto con successo!");
 }
 
@@ -207,11 +209,12 @@ function controlloQuantita(x)
 {
 	if(x.value == "")
 	{
-		document.getElementById("divQuantita").removeAttribute("class");
-		document.getElementById("labelQuantita").removeAttribute("class");
-		document.getElementById("spanQuantita").style.display="none";
-		document.getElementById("iconQuantita").removeAttribute("class");
-		document.getElementById("iconQuantita").style.display="none";
+		document.getElementById("divQuantita").setAttribute("class", "form-group has-warning has-feedback");
+		document.getElementById("labelQuantita").setAttribute("class", "control-label");
+		document.getElementById("spanQuantita").innerHTML = "* Campo obbligatorio";
+		document.getElementById("spanQuantita").style.display="block";
+		document.getElementById("iconQuantita").setAttribute("class", "glyphicon glyphicon-warning-sign form-control-feedback");
+		document.getElementById("iconQuantita").style.display="block";
 	}
 	else if(x.value <= 0)
 	{
