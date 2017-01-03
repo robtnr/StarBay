@@ -484,14 +484,14 @@ div#modalHeader
 	border-bottom: 1px solid #cbcbcb;
 }
 
-button#buttonForm
+button#buttonLogin
 {
 	background-color:#ffc307; 
 	border:none;
 	color: black;	
 }
 
-button#buttonForm:hover
+button#buttonLogin:hover
 {
 	opacity: 0.5;
 }

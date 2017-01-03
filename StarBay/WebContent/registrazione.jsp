@@ -11,8 +11,8 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="js/controlliRegistrazione.js"></script>
 	<link rel="stylesheet" href="css/style.css">
+	<script src="js/controlliRegistrazione.js"></script>	
 </head>
 <body>
 
@@ -110,7 +110,7 @@
 									<input class="form-control" placeHolder="Password" type="password" id="inputUsername"/>
 								</div>
 								<div>
-									<button id="buttonForm" type="submit" class="btn btn-default col-md-2 col-md-offset-5">Login
+									<button id="buttonLogin" type="submit" class="btn btn-default col-md-2 col-md-offset-5">Login
 									</button>
 								</div>
 							</form>
