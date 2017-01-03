@@ -1,40 +1,68 @@
 package it.starbay.gestioneprodotti;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import it.starbay.gestionebean.Stella;
 
-/**
- * Servlet implementation class ServletInserimentoProdottoStella
- */
 @WebServlet("/ServletInserimentoProdottoStella")
 public class ServletInserimentoProdottoStella extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ServletInserimentoProdottoStella() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	private String nome;
+	private double prezzo;
+	private String coordinate;
+	private String descrizione;
+	private String src;
+	private Stella s;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
+		nome = request.getHeader("nome");
+		prezzo = Double.parseDouble(request.getHeader("prezzo"));
+		coordinate = request.getHeader("coordinate");
+		descrizione = request.getHeader("descrizione");
+		src = request.getHeader("src");
+		
+		creaOggettoStella();
+		
+		try 
+		{
+			ManagerProdotti mp = new ManagerProdotti();
+			mp.registraProdottoStella(s);
+		}
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+		
+		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	private void creaOggettoStella() 
+	{
+		s = new Stella();
+		s.setNome(nome);
+		s.setPrezzo(prezzo);
+		s.setCoordinate(coordinate);
+		s.setDescrizione(descrizione);
+		s.setSrc(src);
+		GregorianCalendar oggi = new GregorianCalendar();
+		int gg = oggi.get(Calendar.DAY_OF_MONTH);
+		int mm = oggi.get(Calendar.MONTH);
+		int aa = oggi.get(Calendar.YEAR);
+		
+		s.setData("" + aa + "-" + (mm+1) + "-" + gg);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
 		doGet(request, response);
 	}
 
