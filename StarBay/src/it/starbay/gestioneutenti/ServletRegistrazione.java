@@ -35,15 +35,9 @@ public class ServletRegistrazione extends HttpServlet {
 		{
 			manager = new ManagerUtenti();
 			if(manager.registraUtente(cliente))
-			{
 				response.setHeader("errore","true");
-				System.out.println("nok");
-			}
 			else
-			{
 				response.setHeader("errore","false");
-				System.out.println("ok");
-			}
 		} catch (ClassNotFoundException | SQLException e) 
 		{
 

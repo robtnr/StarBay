@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ page import="it.starbay.gestionebean.Cliente" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +28,17 @@
 </head>
 <body>
 
+	<%if(session.getAttribute("cliente")==null){ %>
 	<%@ include file="includes/headerNonLoggato.jsp"%>
+	<%
+	}
+	else
+	{
+	%>
+	<%@ include file="includes/headerLoggato.jsp"%>
+	<%
+	}
+	%>
 	<%@ include file="includes/menu.jsp"%>
 
 	<div class="container">
@@ -184,6 +195,26 @@
 		{
 	%>
 	swal("Benvenuto!", "Registrazione effettuata con successo", "success");
+	<%
+		}
+	}
+	%>
+	
+	<%
+	if(request.getParameter("mex_login")!=null)
+	{
+		String mex=(String)request.getParameter("mex_login");
+		if(mex.equals("nok"))
+		{
+	%>
+	swal("Errore!", "Username o password sbagliate, reinserirle!", "error");
+	<%
+		}
+		else
+		{
+			Cliente c = (Cliente) session.getAttribute("cliente");
+	%>
+	swal("Salve "+"<%= c.getNome() %>","Login effettuato con successo!", "success");
 	<%
 		}
 	}

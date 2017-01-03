@@ -23,9 +23,24 @@ function controlloDati()
 	var c2 = controlloPassword(document.getElementById("inputPassword"));
 	if((c1 && c2))
 	{
-		alert("OK - implementare reindirizzamento alla pagina personale");
 		var http = new XMLHttpRequest();
-		http.open("POST", "/ServletLoginUtente", true);
+		http.onreadystatechange = function()
+		{
+			if(http.readyState==4 && http.status==200)
+			{
+				var esito_login = http.getResponseHeader("esito_login");
+				if(esito_login=="false")
+					open("index.jsp?mex_login=nok","_self");
+				if(esito_login=="true")
+					open("index.jsp?mex_login=ok","_self");
+				if(esito_login=="admin")
+					open("gestore.jsp","_self");
+				
+			}
+		}
+		http.open("POST", "http://localhost:8080/StarBay/ServletLoginUtente", true);
+		http.setRequestHeader("username", document.getElementById("inputUsername").value);
+		http.setRequestHeader("password", document.getElementById("inputPassword").value);
 		http.send();
 	}
 }
