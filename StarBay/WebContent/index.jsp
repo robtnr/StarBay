@@ -172,5 +172,19 @@
 			</div>
 		</div>
 	</div>
+<script type="text/javascript">
+	<%
+	if(request.getParameter("mex")!=null)
+	{
+		String mex=(String)request.getParameter("mex");
+		if(mex.equals("ok"))
+		{
+	%>
+	alert("Inserimento effettuato con successo, BENVENUTO!");
+	<%
+		}
+	}
+	%>
+</script>
 </body>
 </html>

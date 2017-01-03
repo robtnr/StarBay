@@ -21,28 +21,34 @@ public class ServletRegistrazione extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		nome = request.getParameter("nome");
-		cognome = request.getParameter("cognome");
-		comune = request.getParameter("comune");
-		indirizzo = request.getParameter("indirizzo");
-		email = request.getParameter("email");
-		username = request.getParameter("username");
-		password = request.getParameter("password");
-		iban = request.getParameter("iban");
-		System.out.println(email);
-		System.out.println(nome);
+		nome = request.getHeader("nome");
+		cognome = request.getHeader("cognome");
+		comune = request.getHeader("comune");
+		indirizzo = request.getHeader("indirizzo");
+		email = request.getHeader("email");
+		username = request.getHeader("username");
+		password = request.getHeader("password");
+		iban = request.getHeader("iban");
 		Cliente cliente = creazioneBeanCliente();
 		ManagerUtenti manager;
 		try 
 		{
 			manager = new ManagerUtenti();
-			manager.registraUtente(cliente);
+			if(manager.registraUtente(cliente))
+			{
+				response.setHeader("errore","true");
+				System.out.println("nok");
+			}
+			else
+			{
+				response.setHeader("errore","false");
+				System.out.println("ok");
+			}
 		} catch (ClassNotFoundException | SQLException e) 
 		{
 
 			e.printStackTrace();
 		}
-		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 

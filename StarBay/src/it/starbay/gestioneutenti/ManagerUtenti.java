@@ -19,10 +19,9 @@ public class ManagerUtenti
 		connection = db.getConnection();
 	}
 	
-	public void registraUtente(Cliente c)
+	public boolean registraUtente(Cliente c)
 	{
-		System.out.println("sono passato di qui1");
-		System.out.println(c.getEmail());
+		boolean errore=false;
 		String query = "INSERT INTO UTENTI VALUES(?,?,?,?,?,?,?,?)";
 		try {
 			inserter = connection.prepareStatement(query);
@@ -37,10 +36,11 @@ public class ManagerUtenti
 			inserter.executeUpdate();
 			inserter.close();
 			connection.close();
-			System.out.println("sono passato di qui2");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (SQLException e) 
+		{
+			
+			errore=true;
 		}
+		return errore;
 	}
 }

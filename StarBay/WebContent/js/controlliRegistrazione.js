@@ -65,10 +65,29 @@ function controlloDati()
 	var c8 = controlloIBAN(document.getElementById("inputIBAN"));
 	if ((c1 && c2 && c3 && c4 && c5 && c6 && c7 && c8))
 		{
-		    alert(document.getElementById("inputNome").value);
 			var http = new XMLHttpRequest();
-			//http.open("POST", "http://localhost:8080/StarBay/ServletRegistrazione", true);
-			//http.send();
+			http.onreadystatechange = function()
+			{
+				if(http.readyState==4 && http.status==200)
+				{
+					var errore = http.getResponseHeader("errore");
+					if(errore=="true")
+						open("registrazione.jsp?mex=nok","_self");
+					else
+						open("index.jsp?mex=ok","_self");
+					
+				}
+			}
+			http.open("POST", "http://localhost:8080/StarBay/ServletRegistrazione", true);
+			http.setRequestHeader("nome", document.getElementById("inputNome").value);
+			http.setRequestHeader("cognome", document.getElementById("inputCognome").value);
+			http.setRequestHeader("comune", document.getElementById("inputComune").value);
+			http.setRequestHeader("indirizzo", document.getElementById("inputIndirizzo").value);
+			http.setRequestHeader("email", document.getElementById("inputEmail").value);
+			http.setRequestHeader("username", document.getElementById("inputUsername").value);
+			http.setRequestHeader("password", document.getElementById("inputPassword").value);
+			http.setRequestHeader("iban", document.getElementById("inputIBAN").value);
+			http.send();
 		}
 }
 

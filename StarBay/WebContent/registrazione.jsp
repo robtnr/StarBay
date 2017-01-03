@@ -124,6 +124,19 @@
 			</div>
 		</div>
 	</div>
-
+<script type="text/javascript">
+	<%
+	if(request.getParameter("mex")!=null)
+	{
+		String mex=(String)request.getParameter("mex");
+		if(mex.equals("nok"))
+		{
+	%>
+	alert("Username già esistente, cambia e riprova!");
+	<%
+		}
+	}
+	%>
+</script>
 </body>
 </html>
