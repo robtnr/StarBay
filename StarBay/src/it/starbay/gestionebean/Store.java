@@ -1,5 +1,11 @@
 package it.starbay.gestionebean;
 
+/**
+ * Bean Store
+ * Classe che rappresenta il prodotto store all'interno del sistema
+ *
+ */
+
 public class Store 
 {
 	/**

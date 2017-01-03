@@ -1,8 +1,17 @@
 package it.starbay.gestionebean;
 
+/**
+ * Bean ProdottoCarrello
+ * Classe che rappresenta il prodotto inserito nel carrello
+ *
+ */
+
 public class ProdottoCarrello 
 {
-	
+	/**
+	 * Costruttore vuoto
+	 * 
+	 */
 	public ProdottoCarrello()
 	{
 		
