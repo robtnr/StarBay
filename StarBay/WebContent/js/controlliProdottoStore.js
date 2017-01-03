@@ -220,7 +220,7 @@ function controlloQuantita(x)
 	{
 		document.getElementById("divQuantita").setAttribute("class", "form-group has-error has-feedback");
 		document.getElementById("labelQuantita").setAttribute("class", "control-label");
-		document.getElementById("spanQuantita").innerHTML = "La quantità deve essere maggiore di 0";
+		document.getElementById("spanQuantita").innerHTML = "La quantita' deve essere maggiore di 0";
 		document.getElementById("spanQuantita").style.display="block";
 		document.getElementById("iconQuantita").setAttribute("class", "glyphicon glyphicon-remove form-control-feedback");
 		document.getElementById("iconQuantita").style.display="block";
