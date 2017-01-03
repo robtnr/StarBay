@@ -484,14 +484,14 @@ div#modalHeader
 	border-bottom: 1px solid #cbcbcb;
 }
 
-button#buttonLogin
+button#buttonLogin, button#buttonInserimento, button#buttonRegistrazione
 {
 	background-color:#ffc307; 
 	border:none;
 	color: black;	
 }
 
-button#buttonLogin:hover
+button#buttonLogin:hover, button#buttonInserimento:hover, button#buttonRegistrazione:hover
 {
 	opacity: 0.5;
 }

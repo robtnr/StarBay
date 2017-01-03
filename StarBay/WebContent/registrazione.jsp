@@ -77,7 +77,7 @@
 								
 							</div>
 						</form>
-						<button id="buttonLogin" onclick="controlloDati()" class="btn btn-default col-md-4 col-md-offset-4">
+						<button id="buttonRegistrazione" onclick="controlloDati()" class="btn btn-default col-md-4 col-md-offset-4">
 									Registrati
 								</button>
 					</div>

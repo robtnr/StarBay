@@ -120,12 +120,10 @@
 										class="form-control" name="password" placeHolder="Password"
 										type="password" id="inputUsername" />
 								</div>
-								<div>
-									<button id="buttonLogin" type="submit"
-										class="btn btn-default col-md-2 col-md-offset-5">Login
-									</button>
-								</div>
 							</form>
+							<button id="buttonInserimento" onclick="controlloDati()" class="btn btn-default col-md-4 col-md-offset-4">
+									Inserisci
+								</button>
 						</div>
 					</div>
 				</div>
