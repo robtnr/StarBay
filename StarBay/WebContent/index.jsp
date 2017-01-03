@@ -160,7 +160,7 @@
 								<span id="iconPassword" style="display: none" class="glyphicon glyphicon-remove form-control-feedback"></span>
 							</div>
 							</form>
-							<button id="buttonForm" onclick="controlloDati()" class="btn btn-default col-md-4 col-md-offset-4">
+							<button id="buttonLogin" onclick="controlloDati()" class="btn btn-default col-md-4 col-md-offset-4">
 									Login
 								</button>
 						</div>
