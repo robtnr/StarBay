@@ -1,15 +1,57 @@
+/**
+* Controlli prodotti stella
+*
+* Metodo controlloDati
+* richiama tutte le funzioni di controllo dati e se sono tutte vere il gestore visualizza messaggio di avvenuto inserimento
+* e viene reindirizzato alla sua pagina personale
+*
+* Metodo controlloNome
+* controlla campo nome
+* @param x oggetto input
+* @return true se l'input è valido
+* @return false se l'input non è valido
+* 
+* Metodo controlloPrezzoAcquisto
+* controlla campo prezzoAcquisto
+* @param x oggetto input
+* @return true se l'input è valido
+* @return false se l'input non è valido
+* 
+* Metodo controlloPrezzoVendita
+* controlla campo prezzoVendita
+* @param x oggetto input
+* @return true se l'input è valido
+* @return false se l'input non è valido
+* 
+* Metodo controlloDescrizione
+* controlla campo descrizione
+* @param x oggetto input
+* @return true se l'input è valido
+* @return false se l'input non è valido
+* 
+* Metodo controlloQuantita
+* controlla campo quantita
+* @param x oggetto input
+* @return true se l'input è valido
+* @return false se l'input non è valido
+* 
+* Metodo controlloSrc
+* controlla campo src
+* @param x oggetto input
+* @return true se l'input è valido
+* @return false se l'input non è valido
+*/
 
 function controlloDati()
 {
 	var c1 = controlloNome(document.getElementById("inputNome"));
 	var c2 = controlloPrezzoAcquisto(document.getElementById("inputPrezzoAcquisto"));
 	var c3 = controlloPrezzoVendita(document.getElementById("inputPrezzoVendita"));
-	var c4 = controlloQuantita(document.getElementById("inputQuantita"));
-	var c5 = controlloDescrizione(document.getElementById("inputDescrizione"));
-	var c6 = controlloQuantita(document.getElementById("inputQuantita"));
-	var c7 = controlloSrc(document.getElementById("inputSrc"));
+	var c4 = controlloDescrizione(document.getElementById("inputDescrizione"));
+	var c5 = controlloQuantita(document.getElementById("inputQuantita"));
+	var c6 = controlloSrc(document.getElementById("inputSrc"));
 	
-	if ((c1 && c2 && c3 && c4 && c5 && c6 && c7))
+	if ((c1 && c2 && c3 && c4 && c5 && c6))
 		alert("Inserimento avvenuto con successo!");
 }
 

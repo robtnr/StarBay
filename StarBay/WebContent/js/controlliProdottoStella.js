@@ -1,3 +1,41 @@
+/**
+* Controlli prodotti stella
+*
+* Metodo controlloDati
+* richiama tutte le funzioni di controllo dati e se sono tutte vere il gestore visualizza messaggio di avvenuto inserimento
+* e viene reindirizzato alla sua pagina personale
+*
+* Metodo controlloNome
+* controlla campo nome
+* @param x oggetto input
+* @return true se l'input è valido
+* @return false se l'input non è valido
+* 
+* Metodo controlloPrezzo
+* controlla campo prezzo
+* @param x oggetto input
+* @return true se l'input è valido
+* @return false se l'input non è valido
+* 
+* Metodo controlloCoordinate
+* controlla campo coordinate
+* @param x oggetto input
+* @return true se l'input è valido
+* @return false se l'input non è valido
+* 
+* Metodo controlloDescrizione
+* controlla campo descrizione
+* @param x oggetto input
+* @return true se l'input è valido
+* @return false se l'input non è valido
+* 
+* Metodo controlloSrc
+* controlla campo src
+* @param x oggetto input
+* @return true se l'input è valido
+* @return false se l'input non è valido
+*/
+
 function controlloDati()
 {
 	var c1 = controlloNome(document.getElementById("inputNome"));

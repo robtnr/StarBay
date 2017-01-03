@@ -1,3 +1,57 @@
+/**
+* Controlli Login
+*
+* Metodo controlloDati
+* richiama tutte le funzioni di controllo dati e se sono tutte vere l'utente viene reindirizzato alla sua pagina personale
+*
+* Metodo controlloNome
+* controlla campo nome
+* @param x oggetto input
+* @return true se l'input è valido
+* @return false se l'input non è valido
+* 
+* Metodo controlloCognome
+* controlla campo cognome
+* @param x oggetto input
+* @return true se l'input è valido
+* @return false se l'input non è valido
+*
+* Metodo controlloComune
+* controlla campo comune
+* @param x oggetto input
+* @return true se l'input è valido
+* @return false se l'input non è valido
+* 
+* Metodo controlloIndirizzo
+* controlla campo indirizzo
+* @param x oggetto input
+* @return true se l'input è valido
+* @return false se l'input non è valido
+* 
+* Metodo controlloEmail
+* controlla campo email
+* @param x oggetto input
+* @return true se l'input è valido
+* @return false se l'input non è valido
+*
+* Metodo controlloUsername
+* controlla campo username
+* @param x oggetto input
+* @return true se l'input è valido
+* @return false se l'input non è valido
+* 
+* Metodo controlloPassword
+* controlla campo password
+* @param x oggetto input
+* @return true se l'input è valido
+* @return false se l'input non è valido
+* 
+* Metodo controlloIBAN
+* controlla campo IBAN
+* @param x oggetto input
+* @return true se l'input è valido
+* @return false se l'input non è valido
+*/
 
 function controlloDati()
 {
