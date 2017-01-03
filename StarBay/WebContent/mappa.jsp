@@ -26,7 +26,17 @@
 </head>
 <body>
 
+	<%if(session.getAttribute("cliente")==null){ %>
 	<%@ include file="includes/headerNonLoggato.jsp"%>
+	<%
+	}
+	else
+	{
+	%>
+	<%@ include file="includes/headerLoggato.jsp"%>
+	<%
+	}
+	%>
 	<%@ include file="includes/menu.jsp"%>
 
 	<div class="container">

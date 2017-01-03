@@ -1,3 +1,4 @@
+<%@ page import="it.starbay.gestionebean.Cliente" %>
 <!-- Header con il logo -->
 	<div class="container">
 		<div class="row">
@@ -6,7 +7,7 @@
 					<a href="index.jsp"><img src="images/logo.png" class="img-responsive"></a>
 				</div>
 				<div id="benvenuto">
-				Benvenuto <a href="#">Sara</a><img id="logout" title="logout" src="images/logout.png">
+				Benvenuto <a href="#"><%= ((Cliente)session.getAttribute("cliente")).getNome() %></a><img id="logout" title="logout" src="images/logout.png">
 				</div>
 			</header>	
 		</div>
