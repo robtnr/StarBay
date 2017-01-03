@@ -52,7 +52,13 @@
 							<li id="mappa"><a href="mappa.jsp">mappa</a></li>
 						</ul>
 					<ul class="nav navbar-nav navbar-right" style="margin-right:-116px;">
+						<%if(session.getAttribute("cliente")==null)
+						 { 
+						%>
 				    	<li><a data-toggle="modal" href="#MyModal">accedi</a></li>
+				    	<%
+				    	 } 
+				    	%>
 				    	<li>
 							<button type="submit" id="buttonCarrello" class="btn btn-default" onclick="window.location.href='carrello.jsp'"">
 								<span id="carrello"><img src="images/carrello.png" title="Accedi al carrello"></span>
