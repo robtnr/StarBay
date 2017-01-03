@@ -1,23 +1,25 @@
 
 function controlloDati()
 {
-	if(controlloCoordinate(document.getElementById("inputCoordinate")))
-		if(controlloDescrizione(document.getElementById("inputDescrizione")))
-			if(controlloSrc(document.getElementById("inputSrc")))
-				if(controlloPrezzo(document.getElementById("inputPrezzo")))
-					if(controlloNome(document.getElementById("inputNome")))
-						alert("Inserimento avvenuto con succeso!");
+	c1 = controlloCoordinate(document.getElementById("inputCoordinate"));
+	c2 = controlloDescrizione(document.getElementById("inputDescrizione"));
+	c3 = controlloSrc(document.getElementById("inputSrc"));
+	c4 = controlloPrezzo(document.getElementById("inputPrezzo"));
+	c5 = controlloNome(document.getElementById("inputNome"));
+	if((c1 & c2 & c3 & c4 & c5))
+		alert("Inserimento avvenuto con succeso!");
 }
 
 	function controlloCoordinate(x)
 	{
 		if(x.value == "")
 		{
-			document.getElementById("divCoordinate").removeAttribute("class");
-			document.getElementById("labelCoordinate").removeAttribute("class");
-			document.getElementById("spanCoordinate").style.display="none";
-			document.getElementById("iconCoordinate").removeAttribute("class");
-			document.getElementById("iconCoordinate").style.display="none";
+			document.getElementById("divCoordinate").setAttribute("class", "form-group has-warning has-feedback");
+			document.getElementById("labelCoordinate").setAttribute("class", "control-label");
+			document.getElementById("spanCoordinate").innerHTML = "* Campo obbligatorio";
+			document.getElementById("spanCoordinate").style.display="block";
+			document.getElementById("iconCoordinate").setAttribute("class", "glyphicon glyphicon-warning-sign form-control-feedback");
+			document.getElementById("iconCoordinate").style.display="block";
 		}
 		else if(x.value.length > 20)
 		{
@@ -45,11 +47,12 @@ function controlloDati()
 	{
 		if(x.value == "")
 		{
-			document.getElementById("divDescrizione").removeAttribute("class");
-			document.getElementById("labelDescrizione").removeAttribute("class");
-			document.getElementById("spanDescrizione").style.display="none";
-			document.getElementById("iconDescrizione").removeAttribute("class");
-			document.getElementById("iconDescrizione").style.display="none";
+			document.getElementById("divDescrizione").setAttribute("class", "form-group has-warning has-feedback");
+			document.getElementById("labelDescrizione").setAttribute("class", "control-label");
+			document.getElementById("spanDescrizione").innerHTML = "* Campo obbligatorio";
+			document.getElementById("spanDescrizione").style.display="block";
+			document.getElementById("iconDescrizione").setAttribute("class", "glyphicon glyphicon-warning-sign form-control-feedback");
+			document.getElementById("iconDescrizione").style.display="block";
 		}
 		else if(x.value.length > 300)
 		{
@@ -77,11 +80,12 @@ function controlloDati()
 	{
 		if(x.value == "")
 		{
-			document.getElementById("divSrc").removeAttribute("class");
-			document.getElementById("labelSrc").removeAttribute("class");
-			document.getElementById("spanSrc").style.display="none";
-			document.getElementById("iconSrc").removeAttribute("class");
-			document.getElementById("iconSrc").style.display="none";
+			document.getElementById("divSrc").setAttribute("class", "form-group has-warning has-feedback");
+			document.getElementById("labelSrc").setAttribute("class", "control-label");
+			document.getElementById("spanSrc").innerHTML = "* Campo obbligatorio";
+			document.getElementById("spanSrc").style.display="block";
+			document.getElementById("iconSrc").setAttribute("class", "glyphicon glyphicon-warning-sign form-control-feedback");
+			document.getElementById("iconSrc").style.display="block";
 		}
 		else if(x.value.length > 60)
 		{
@@ -109,11 +113,12 @@ function controlloDati()
 	{
 		if(x.value == "")
 		{
-			document.getElementById("divPrezzo").removeAttribute("class");
-			document.getElementById("labelPrezzo").removeAttribute("class");
-			document.getElementById("spanPrezzo").style.display="none";
-			document.getElementById("iconPrezzo").removeAttribute("class");
-			document.getElementById("iconPrezzo").style.display="none";
+			document.getElementById("divPrezzo").setAttribute("class", "form-group has-warning has-feedback");
+			document.getElementById("labelPrezzo").setAttribute("class", "control-label");
+			document.getElementById("spanPrezzo").innerHTML = "* Campo obbligatorio";
+			document.getElementById("spanPrezzo").style.display="block";
+			document.getElementById("iconPrezzo").setAttribute("class", "glyphicon glyphicon-warning-sign form-control-feedback");
+			document.getElementById("iconPrezzo").style.display="block";
 		}
 		else if(x.value <= 0)
 		{
@@ -150,11 +155,12 @@ function controlloDati()
 	{
 		if(x.value == "")
 		{
-			document.getElementById("divNome").removeAttribute("class");
-			document.getElementById("labelNome").removeAttribute("class");
-			document.getElementById("spanNome").style.display="none";
-			document.getElementById("iconNome").removeAttribute("class");
-			document.getElementById("iconNome").style.display="none";
+			document.getElementById("divNome").setAttribute("class", "form-group has-warning has-feedback");
+			document.getElementById("labelNome").setAttribute("class", "control-label");
+			document.getElementById("spanNome").innerHTML = "* Campo obbligatorio";
+			document.getElementById("spanNome").style.display="block";
+			document.getElementById("iconNome").setAttribute("class", "glyphicon glyphicon-warning-sign form-control-feedback");
+			document.getElementById("iconNome").style.display="block";
 		}
 		else if(x.value.length > 20)
 		{

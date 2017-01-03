@@ -1,26 +1,28 @@
 
 function controlloDati()
 {
-	if(controlloNome(document.getElementById("inputNome")))
-		if(controlloCognome(document.getElementById("inputCognome")))
-			if(controlloComune(document.getElementById("inputComune")))
-				if(controlloIndirizzo(document.getElementById("inputIndirizzo")))
-					if(controlloEmail(document.getElementById("inputEmail")))
-						if(controlloUsername(document.getElementById("inputUsername")))
-							if(controlloPassword(document.getElementById("inputPassword")))
-								if(controlloIBAN(document.getElementById("inputIBAN")))
-									alert("Registrazione avvenuta con successo!");
+	var c1 = controlloNome(document.getElementById("inputNome"));
+	var c2 = controlloCognome(document.getElementById("inputCognome"));
+	var c3 = controlloComune(document.getElementById("inputComune"));
+	var c4 = controlloIndirizzo(document.getElementById("inputIndirizzo"));
+	var c5 = controlloEmail(document.getElementById("inputEmail"));
+	var c6 = controlloUsername(document.getElementById("inputUsername"));
+	var c7 = controlloPassword(document.getElementById("inputPassword"));
+	var c8 = controlloIBAN(document.getElementById("inputIBAN"));
+	if ((c1 & c2 & c3 & c4 & c5 & c6 & c7 & c8))
+		alert("Registrazione avvenuta con successo!");
 }
 
 	function controlloNome(x)
 	{
 		if(x.value == "")
 		{
-			document.getElementById("divNome").removeAttribute("class");
-			document.getElementById("labelNome").removeAttribute("class");
-			document.getElementById("spanNome").style.display="none";
-			document.getElementById("iconNome").removeAttribute("class");
-			document.getElementById("iconNome").style.display="none";
+			document.getElementById("divNome").setAttribute("class", "form-group has-warning has-feedback");
+			document.getElementById("labelNome").setAttribute("class", "control-label");
+			document.getElementById("spanNome").innerHTML = "* Campo obbligatorio";
+			document.getElementById("spanNome").style.display="block";
+			document.getElementById("iconNome").setAttribute("class", "glyphicon glyphicon-warning-sign form-control-feedback");
+			document.getElementById("iconNome").style.display="block";
 		}
 		else if(x.value.length > 30)
 		{
@@ -57,11 +59,12 @@ function controlloDati()
 	{
 		if(x.value == "")
 		{
-			document.getElementById("divCognome").removeAttribute("class");
-			document.getElementById("labelCognome").removeAttribute("class");
-			document.getElementById("spanCognome").style.display="none";
-			document.getElementById("iconCognome").removeAttribute("class");
-			document.getElementById("iconCognome").style.display="none";
+			document.getElementById("divCognome").setAttribute("class", "form-group has-warning has-feedback");
+			document.getElementById("labelCognome").setAttribute("class", "control-label");
+			document.getElementById("spanCognome").innerHTML = "* Campo obbligatorio";
+			document.getElementById("spanCognome").style.display="block";
+			document.getElementById("iconCognome").setAttribute("class", "glyphicon glyphicon-warning-sign form-control-feedback");
+			document.getElementById("iconCognome").style.display="block";
 		}
 		else if(x.value.length > 30)
 		{
@@ -98,11 +101,12 @@ function controlloDati()
 	{
 		if(x.value == "")
 		{
-			document.getElementById("divComune").removeAttribute("class");
-			document.getElementById("labelComune").removeAttribute("class");
-			document.getElementById("spanComune").style.display="none";
-			document.getElementById("iconComune").removeAttribute("class");
-			document.getElementById("iconComune").style.display="none";
+			document.getElementById("divComune").setAttribute("class", "form-group has-warning has-feedback");
+			document.getElementById("labelComune").setAttribute("class", "control-label");
+			document.getElementById("spanComune").innerHTML = "* Campo obbligatorio";
+			document.getElementById("spanComune").style.display="block";
+			document.getElementById("iconComune").setAttribute("class", "glyphicon glyphicon-warning-sign form-control-feedback");
+			document.getElementById("iconComune").style.display="block";
 		}
 		else if(x.value.length > 30)
 		{
@@ -139,11 +143,12 @@ function controlloDati()
 	{
 		if(x.value == "")
 		{
-			document.getElementById("divIndirizzo").removeAttribute("class");
-			document.getElementById("labelIndirizzo").removeAttribute("class");
-			document.getElementById("spanIndirizzo").style.display="none";
-			document.getElementById("iconIndirizzo").removeAttribute("class");
-			document.getElementById("iconIndirizzo").style.display="none";
+			document.getElementById("divIndirizzo").setAttribute("class", "form-group has-warning has-feedback");
+			document.getElementById("labelIndirizzo").setAttribute("class", "control-label");
+			document.getElementById("spanIndirizzo").innerHTML = "* Campo obbligatorio";
+			document.getElementById("spanIndirizzo").style.display="block";
+			document.getElementById("iconIndirizzo").setAttribute("class", "glyphicon glyphicon-warning-sign form-control-feedback");
+			document.getElementById("iconIndirizzo").style.display="block";
 		}
 		else if(x.value.length > 40)
 		{
@@ -180,11 +185,12 @@ function controlloDati()
 	{
 		if(x.value == "")
 		{
-			document.getElementById("divEmail").removeAttribute("class");
-			document.getElementById("labelEmail").removeAttribute("class");
-			document.getElementById("spanEmail").style.display="none";
-			document.getElementById("iconEmail").removeAttribute("class");
-			document.getElementById("iconEmail").style.display="none";
+			document.getElementById("divEmail").setAttribute("class", "form-group has-warning has-feedback");
+			document.getElementById("labelEmail").setAttribute("class", "control-label");
+			document.getElementById("spanEmail").innerHTML = "* Campo obbligatorio";
+			document.getElementById("spanEmail").style.display="block";
+			document.getElementById("iconEmail").setAttribute("class", "glyphicon glyphicon-warning-sign form-control-feedback");
+			document.getElementById("iconEmail").style.display="block";
 		}
 		else if(x.value.length > 40)
 		{
@@ -221,11 +227,12 @@ function controlloDati()
 	{
 		if(x.value == "")
 		{
-			document.getElementById("divUsername").removeAttribute("class");
-			document.getElementById("labelUsername").removeAttribute("class");
-			document.getElementById("spanUsername").style.display="none";
-			document.getElementById("iconUsername").removeAttribute("class");
-			document.getElementById("iconUsername").style.display="none";
+			document.getElementById("divUsername").setAttribute("class", "form-group has-warning has-feedback");
+			document.getElementById("labelUsername").setAttribute("class", "control-label");
+			document.getElementById("spanUsername").innerHTML = "* Campo obbligatorio";
+			document.getElementById("spanUsername").style.display="block";
+			document.getElementById("iconUsername").setAttribute("class", "glyphicon glyphicon-warning-sign form-control-feedback");
+			document.getElementById("iconUsername").style.display="block";
 		}
 		else if(x.value.length > 30 && x.value.length < 8)
 		{
@@ -262,11 +269,12 @@ function controlloDati()
 	{
 		if(x.value == "")
 		{
-			document.getElementById("divPassword").removeAttribute("class");
-			document.getElementById("labelPassword").removeAttribute("class");
-			document.getElementById("spanPassword").style.display="none";
-			document.getElementById("iconPassword").removeAttribute("class");
-			document.getElementById("iconPassword").style.display="none";
+			document.getElementById("divPassword").setAttribute("class", "form-group has-warning has-feedback");
+			document.getElementById("labelPassword").setAttribute("class", "control-label");
+			document.getElementById("spanPassword").innerHTML = "* Campo obbligatorio";
+			document.getElementById("spanPassword").style.display="block";
+			document.getElementById("iconPassword").setAttribute("class", "glyphicon glyphicon-warning-sign form-control-feedback");
+			document.getElementById("iconPassword").style.display="block";
 		}
 		else if(x.value.length > 30 && x.value.length < 8)
 		{
@@ -303,11 +311,12 @@ function controlloDati()
 	{
 		if(x.value == "")
 		{
-			document.getElementById("divIBAN").removeAttribute("class");
-			document.getElementById("labelIBAN").removeAttribute("class");
-			document.getElementById("spanIBAN").style.display="none";
-			document.getElementById("iconIBAN").removeAttribute("class");
-			document.getElementById("iconIBAN").style.display="none";
+			document.getElementById("divIBAN").setAttribute("class", "form-group has-warning has-feedback");
+			document.getElementById("labelIBAN").setAttribute("class", "control-label");
+			document.getElementById("spanIBAN").innerHTML = "* Campo obbligatorio";
+			document.getElementById("spanIBAN").style.display="block";
+			document.getElementById("iconIBAN").setAttribute("class", "glyphicon glyphicon-warning-sign form-control-feedback");
+			document.getElementById("iconIBAN").style.display="block";
 		}
 		else if(x.value.length != 27)
 		{
