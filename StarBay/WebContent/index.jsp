@@ -1,3 +1,6 @@
+<%@page import="it.starbay.gestionebean.Stella"%>
+<%@page import="it.starbay.gestionebean.Store"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 	<%@ page import="it.starbay.gestionebean.Cliente" %>
@@ -46,20 +49,32 @@
 		<div class="row">
 			<section class="col-md-10 col-md-offset-1">
 				<div class="row">
+				
+					<% if(session.getAttribute("store_ultimi_prodotti")==null && session.getAttribute("stelle_ultimi_prodotti")==null)
+						{
+							RequestDispatcher rd = request.getRequestDispatcher("/ServletCaricaUltimiProdotti");
+							rd.forward(request, response);
+						}
+						else
+						{
+							ArrayList<Store> store_ultimi_prodotti = (ArrayList<Store>) session.getAttribute("store_ultimi_prodotti");
+							ArrayList<Stella> stelle_ultimi_prodotti = (ArrayList<Stella>) session.getAttribute("stelle_ultimi_prodotti");
+							for(Stella s:stelle_ultimi_prodotti)
+							{
+							
+					%>
 					<article class="col-md-3">
 						<div id="box_article">
 							<div id="new">
 								<img src="images/new1.png">
 							</div>
 							<div id="immagine_article_new">
-								<img src="images/stella.png" class="img-responsive">
+								<img src="<%=s.getSrc()%>" class="img-responsive">
 							</div>
-							<div id="descrizione_pagina">Donec leo, vivamus fermentum
-								nibh in augue praesent a lacus at urna congue rutrum wisi
-								maecenas ligula.</div>
+							<div id="descrizione_pagina"><%= s.getNome()%>, <%=s.getDescrizione()%></div>
 							<div id="compra_articolo">
 								<div id="prezzo">
-									PREZZO: <span id="cifra">38.00</span> &euro;
+									PREZZO: <span id="cifra"><%=s.getPrezzo()%></span> &euro;
 								</div>
 								<button type="button" id="bottonePiu">
 									<span><img src="images/carrello_piu.png"
@@ -68,21 +83,23 @@
 							</div>
 						</div>
 					</article>
-					
-					<article class="col-md-3">
+				    <%
+				    		}
+							for(Store s:store_ultimi_prodotti)
+							{
+				    %>
+				    <article class="col-md-3">
 						<div id="box_article">
 							<div id="new">
 								<img src="images/new1.png">
 							</div>
 							<div id="immagine_article_new">
-								<img src="images/stella.png" class="img-responsive">
+								<img src="<%=s.getSrc()%>" class="img-responsive">
 							</div>
-							<div id="descrizione_pagina">Donec leo, vivamus fermentum
-								nibh in augue praesent a lacus at urna congue rutrum wisi
-								maecenas ligula.</div>
+							<div id="descrizione_pagina"><%= s.getNome()%>, <%=s.getDescrizione()%></div>
 							<div id="compra_articolo">
 								<div id="prezzo">
-									PREZZO: <span id="cifra">38.00</span> &euro;
+									PREZZO: <span id="cifra"><%= s.getPrezzoVendita() %></span> &euro;
 								</div>
 								<button type="button" id="bottonePiu">
 									<span><img src="images/carrello_piu.png"
@@ -91,53 +108,10 @@
 							</div>
 						</div>
 					</article>
-					
-					<article class="col-md-3">
-						<div id="box_article">
-							<div id="new">
-								<img src="images/new1.png">
-							</div>
-							<div id="immagine_article_new">
-								<img src="images/stella.png" class="img-responsive">
-							</div>
-							<div id="descrizione_pagina">Donec leo, vivamus fermentum
-								nibh in augue praesent a lacus at urna congue rutrum wisi
-								maecenas ligula.</div>
-							<div id="compra_articolo">
-								<div id="prezzo">
-									PREZZO: <span id="cifra">38.00</span> &euro;
-								</div>
-								<button type="button" id="bottonePiu">
-									<span><img src="images/carrello_piu.png"
-										alt="Aggiungi al carrello" title="Aggiungi al carrello"></span>
-								</button>
-							</div>
-						</div>
-					</article>
-					
-					<article class="col-md-3">
-						<div id="box_article">
-							<div id="new">
-								<img src="images/new1.png">
-							</div>
-							<div id="immagine_article_new">
-								<img src="images/stella.png" class="img-responsive">
-							</div>
-							<div id="descrizione_pagina">Donec leo, vivamus fermentum
-								nibh in augue praesent a lacus at urna congue rutrum wisi
-								maecenas ligula.</div>
-							<div id="compra_articolo">
-								<div id="prezzo">
-									PREZZO: <span id="cifra">38.00</span> &euro;
-								</div>
-								<button type="button" id="bottonePiu">
-									<span><img src="images/carrello_piu.png"
-										alt="Aggiungi al carrello" title="Aggiungi al carrello"></span>
-								</button>
-							</div>
-						</div>
-					</article>
-
+					<%		}
+							
+						} 
+					%>
 				</div>
 			</section>
 		</div>
