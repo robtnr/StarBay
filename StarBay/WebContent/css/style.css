@@ -96,6 +96,7 @@ img#logout:hover
 		margin-left: 13px;
 	    margin-top: -6px;
 	}
+
 }
 
 /*Menu*/
@@ -519,4 +520,53 @@ div#form
 {
 	margin-top: 15px;
 	margin-bottom: 15px;
+}
+
+/*Profilo Utente*/
+
+#profilo_utente
+{
+	margin-top:30px;
+	margin-bottom:30px;
+}
+
+#user img
+{
+	width: 210px;
+}
+
+#user
+{
+	display:inline;
+}
+
+#info_user
+{
+	display:inline;
+	color:#070d19;
+	font-size:20px;
+	float:right;
+	text-align: center;
+}
+
+#nome_utente
+{
+	font-weight: bold;
+	color:#070d19;
+	font-size:20px;
+	margin-top:20px;
+}
+@media screen and (max-width: 768px)
+{
+	/*Mobile div info_user*/
+	
+	#info_user
+	{
+		float:left;
+		margin-bottom:10px;
+	}
+	#user img
+	{
+		width: 180px;
+	}
 }
