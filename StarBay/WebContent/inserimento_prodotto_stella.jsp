@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="css/style.css">
 <script
 	src="js/controlliProdottoStella.js"></script>
+<script	src="js/logout.js"></script>
 </head>
 <body>
 
