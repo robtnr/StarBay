@@ -33,7 +33,7 @@
 			<section class="col-md-10 col-md-offset-1">
 				<div class="row">
 					<div id="form" class="col-md-12" style="margin: 15px 0;">
-						<form method="POST" action="ServletInserimentoProdottoStella" enctype="multipart/form-data" class="col-md-8 col-md-offset-2" style="margin-top:20px;margin-bottom:20px;">
+						<form id="formStella" method="POST" action="ServletInserimentoProdottoStella" enctype="multipart/form-data" class="col-md-8 col-md-offset-2" style="margin-top:20px;margin-bottom:20px;">
 							<center><label style="font-size:20px; margin-bottom:10px;">Inserimento del prodotto stella</label></center>
 							<div id="divNome" class="form-group">
 								<label id="labelNome" for="inputNome">Nome</label>

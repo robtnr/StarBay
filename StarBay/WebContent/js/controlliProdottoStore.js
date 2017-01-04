@@ -52,7 +52,7 @@ function controlloDati()
 	var c6 = controlloSrc(document.getElementById("inputSrc"));
 	
 	if ((c1 && c2 && c3 && c4 && c5 && c6))
-		document.getElementById("form").submit();
+		document.getElementById("formStore").submit();
 }
 
 function controlloDescrizione(x)

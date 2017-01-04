@@ -44,7 +44,7 @@ function controlloDati()
 	var c4 = controlloDescrizione(document.getElementById("inputDescrizione"));
 	var c5 = controlloSrc(document.getElementById("inputSrc"));
 	if((c1 && c2 && c3 && c4 && c5))
-		document.getElementById("form").submit();
+		document.getElementById("formStella").submit();
 }
 
 function controlloCoordinate(x)
