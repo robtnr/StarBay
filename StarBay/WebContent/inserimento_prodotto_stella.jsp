@@ -31,7 +31,8 @@
 		<div class="row">
 			<section class="col-md-10 col-md-offset-1">
 				<div class="row">
-						<form id="form" method="POST" action="ServletInserimentoProdottoStella" enctype="multipart/form-data" class="col-md-8 col-md-offset-2" style="margin-top:20px;margin-bottom:20px;">
+					<div id="form" class="col-md-12" style="margin: 15px 0;">
+						<form method="POST" action="ServletInserimentoProdottoStella" enctype="multipart/form-data" class="col-md-8 col-md-offset-2" style="margin-top:20px;margin-bottom:20px;">
 							<center><label style="font-size:20px; margin-bottom:10px;">Inserimento del prodotto stella</label></center>
 							<div id="divNome" class="form-group">
 								<label id="labelNome" for="inputNome">Nome</label>
@@ -66,7 +67,8 @@
 						</form>					
 						<button id="buttonLogin" onclick="controlloDati()" class="btn btn-default col-md-4 col-md-offset-4">
 									Inserisci
-								</button>
+						</button>
+					</div>
 				</div>
 			</section>
 		</div>
@@ -99,7 +101,7 @@
 										type="password" id="inputUsername" />
 								</div>
 							</form>
-							<button id="buttonLogin" onclick="controlloDati()" class="btn btn-default col-md-4 col-md-offset-4">
+							<button id="buttonLogin" onclick="controlloDati()" class="btn btn-default col-md-2 col-md-offset-5">
 									Inserisci
 								</button>
 						</div>

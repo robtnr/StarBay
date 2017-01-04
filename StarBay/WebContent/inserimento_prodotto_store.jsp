@@ -31,6 +31,7 @@
 		<div class="row">
 			<section class="col-md-10 col-md-offset-1">
 				<div class="row">
+				<div id="form" class="col-md-12" style="margin: 15px 0;">
 					<form id="form" method="POST" action="ServletInserimentoProdottoStore" enctype="multipart/form-data" class="col-md-8 col-md-offset-2"
 						style="margin-top: 20px; margin-bottom: 20px;">
 						<center>
@@ -85,9 +86,10 @@
 							</div>
 						</form>	
 						<div>
-							<button id="buttonLogin" onclick="controlloDati()" class="btn btn-default col-md-4 col-md-offset-4">
+							<button id="buttonLogin" onclick="controlloDati()" class="btn btn-default col-md-2 col-md-offset-5">
 								Inserisci</button>
 						</div>
+					</div>
 					</form>
 
 				</div>

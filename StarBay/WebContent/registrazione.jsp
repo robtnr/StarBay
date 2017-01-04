@@ -26,7 +26,7 @@
 		<div class="row">
 			<section class="col-md-10 col-md-offset-1">
 				<div class="row">
-					<div id="formRegistrazione" class="col-md-4 col-md-offset-4">
+					<div id="form" class="col-md-4 col-md-offset-4">
 						<form action"#">
 							<div id="divNome" class="form-group">
 								<label id="labelNome" for="inputNome">Nome</label>
