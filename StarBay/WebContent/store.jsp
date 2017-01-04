@@ -1,3 +1,5 @@
+<%@page import="it.starbay.gestionebean.Store"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -45,72 +47,41 @@
 		<div class="row">
 			<section class="col-md-10 col-md-offset-1">
 				<div class="row">
-					<article class="col-md-3">
-						<div id="box_article">
-							<div id="new">
-							</div>
-							<div id="immagine_article_new">
-								<img src="images/binocolo_bresser.jpg" class="img-responsive">
-							</div>
-							<div id="descrizione_pagina">Donec leo, vivamus fermentum
-								nibh in augue praesent a lacus at urna congue rutrum wisi
-								maecenas ligula.</div>
-							<div id="compra_articolo">
-								<div id="prezzo">
-									PREZZO: <span id="cifra">38.00</span> &euro;
+					<% if(session.getAttribute("prodotti_store")==null)
+						{
+							RequestDispatcher rd = request.getRequestDispatcher("/ServletCaricaProdottiStore");
+							rd.forward(request, response);
+						}
+						else
+						{
+							ArrayList<Store> prodotti_store = (ArrayList<Store>) session.getAttribute("prodotti_store");
+							for(Store s:prodotti_store)
+							{
+								
+						%>
+						<article class="col-md-3">
+							<div id="box_article">
+								<div id="new">
 								</div>
-								<button type="button" id="bottonePiu">
-									<span><img src="images/carrello_piu.png"
-										alt="Aggiungi al carrello" title="Aggiungi al carrello"></span>
-								</button>
-							</div>
-						</div>
-					</article>
-					
-					<article class="col-md-3">
-						<div id="box_article">
-							<div id="new">
-							</div>
-							<div id="immagine_article_new">
-								<img src="images/binocolo_bresser.jpg" class="img-responsive">
-							</div>
-							<div id="descrizione_pagina">Donec leo, vivamus fermentum
-								nibh in augue praesent a lacus at urna congue rutrum wisi
-								maecenas ligula.</div>
-							<div id="compra_articolo">
-								<div id="prezzo">
-									PREZZO: <span id="cifra">38.00</span> &euro;
+								<div id="immagine_article_new">
+									<img src="<%=s.getSrc()%>" class="img-responsive">
 								</div>
-								<button type="button" id="bottonePiu">
-									<span><img src="images/carrello_piu.png"
-										alt="Aggiungi al carrello" title="Aggiungi al carrello"></span>
-								</button>
-							</div>
-						</div>
-					</article>
-					
-					<article class="col-md-3">
-						<div id="box_article">
-							<div id="new">
-							</div>
-							<div id="immagine_article_new">
-								<img src="images/binocolo_bresser.jpg" class="img-responsive">
-							</div>
-							<div id="descrizione_pagina">Donec leo, vivamus fermentum
-								nibh in augue praesent a lacus at urna congue rutrum wisi
-								maecenas ligula.</div>
-							<div id="compra_articolo">
-								<div id="prezzo">
-									PREZZO: <span id="cifra">38.00</span> &euro;
+								<div id="descrizione_pagina"><%= s.getNome()%>, <%=s.getDescrizione()%></div>
+								<div id="compra_articolo">
+									<div id="prezzo">
+										PREZZO: <span id="cifra"><%=s.getPrezzoVendita()%></span> &euro;
+									</div>
+									<button type="button" id="bottonePiu">
+										<span><img src="images/carrello_piu.png"
+											alt="Aggiungi al carrello" title="Aggiungi al carrello"></span>
+									</button>
 								</div>
-								<button type="button" id="bottonePiu">
-									<span><img src="images/carrello_piu.png"
-										alt="Aggiungi al carrello" title="Aggiungi al carrello"></span>
-								</button>
 							</div>
-						</div>
-					</article>
-					
+						</article>
+					    <%
+					    	}
+						}
+						%>
 
 				</div>
 			</section>

@@ -81,8 +81,9 @@ public class ManagerNavigazione
 			} catch (SQLException e) 
 			{
 				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
+			} catch (ClassNotFoundException e) 
+			{
+
 				e.printStackTrace();
 			}
 			
@@ -118,5 +119,40 @@ public class ManagerNavigazione
 				e.printStackTrace();
 			}
 		return stelle;
+	}
+	
+	public ArrayList<Store> caricaProdottiStore()
+	{
+		ArrayList<Store> prodotti_store = new ArrayList<Store>();
+		try 
+		{
+			connection = db.getConnection();
+			statement = connection.createStatement();
+			result = statement.executeQuery("SELECT* FROM STORE WHERE quantita>0 ORDER BY data");
+			
+			while(result.next())
+			{
+				Store store = new Store();
+				store.setNome(result.getString(1));
+				store.setDescrizione(result.getString(2));
+				store.setSrc(result.getString(3));
+				store.setPrezzoVendita(result.getDouble(4));
+				store.setQuantita(result.getInt(5));
+				store.setPrezzoAcquisto(result.getDouble(6));
+				store.setData(result.getString(7));
+				prodotti_store.add(store);
+			}
+			statement.close();
+			connection.close();
+			return prodotti_store;
+		} catch (SQLException e) 
+		{
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) 
+		{
+
+			e.printStackTrace();
+		}
+		return prodotti_store;
 	}
 }
