@@ -14,7 +14,7 @@
 							<form action="#" >
 							<div id="divUsername" class="form-group">
 								<label id="labelUsername" for="inputUsername">Username</label>
-								<input id="inputUsername" class="form-control" name="username" placeholder="Username" type="text" onblur="controlloUsername(this)"/>
+								<input id="inputUsername" class="form-control" name="username" placeholder="Username" type="text" onblur="controlloUsername(this)" autofocus/>
 								<span id="spanUsername" style="display: none" class="help-block"></span>
 								<span id="iconUsername" style="display: none" class="glyphicon glyphicon-remove form-control-feedback"></span>
 							</div>
