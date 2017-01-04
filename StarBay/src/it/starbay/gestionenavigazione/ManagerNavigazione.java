@@ -89,4 +89,34 @@ public class ManagerNavigazione
 		}
 		return prodotti_store;
 	}
+	
+	public ArrayList<Stella> caricaProdottiStella()
+	{
+		ArrayList<Stella> stelle = new ArrayList<Stella>();
+		try 
+		{
+			statement = connection.createStatement();
+			result = statement.executeQuery("SELECT * FROM STELLE WHERE quantita>0 ORDER BY data DESC");
+				
+			while(result.next())
+			{
+				Stella stella = new Stella();
+				stella.setCoordinate(result.getString(1));
+				stella.setDescrizione(result.getString(2));
+				stella.setSrc(result.getString(3));
+				stella.setPrezzo(result.getDouble(4));
+				stella.setNome(result.getString(5));
+				stella.setData(result.getString(7));
+				stelle.add(stella);
+			}
+			statement.close();
+			connection.close();
+			
+			} 
+		catch (SQLException e) 
+			{
+				e.printStackTrace();
+			}
+		return stelle;
+	}
 }
