@@ -21,6 +21,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/style.css">
 <script	src="js/controlliLogin.js"></script>
+<script	src="js/logout.js"></script>
 <!-- Link per SweetAlert -->
 	<script src="dist/sweetalert-dev.js"></script>
     <link rel="stylesheet" href="dist/sweetalert.css">	
