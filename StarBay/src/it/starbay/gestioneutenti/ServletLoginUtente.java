@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 
 import it.starbay.gestionebean.Cliente;
 
-
 /**
  * Servlet Login Utente
  * Servlet che viene richiamata quando un utente tenta di fare il login
@@ -29,14 +28,12 @@ public class ServletLoginUtente extends HttpServlet {
 		if(username.equals("admin") && password.equals("admin"))
 		{
 			response.setHeader("esito_login","admin");
-			System.out.println("admin");
 		}
 		else
 		{
 			ManagerUtenti manager;
 			try 
 			{
-				System.out.println("entrato");
 				manager = new ManagerUtenti();
 				Cliente cliente = manager.controlloCredenziali(username, password);
 				if(cliente.getNome().equals("none"))

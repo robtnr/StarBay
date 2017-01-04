@@ -6,7 +6,7 @@
 					<a href="index.jsp"><img src="images/logo.png" class="img-responsive"></a>
 				</div>
 				<div id="benvenuto">
-				Benvenuto <a href="gestore.jsp">Admin</a><img id="logout" title="logout" src="images/logout.png">
+				Benvenuto <a href="gestore.jsp">Admin</a><img id="logout" title="logout" src="images/logout.png" onclick="logOut()">
 				</div>
 			</header>	
 		</div>
