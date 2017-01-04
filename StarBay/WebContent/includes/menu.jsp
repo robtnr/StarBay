@@ -27,6 +27,11 @@
 			{
 			document.getElementById("mappa").setAttribute("class","attivo");
 			}
+			if(titolo=="Registrazione")
+			{
+			var li = document.getElementById("accedi_login");
+			li.removeChild(li.childNodes[0]);
+			}
 		}
 </script>
 
@@ -55,7 +60,7 @@
 						<%if(session.getAttribute("cliente")==null)
 						 { 
 						%>
-				    	<li><a data-toggle="modal" href="#MyModal">accedi</a></li>
+				    	<li id="accedi_login"><a data-toggle="modal" href="#MyModal">accedi</a></li>
 				    	<%
 				    	 } 
 				    	%>

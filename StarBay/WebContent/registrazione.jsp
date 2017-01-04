@@ -12,6 +12,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="css/style.css">
+	<script	src="js/controlliLogin.js"></script>
 	<script src="js/controlliRegistrazione.js"></script>
 	<!-- Link per SweetAlert -->
 	<script src="dist/sweetalert-dev.js"></script>
@@ -26,7 +27,7 @@
 		<div class="row">
 			<section class="col-md-10 col-md-offset-1">
 				<div class="row">
-					<div id="form" class="col-md-4 col-md-offset-4">
+					<div id="formRegistrazione" class="col-md-4 col-md-offset-4">
 						<form action"#">
 							<div id="divNome" class="form-group">
 								<label id="labelNome" for="inputNome">Nome</label>
@@ -91,42 +92,6 @@
 
 	<%@ include file="includes/footer.jsp"%>
 	
-	<div id="MyModal" class="modal fade" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content" id="modalContent"> 
-				<div class="modal-header" id="modalHeader">
-					<button type="button" id="buttonChiudi" class="close" data-dismiss="modal">
-						<span><img src="images/close.png"></span>
-					</button>
-					<h4 class="modal-title">Login</h4>
-				</div>
-				<div class="modal-body" id="modalBody">
-					<div class="row">
-						<div class="col-lg-12">
-							<form>
-								<div class="form-group">
-									<label for="inputUserName">Username</label>
-									<input class="form-control" placeHolder="Username" type="text" id="inputUsername"/>
-								</div>
-								<div class="form-group">
-									<label for="inputPassword">Password</label>
-									<input class="form-control" placeHolder="Password" type="password" id="inputUsername"/>
-								</div>
-								<div>
-									<button id="buttonLogin" type="submit" class="btn btn-default col-md-2 col-md-offset-5">Login
-									</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer" id="modalFooter">
-					<div>Non sei ancora registrato?</div> 
-					<div><a href="registrazione.jsp">Registrati</a></div>
-				</div>
-			</div>
-		</div>
-	</div>
 <script type="text/javascript">
 	<%
 	if(request.getParameter("mex")!=null)
