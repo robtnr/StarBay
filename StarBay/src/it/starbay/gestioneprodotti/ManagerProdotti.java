@@ -21,7 +21,7 @@ public class ManagerProdotti {
 
 	public void registraProdottoStella(Stella s) 
 	{
-		String query = "INSERT INTO STELLE VALUES(?,?,?,?,?,?,?,?)";
+		String query = "INSERT INTO STELLE VALUES(?,?,?,?,?,?,?)";
 	
 		try 
 		{
