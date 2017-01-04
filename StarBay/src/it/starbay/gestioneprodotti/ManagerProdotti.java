@@ -33,7 +33,6 @@ public class ManagerProdotti {
 			inserter.setString(5, s.getNome());
 			inserter.setInt(6, 1);
 			inserter.setString(7, s.getData());
-			inserter.setString(8, "");
 			inserter.executeUpdate();
 			inserter.close();
 			connection.close();
