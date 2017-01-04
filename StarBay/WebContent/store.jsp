@@ -76,6 +76,7 @@
 											alt="Aggiungi al carrello" title="Aggiungi al carrello"></span>
 									</button>
 								</div>
+								<div id="quantita">DISPONIBILITA': <%= s.getQuantita() %></div>
 							</div>
 						</article>
 					    <%

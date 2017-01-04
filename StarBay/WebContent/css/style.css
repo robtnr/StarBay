@@ -280,6 +280,17 @@ button#bottonePiu:hover
 	opacity: 0.8;
 }
 
+#quantita
+{
+	position: relative;
+    display: inline;
+    top: -239px;
+    width: auto;
+    background-color: #070d19;
+    float: right;
+    right: 5px;
+}
+
 /*Carrello*/
 
 #scontrino
