@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import it.starbay.gestionebean.Stella;
 import it.starbay.gestionebean.Store;
 
 /**
@@ -21,31 +22,45 @@ public class ServletModificaProdotto extends HttpServlet
 	{
 		if(request.getHeader("tipo").equals("store"))
 		{
-		String nome = request.getHeader("nome");
-		String descrizione = request.getHeader("descrizione");
-		String src = request.getHeader("src");
-		String prezzo_vendita = request.getHeader("prezzo_vendita");
-		String prezzo_acquisto = request.getHeader("prezzo_acquisto");
-		String quantita = request.getHeader("quantita");
-		String data = request.getHeader("data");
-		
-		HttpSession sessione = request.getSession();
-		Store prodotto_store = new Store();
-		prodotto_store.setNome(nome);
-		prodotto_store.setDescrizione(descrizione);
-		prodotto_store.setSrc(src);
-		prodotto_store.setPrezzoVendita(Double.parseDouble(prezzo_vendita));
-		prodotto_store.setPrezzoAcquisto(Double.parseDouble(prezzo_acquisto));
-		prodotto_store.setQuantita(Integer.parseInt(quantita));
-		prodotto_store.setData(data);
-		
-		sessione.setAttribute("prodotto_store_daModificare", prodotto_store);
-		response.setHeader("tipo_daModificare","store");
+			String nome = request.getHeader("nome");
+			String descrizione = request.getHeader("descrizione");
+			String src = request.getHeader("src");
+			String prezzo_vendita = request.getHeader("prezzo_vendita");
+			String prezzo_acquisto = request.getHeader("prezzo_acquisto");
+			String quantita = request.getHeader("quantita");
+			String data = request.getHeader("data");
+			
+			HttpSession sessione = request.getSession();
+			Store prodotto_store = new Store();
+			prodotto_store.setNome(nome);
+			prodotto_store.setDescrizione(descrizione);
+			prodotto_store.setSrc(src);
+			prodotto_store.setPrezzoVendita(Double.parseDouble(prezzo_vendita));
+			prodotto_store.setPrezzoAcquisto(Double.parseDouble(prezzo_acquisto));
+			prodotto_store.setQuantita(Integer.parseInt(quantita));
+			prodotto_store.setData(data);
+			
+			sessione.setAttribute("prodotto_store_daModificare", prodotto_store);
+			response.setHeader("tipo_daModificare","store");
 		
 		}
 		else
 		{
+			String nome = request.getHeader("nome");
+			String descrizione = request.getHeader("descrizione");
+			String coordinate = request.getHeader("coordinate");
+			String prezzo= request.getHeader("prezzo");
+			String data = request.getHeader("data");
 			
+			HttpSession sessione = request.getSession();
+			Stella stella = new Stella();
+			stella.setNome(nome);
+			stella.setDescrizione(descrizione);
+			stella.setCoordinate(coordinate);;
+			stella.setPrezzo(Double.parseDouble(prezzo));
+			stella.setData(data);
+			
+			sessione.setAttribute("stella_daModificare", stella);
 		}
 	}
 

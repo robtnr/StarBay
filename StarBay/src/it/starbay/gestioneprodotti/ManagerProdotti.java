@@ -95,4 +95,29 @@ public class ManagerProdotti {
 			e.printStackTrace();
 		}
 	}
+	
+	public void modificaProdottoStella(Stella stella_vecchia, Stella stella_nuova)
+	{
+	    PreparedStatement inserter;
+		ResultSet result;
+		String template = "UPDATE STELLE SET coordinate=?, descrizione=?, prezzoVendita=?, nome=?, data=? WHERE coordinate=?";
+		try
+		{
+			inserter = connection.prepareStatement(template);
+			//SET stella nuova
+			inserter.setString(1, stella_nuova.getCoordinate());
+			inserter.setString(2, stella_nuova.getDescrizione());
+			inserter.setDouble(3, stella_nuova.getPrezzo());
+			inserter.setString(4, stella_nuova.getNome());
+			inserter.setString(5, stella_nuova.getData());
+			//WHERE prodotto vecchio
+			inserter.setString(6, stella_vecchia.getCoordinate());
+			inserter.executeUpdate();
+			inserter.close();
+			connection.close();
+		} catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+	}
 }
