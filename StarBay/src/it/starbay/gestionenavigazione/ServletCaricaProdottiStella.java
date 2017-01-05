@@ -1,4 +1,4 @@
-package it.starbay.gestioneprodotti;
+package it.starbay.gestionenavigazione;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -14,32 +14,31 @@ import javax.servlet.http.HttpSession;
 
 import it.starbay.gestionebean.Stella;
 import it.starbay.gestionebean.Store;
-import it.starbay.gestionenavigazione.ManagerNavigazione;
 
 /**
- * Servlet implementation class ServletCaricaProdottiStore
+ * Servlet implementation class ServletCaricaProdottiStella
  */
-@WebServlet("/ServletCaricaProdottiStore")
-public class ServletCaricaProdottiStore extends HttpServlet {
+@WebServlet("/ServletCaricaProdottiStella")
+public class ServletCaricaProdottiStella extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-	{	
+	{
 		HttpSession sessione = request.getSession();
 		
-		ManagerNavigazione manager;
-		try 
-		{
-			manager = new ManagerNavigazione();
-			ArrayList<Store> prodotti_store = manager.caricaProdottiStore();
-			sessione.setAttribute("prodotti_store",prodotti_store);
-		} catch (ClassNotFoundException | SQLException e) 
-		{
-			e.printStackTrace();
-		}
-		
-		RequestDispatcher rd = request.getRequestDispatcher("store.jsp");
-		rd.forward(request, response);
+			ManagerNavigazione manager;
+			try 
+			{
+				manager = new ManagerNavigazione();
+				ArrayList<Stella> stelle = manager.caricaProdottiStella();
+				sessione.setAttribute("stelle",stelle);
+			} catch (ClassNotFoundException | SQLException e) 
+			{
+				e.printStackTrace();
+			}
+			
+			RequestDispatcher rd = request.getRequestDispatcher("stelle.jsp");
+			rd.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
