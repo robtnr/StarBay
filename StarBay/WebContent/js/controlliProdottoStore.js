@@ -52,7 +52,19 @@ function controlloDati()
 	var c6 = controlloSrc(document.getElementById("inputSrc"));
 	
 	if ((c1 && c2 && c3 && c4 && c5 && c6))
-		document.getElementById("formStore").submit();
+	{
+		setTimeout(function(){
+			document.getElementById("formStore").submit();
+		}, 3000);
+
+		swal({
+			title: "OK!",
+			text: "Prodotto inserito con successo",
+			type: "success",
+			showCancelButton: false,
+			showConfirmButton: false
+		});
+	}
 }
 
 function controlloDescrizione(x)

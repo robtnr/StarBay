@@ -44,7 +44,19 @@ function controlloDati()
 	var c4 = controlloDescrizione(document.getElementById("inputDescrizione"));
 	var c5 = controlloSrc(document.getElementById("inputSrc"));
 	if((c1 && c2 && c3 && c4 && c5))
-		document.getElementById("formStella").submit();
+	{
+		setTimeout(function(){
+			document.getElementById("formStella").submit();
+		}, 3000);
+
+		swal({
+			title: "OK!",
+			text: "Prodotto inserito con successo",
+			type: "success",
+			showCancelButton: false,
+			showConfirmButton: false
+		});
+	}
 }
 
 function controlloCoordinate(x)

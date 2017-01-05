@@ -17,16 +17,16 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/style.css">
-<script
-	src="js/controlliProdottoStella.js"></script>
+<script src="dist/sweetalert-dev.js"></script>
+<link rel="stylesheet" href="dist/sweetalert.css">
+<script	src="js/controlliProdottoStella.js"></script>
 <script	src="js/logout.js"></script>
 </head>
 <body>
 
-	<%@ include file="includes/headerLoggatoAdmin.jsp"%>
+	<%@ include file="includes/headerLoggatoAdmin.jsp"%>      
 
 	<div class="container">
 		<div class="row">
