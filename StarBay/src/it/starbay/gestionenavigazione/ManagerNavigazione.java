@@ -155,4 +155,65 @@ public class ManagerNavigazione
 		}
 		return prodotti_store;
 	}
+	
+	public ArrayList caricaProdotti(String tipo)
+	{
+		ArrayList<Stella> stelle = new ArrayList<Stella>();
+		ArrayList<Store> prodotti_store = new ArrayList<Store>();
+		if(tipo.equals("stella"))
+			{
+			try 
+			{
+				statement = connection.createStatement();
+				result = statement.executeQuery("SELECT * FROM STELLE ORDER BY data DESC");
+				
+				while(result.next())
+				{
+					Stella stella = new Stella();
+					stella.setCoordinate(result.getString(1));
+					stella.setDescrizione(result.getString(2));
+					stella.setSrc(result.getString(3));
+					stella.setPrezzo(result.getDouble(4));
+					stella.setNome(result.getString(5));
+					stella.setData(result.getString(7));
+					stelle.add(stella);
+				}
+				statement.close();
+				connection.close();
+				return stelle;
+			} catch (SQLException e) 
+			{
+				e.printStackTrace();
+			}
+		}
+		else
+		{
+			try 
+			{
+				statement = connection.createStatement();
+				result = statement.executeQuery("SELECT * FROM STORE ORDER BY data DESC");
+				
+				while(result.next())
+				{
+					Store store = new Store();
+					store.setNome(result.getString(1));
+					store.setDescrizione(result.getString(2));
+					store.setSrc(result.getString(3));
+					store.setPrezzoVendita(result.getDouble(4));
+					store.setQuantita(result.getInt(5));
+					store.setPrezzoAcquisto(result.getDouble(6));
+					store.setData(result.getString(7));
+					prodotti_store.add(store);
+				}
+				statement.close();
+				connection.close();
+				return prodotti_store;
+			} catch (SQLException e) 
+			{
+				e.printStackTrace();
+			}
+			
+		}
+		return prodotti_store;
+	}
 }

@@ -1,11 +1,19 @@
 package it.starbay.gestionenavigazione;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import it.starbay.gestionebean.Stella;
+import it.starbay.gestionebean.Store;
 
 /**
  * Servlet implementation class ServletCaricaProdotti
@@ -14,27 +22,44 @@ import javax.servlet.http.HttpServletResponse;
 public class ServletCaricaProdotti extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ServletCaricaProdotti() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
+		HttpSession sessione = request.getSession();
+		System.out.println(request.getAttribute("mex_carica"));
+		if(request.getAttribute("mex_carica").equals("stella"))
+		{
+			try 
+			{
+				ManagerNavigazione manager = new ManagerNavigazione();
+				ArrayList<Stella> carica_prodotti_stella = manager.caricaProdotti("stella");
+				sessione.setAttribute("carica_prodotti_stella", carica_prodotti_stella);
+				RequestDispatcher rd = request.getRequestDispatcher("modifica_prodotto_stella.jsp");
+				rd.forward(request, response);
+				
+			} catch (ClassNotFoundException | SQLException e) 
+			{
+				e.printStackTrace();
+			}	
+		}
+		else
+		{
+			try 
+			{
+				ManagerNavigazione manager = new ManagerNavigazione();
+				ArrayList<Store> carica_prodotti_store = manager.caricaProdotti("store");
+				sessione.setAttribute("carica_prodotti_store", carica_prodotti_store);
+				RequestDispatcher rd = request.getRequestDispatcher("modifica_prodotto_store.jsp");
+				rd.forward(request, response);
+				
+			} catch (ClassNotFoundException | SQLException e) 
+			{
+				e.printStackTrace();
+			}	
+		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
 		doGet(request, response);
 	}
 
