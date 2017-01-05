@@ -1,3 +1,11 @@
+/**
+* Modifica prodotto singolo
+*
+* Metodo modificaProdottoStore
+* viene chiamata la servlet ServletModificaProdotto e si viene reindirizzati alla pagina modifica_prodotto_singolo_stella.jsp
+* @param x oggetto node
+*/
+
 function modificaProdottoStore(x)
 {
 		var http = new XMLHttpRequest();

@@ -1,7 +1,7 @@
 /**
 * Controlli prodotti stella
 *
-* Metodo controlloDati
+* Metodo controlloDatiSingolaStella
 * richiama tutte le funzioni di controllo dati e se sono tutte vere il gestore visualizza messaggio di avvenuto inserimento
 * e viene reindirizzato alla sua pagina personale
 *

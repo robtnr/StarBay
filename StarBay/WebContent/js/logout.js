@@ -1,3 +1,11 @@
+/**
+* Logout
+*
+* Metodo logOut
+* L'utente effettua il logout
+*/
+
+
 function logOut()
 {
 		var http = new XMLHttpRequest();

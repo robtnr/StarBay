@@ -1,5 +1,5 @@
 /**
-* Controlli prodotti stella
+* Controlli prodotti store
 *
 * Metodo controlloDati
 * richiama tutte le funzioni di controllo dati e se sono tutte vere il gestore visualizza messaggio di avvenuto inserimento
