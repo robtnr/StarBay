@@ -26,7 +26,7 @@ import it.starbay.gestionebean.Store;
 public class ServletInserimentoProdottoStore extends HttpServlet {
 
 	// location to store file uploaded
-    private static final String UPLOAD_DIRECTORY = "img";
+    private static final String UPLOAD_DIRECTORY = "images/store";
     
     // upload settings
     private static final int MEMORY_THRESHOLD   = 1024 * 1024 * 3;  // 3MB
