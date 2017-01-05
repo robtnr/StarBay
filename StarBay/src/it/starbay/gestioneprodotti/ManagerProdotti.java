@@ -138,4 +138,22 @@ public class ManagerProdotti {
 			e.printStackTrace();
 		}
 	}
+	
+	public void eliminaProdottoStore(String nome)
+	{
+		PreparedStatement inserter;
+		
+		String template="DELETE FROM STORE WHERE nome=?";
+		try
+		{
+			inserter = connection.prepareStatement(template);
+			inserter.setString(1, nome);
+			inserter.executeUpdate();
+			inserter.close();
+			connection.close();
+		} catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+	}
 }

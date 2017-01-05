@@ -19,11 +19,11 @@ public class ServletEliminaProdotto extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		String coordinate = request.getHeader("coordinate");
 		String tipo = request.getHeader("tipo");
 		HttpSession sessione = request.getSession();
 		if(tipo.equals("stella"))
 		{
+			String coordinate = request.getHeader("coordinate");
 			ManagerProdotti manager;
 			try 
 			{
@@ -37,7 +37,17 @@ public class ServletEliminaProdotto extends HttpServlet {
 		}
 		else
 		{
-			
+			String nome = request.getHeader("nome");
+			ManagerProdotti manager;
+			try 
+			{
+				manager = new ManagerProdotti();
+				manager.eliminaProdottoStore(nome);
+				sessione.removeAttribute("carica_prodotti_store");
+			} catch (ClassNotFoundException | SQLException e) 
+			{
+				e.printStackTrace();
+			}
 		}
 	}
 
