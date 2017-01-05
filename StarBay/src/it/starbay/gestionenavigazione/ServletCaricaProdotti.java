@@ -32,8 +32,16 @@ public class ServletCaricaProdotti extends HttpServlet {
 				ManagerNavigazione manager = new ManagerNavigazione();
 				ArrayList<Stella> carica_prodotti_stella = manager.caricaProdotti("stella");
 				sessione.setAttribute("carica_prodotti_stella", carica_prodotti_stella);
-				RequestDispatcher rd = request.getRequestDispatcher("modifica_prodotto_stella.jsp");
-				rd.forward(request, response);
+				if(request.getAttribute("pagina").equals("modifica"))
+				{
+					RequestDispatcher rd = request.getRequestDispatcher("modifica_prodotto_stella.jsp");
+					rd.forward(request, response);
+				}
+				else if(request.getAttribute("pagina").equals("elimina"))
+				{
+					RequestDispatcher rd = request.getRequestDispatcher("elimina_prodotto_stella.jsp");
+					rd.forward(request, response);
+				}
 				
 			} catch (ClassNotFoundException | SQLException e) 
 			{
@@ -47,8 +55,17 @@ public class ServletCaricaProdotti extends HttpServlet {
 				ManagerNavigazione manager = new ManagerNavigazione();
 				ArrayList<Store> carica_prodotti_store = manager.caricaProdotti("store");
 				sessione.setAttribute("carica_prodotti_store", carica_prodotti_store);
-				RequestDispatcher rd = request.getRequestDispatcher("modifica_prodotto_store.jsp");
-				rd.forward(request, response);
+				
+				if(request.getAttribute("pagina").equals("modifica"))
+				{
+					RequestDispatcher rd = request.getRequestDispatcher("modifica_prodotto_store.jsp");
+					rd.forward(request, response);
+				}
+				else if(request.getAttribute("pagina").equals("elimina"))
+				{
+					RequestDispatcher rd = request.getRequestDispatcher("elimina_prodotto_store.jsp");
+					rd.forward(request, response);
+				}
 				
 			} catch (ClassNotFoundException | SQLException e) 
 			{

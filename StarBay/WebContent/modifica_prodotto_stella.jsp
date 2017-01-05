@@ -56,6 +56,7 @@
 				    	{
 					    	RequestDispatcher rd = request.getRequestDispatcher("/ServletCaricaProdotti");
 					    	request.setAttribute("mex_carica", "stella");
+					    	request.setAttribute("pagina", "modifica");
 							rd.forward(request, response);
 				    	}
 				    	else

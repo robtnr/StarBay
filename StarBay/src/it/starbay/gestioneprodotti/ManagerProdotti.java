@@ -120,4 +120,22 @@ public class ManagerProdotti {
 			e.printStackTrace();
 		}
 	}
+	
+	public void eliminaStella(String coordinate)
+	{
+		PreparedStatement inserter;
+		
+		String template="DELETE FROM STELLE WHERE coordinate=?";
+		try
+		{
+			inserter = connection.prepareStatement(template);
+			inserter.setString(1, coordinate);
+			inserter.executeUpdate();
+			inserter.close();
+			connection.close();
+		} catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+	}
 }
