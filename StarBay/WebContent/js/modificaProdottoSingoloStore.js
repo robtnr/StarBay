@@ -42,7 +42,7 @@
 * @return false se l'input non è valido
 */
 
-function controlloDati()
+function controlloDatiSingoloStore()
 {
 	var c1 = controlloNome(document.getElementById("inputNome"));
 	var c2 = controlloPrezzoAcquisto(document.getElementById("inputPrezzoAcquisto"));
@@ -57,16 +57,15 @@ function controlloDati()
 		{
 			if(http.readyState==4 && http.status==200)
 			{
-				alert("operazione effetuata con successo");
-				open("modifica_prodotto_store.jsp","_self");
+				setTimeout(function(){
+					open("modifica_prodotto_store.jsp","_self");
+				}, 3000);
+				
+				swal("Successo","Prodotto store modificato con successo", "success");
+				
 				
 			}
 		}
-		alert(document.getElementById("inputNome").value);
-		alert(document.getElementById("inputDescrizione").value);
-		alert(document.getElementById("inputPrezzoVendita").value);
-		alert(document.getElementById("inputPrezzoAcquisto").value);
-		alert(document.getElementById("inputQuantita").value);
 		http.open("POST", "http://localhost:8080/StarBay/ServletModificaProdottoSingolo", true);
 		http.setRequestHeader("nome",document.getElementById("inputNome").value);
 		http.setRequestHeader("descrizione",document.getElementById("inputDescrizione").value);

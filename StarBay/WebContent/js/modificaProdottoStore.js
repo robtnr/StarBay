@@ -1,4 +1,4 @@
-function modificaProdotto(x)
+function modificaProdottoStore(x)
 {
 		var http = new XMLHttpRequest();
 		var tr = x.parentNode.parentNode;
@@ -7,12 +7,7 @@ function modificaProdotto(x)
 		{
 			if(http.readyState==4 && http.status==200)
 			{
-				var tipo_daModificare = http.getResponseHeader("tipo_daModificare");
-				if(tipo_daModificare=="store")
-					open("modifica_prodotto_singolo_store.jsp","_self");
-				else
-					open("modifica_prodotto_singolo_stella.jsp","_self");
-				
+				open("modifica_prodotto_singolo_store.jsp","_self");
 			}
 		}
 		http.open("POST", "http://localhost:8080/StarBay/ServletModificaProdotto", true);

@@ -24,6 +24,9 @@
 <link rel="stylesheet" href="css/style.css">
 	<script	src="js/logout.js"></script>
 	<script	src="js/modificaProdottoStore.js"></script>
+<!-- Link per SweetAlert -->
+	<script src="dist/sweetalert-dev.js"></script>
+    <link rel="stylesheet" href="dist/sweetalert.css">	
 </head>
 <body>
 
@@ -71,7 +74,7 @@
 				        <td><%= s.getPrezzoAcquisto() %></td>
 				        <td><%= s.getQuantita() %></td>
 				        <td><%= s.getData()%></td>
-				        <td><img id="modifica_prodotto" onclick=modificaProdotto(this) src="images/modifica.png" title="modifica"></td>
+				        <td><img id="modifica_prodotto" onclick=modificaProdottoStore(this) src="images/modifica.png" title="modifica"></td>
 				      </tr>
 				     <%
 				    		}

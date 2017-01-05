@@ -41,7 +41,6 @@ public class ServletModificaProdotto extends HttpServlet
 			prodotto_store.setData(data);
 			
 			sessione.setAttribute("prodotto_store_daModificare", prodotto_store);
-			response.setHeader("tipo_daModificare","store");
 		
 		}
 		else

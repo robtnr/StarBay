@@ -25,6 +25,9 @@
 <script
 	src="js/modificaProdottoSingoloStore.js"></script>
 	<script	src="js/logout.js"></script>
+<!-- Link per SweetAlert -->
+	<script src="dist/sweetalert-dev.js"></script>
+    <link rel="stylesheet" href="dist/sweetalert.css">	
 </head>
 <body>
 
@@ -35,7 +38,7 @@
 			<section class="col-md-10 col-md-offset-1">
 				<div class="row">
 				<div id="form" class="col-md-12" style="margin: 15px 0;">
-					<form id="formStore" method="POST" action="ServletInserimentoProdottoStore" enctype="multipart/form-data" class="col-md-8 col-md-offset-2"
+					<form id="formStore" action="#" class="col-md-8 col-md-offset-2"
 						style="margin-top: 20px; margin-bottom: 20px;">
 						<center>
 							<label style="font-size: 20px; margin-bottom: 10px;">Modifica del prodotto store</label>
@@ -86,7 +89,7 @@
 						</div>
 						</form>	
 						<div>
-							<button id="buttonLogin" onclick="controlloDati()" class="btn btn-default col-md-2 col-md-offset-5">
+							<button id="buttonLogin" onclick="controlloDatiSingoloStore()" class="btn btn-default col-md-2 col-md-offset-5">
 								Modifica</button>
 						</div>
 					</div>

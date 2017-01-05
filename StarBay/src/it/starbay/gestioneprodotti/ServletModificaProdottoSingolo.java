@@ -78,10 +78,6 @@ public class ServletModificaProdottoSingolo extends HttpServlet {
 				
 				
 			}
-			
-			
-			sessione.setAttribute("prodotto_store_daModificare", prodotto_nuovo);
-			response.setHeader("tipo_daModificare","store");
 		
 		}
 		else
