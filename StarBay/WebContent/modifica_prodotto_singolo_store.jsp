@@ -4,7 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Inserimento prodotto store</title>
+<% Store p = (Store)session.getAttribute("prodotto_store_daModificare"); %>
+<title>Modifica prodotto <%= p.getNome() %></title>
 <meta charset="UTF-8" />
 <meta name="keywords"
 	content="stelle, venditaonline, binocolo, telescopio, star, e-commerce">
@@ -28,7 +29,7 @@
 <body>
 
 	<%@ include file="includes/headerLoggatoAdmin.jsp"%>
-	<% Store p = (Store)session.getAttribute("prodotto_store_daModificare"); %>
+
 	<div class="container">
 		<div class="row">
 			<section class="col-md-10 col-md-offset-1">
@@ -47,20 +48,23 @@
 								id="iconNome" style="display: none"
 								class="glyphicon glyphicon-remove form-control-feedback"></span>
 						</div>
+						<% String prezzo_acquisto = p.getPrezzoAcquisto()+"\0"; %>
+						
 						<div id="divPrezzoAcquisto" class="form-group">
 							<label id="labelPrezzoAcquisto" for="inputPrezzoAcquisto">Prezzo
 								d'acquisto</label> <input id="inputPrezzoAcquisto" class="form-control"
 								name="prezzoAcquisto" placeholder="Prezzo d'acquisto"
-								type="text" value="<%= p.getPrezzoAcquisto() %>"  /> <span
+								type="text" value="<%= p.getPrezzoAcquisto() %>" /> <span
 								id="spanPrezzoAcquisto" style="display: none" class="help-block"></span>
 							<span id="iconPrezzoAcquisto" style="display: none"
 								class="glyphicon glyphicon-remove form-control-feedback"></span>
 						</div>
+						
 						<div id="divPrezzoVendita" class="form-group">
 							<label id="labelPrezzoVendita" for="inputPrezzoVendita">Prezzo
 								di vendita</label> <input id="inputPrezzoVendita" class="form-control"
 								name="prezzoVendita" placeholder="Prezzo di vendita" type="text"
-							    value="<%= p.getPrezzoVendita() %>"  /> <span
+							    value="<%=p.getPrezzoVendita() %>"  /> <span
 								id="spanPrezzoVendita" style="display: none" class="help-block"></span>
 							<span id="iconPrezzoVendita" style="display: none"
 								class="glyphicon glyphicon-remove form-control-feedback"></span>
@@ -95,45 +99,6 @@
 
 	<%@ include file="includes/footer.jsp"%>
 
-	<div id="MyModal" class="modal fade" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content" id="modalContent">
-				<div class="modal-header" id="modalHeader">
-					<button type="button" id="buttonChiudi" class="close"
-						data-dismiss="modal">
-						<span><img src="images/close.png"></span>
-					</button>
-					<h4 class="modal-title">Login</h4>
-				</div>
-				<div class="modal-body" id="modalBody">
-					<div class="row">
-						<div class="col-lg-12">
-							<form>
-								<div class="form-group">
-									<label for="inputUserName">Username</label> <input
-										class="form-control" name="username" placeHolder="Username"
-										type="text" id="inputUsername" />
-								</div>
-								<div class="form-group">
-									<label for="inputPassword">Password</label> <input
-										class="form-control" name="password" placeHolder="Password"
-										type="password" id="inputUsername" />
-								</div>
-							</form>
-							<button id="buttonLogin" onclick="controlloDati()" class="btn btn-default col-md-4 col-md-offset-4">
-									Inserisci
-								</button>
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer" id="modalFooter">
-					<div>Non sei ancora registrato?</div>
-					<div>
-						<a href="registrazione.jsp">Registrati</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 </body>
 </html>

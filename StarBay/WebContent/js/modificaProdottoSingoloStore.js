@@ -52,7 +52,29 @@ function controlloDati()
 	
 	if ((c1 && c2 && c3 && c4 && c5))
 		{
-		alert("ciao");
+		var http = new XMLHttpRequest();
+		http.onreadystatechange = function()
+		{
+			if(http.readyState==4 && http.status==200)
+			{
+				alert("operazione effetuata con successo");
+				open("modifica_prodotto_store.jsp","_self");
+				
+			}
+		}
+		alert(document.getElementById("inputNome").value);
+		alert(document.getElementById("inputDescrizione").value);
+		alert(document.getElementById("inputPrezzoVendita").value);
+		alert(document.getElementById("inputPrezzoAcquisto").value);
+		alert(document.getElementById("inputQuantita").value);
+		http.open("POST", "http://localhost:8080/StarBay/ServletModificaProdottoSingolo", true);
+		http.setRequestHeader("nome",document.getElementById("inputNome").value);
+		http.setRequestHeader("descrizione",document.getElementById("inputDescrizione").value);
+		http.setRequestHeader("prezzo_vendita",document.getElementById("inputPrezzoVendita").value);
+		http.setRequestHeader("prezzo_acquisto",document.getElementById("inputPrezzoAcquisto").value);
+		http.setRequestHeader("quantita",document.getElementById("inputQuantita").value);
+		http.setRequestHeader("tipo","store");
+		http.send();
 		}
 }
 
@@ -193,7 +215,7 @@ function controlloNome(x)
 		document.getElementById("iconNome").setAttribute("class", "glyphicon glyphicon-remove form-control-feedback");
 		document.getElementById("iconNome").style.display="block";
 	}
-	else if (/[^a-zA-Z0-9]/.test(x.value))
+	else if (/[^a-zA-Z0-9 ]/.test(x.value))
 	{
 		document.getElementById("divNome").setAttribute("class", "form-group has-error has-feedback");
 		document.getElementById("labelNome").setAttribute("class", "control-label");

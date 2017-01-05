@@ -25,7 +25,6 @@ public class ServletCaricaProdotti extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		HttpSession sessione = request.getSession();
-		System.out.println(request.getAttribute("mex_carica"));
 		if(request.getAttribute("mex_carica").equals("stella"))
 		{
 			try 

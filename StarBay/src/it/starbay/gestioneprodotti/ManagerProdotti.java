@@ -2,6 +2,7 @@ package it.starbay.gestioneprodotti;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import it.starbay.gestionebean.CallDatabase;
@@ -67,5 +68,31 @@ public class ManagerProdotti {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public void modificaProdottoStore(Store prodotto_vecchio, Store prodotto_nuovo)
+	{
+	    PreparedStatement inserter;
+		ResultSet result;
+		String template = "UPDATE STORE SET nome=?, descrizione=?, prezzoVendita=?, quantita=?, prezzoAcquisto=?, data=? WHERE nome=?";
+		try
+		{
+			inserter = connection.prepareStatement(template);
+			//SET prodotto nuovo
+			inserter.setString(1, prodotto_nuovo.getNome());
+			inserter.setString(2, prodotto_nuovo.getDescrizione());
+			inserter.setDouble(3, prodotto_nuovo.getPrezzoVendita());
+			inserter.setInt(4, prodotto_nuovo.getQuantita());
+			inserter.setDouble(5, prodotto_nuovo.getPrezzoAcquisto());
+			inserter.setString(6, prodotto_nuovo.getData());
+			//WHERE prodotto vecchio
+			inserter.setString(7, prodotto_vecchio.getNome());
+			inserter.executeUpdate();
+			inserter.close();
+			connection.close();
+		} catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
 	}
 }
