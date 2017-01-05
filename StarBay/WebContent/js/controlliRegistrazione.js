@@ -1,5 +1,5 @@
 /**
-* Controlli Login
+* Controlli Registrazione
 *
 * Metodo controlloDati
 * richiama tutte le funzioni di controllo dati e se sono tutte vere l'utente viene reindirizzato alla sua pagina personale

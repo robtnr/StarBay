@@ -2,7 +2,8 @@
 * Controlli Login
 *
 * Metodo controlloDati
-* richiama tutte le funzioni di controllo dati e se sono tutte vere l'utente viene reindirizzato alla sua pagina personale
+* richiama tutte le funzioni di controllo dati e se sono tutte vere, viene effettuata una chiamata alla servlet ServletLoginUtente
+* che controlla se i dati sono corretti, successivamente l'utente viene reindirizzato alla sua pagina personale
 *
 * Metodo controlloUsername
 * controlla campo username
