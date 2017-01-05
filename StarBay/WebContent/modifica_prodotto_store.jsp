@@ -33,7 +33,10 @@
 		<div class="row">
 			<section class="col-md-10 col-md-offset-1">
 				<div class="row">
-				<div style="margin-top:30px;" class="col-md-12 table-responsive">
+				<div style="margin-top:30px; margin-bottom:25px" class="col-md-12 table-responsive">
+				<center>
+							<label style="font-size: 20px; margin-bottom: 20px;">Catalogo dei prodotti store</label>
+				</center>
 					<table id="table_prodotti" style="border:1px solid black" class="table" >
 					<thead style="border:1px solid black; color:#ffc307; background-color:#070d19;">
 				      <tr>
