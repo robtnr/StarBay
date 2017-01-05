@@ -588,3 +588,15 @@ div#form
 		width: 180px;
 	}
 }
+
+/*Modifica Prodotto*/
+
+img#modifica_prodotto 
+{
+	width:21px;
+}
+
+img#modifica_prodotto:hover
+{
+	opacity:0.8;	
+}
