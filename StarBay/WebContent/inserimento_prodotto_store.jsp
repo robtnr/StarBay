@@ -101,46 +101,5 @@
 	</div>
 
 	<%@ include file="includes/footer.jsp"%>
-
-	<div id="MyModal" class="modal fade" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content" id="modalContent">
-				<div class="modal-header" id="modalHeader">
-					<button type="button" id="buttonChiudi" class="close"
-						data-dismiss="modal">
-						<span><img src="images/close.png"></span>
-					</button>
-					<h4 class="modal-title">Login</h4>
-				</div>
-				<div class="modal-body" id="modalBody">
-					<div class="row">
-						<div class="col-lg-12">
-							<form>
-								<div class="form-group">
-									<label for="inputUserName">Username</label> <input
-										class="form-control" name="username" placeHolder="Username"
-										type="text" id="inputUsername" />
-								</div>
-								<div class="form-group">
-									<label for="inputPassword">Password</label> <input
-										class="form-control" name="password" placeHolder="Password"
-										type="password" id="inputUsername" />
-								</div>
-							</form>
-							<button id="buttonLogin" onclick="controlloDati()" class="btn btn-default col-md-4 col-md-offset-4">
-									Inserisci
-								</button>
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer" id="modalFooter">
-					<div>Non sei ancora registrato?</div>
-					<div>
-						<a href="registrazione.jsp">Registrati</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 </body>
 </html>

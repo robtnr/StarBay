@@ -35,8 +35,8 @@
 					<img id="tool" alt="tool" src="images/gestore.png">
 						<ul>
 							<li>Inserimento prodotto<a href="inserimento_prodotto_stella.jsp"><img src="images/arrow.png">Stella</a><a href="inserimento_prodotto_store.jsp"><img src="images/arrow.png">Store</a></li>
-							<li>Modifica prodotto<a href="#"><img src="images/arrow.png">Stella</a><a href="#"><img src="images/arrow.png">Store</a></li>
-							<li>Elimina prodotto<a href="#"><img src="images/arrow.png">Stella</a><a href="#"><img src="images/arrow.png">Store</a></li>
+							<li>Modifica prodotto<a href="modifica_prodotto_stella.jsp"><img src="images/arrow.png">Stella</a><a href="modifica_prodotto_store.jsp"><img src="images/arrow.png">Store</a></li>
+							<li>Elimina prodotto<a href="elimina_prodotto_stella.jsp"><img src="images/arrow.png">Stella</a><a href="elimina_prodotto_store.jsp"><img src="images/arrow.png">Store</a></li>
 							<li><a href="#">Elimina Utente </a></li>
 							<li>Visualizza<a href="#"><img src="images/arrow.png">Guadagno</a><a href="#"><img src="images/arrow.png">Ricavo</a></li>
 							<li><a href="#">Visualizza guadagno per singolo prodotto</a></li>
@@ -49,48 +49,5 @@
 	</div>
 
 	<%@ include file="includes/footer.jsp"%>
-
-	<div id="MyModal" class="modal fade" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content" id="modalContent">
-				<div class="modal-header" id="modalHeader">
-					<button type="button" id="buttonChiudi" class="close"
-						data-dismiss="modal">
-						<span><img src="images/close.png"></span>
-					</button>
-					<h4 class="modal-title">Login</h4>
-				</div>
-				<div class="modal-body" id="modalBody">
-					<div class="row">
-						<div class="col-lg-12">
-							<form>
-								<div class="form-group">
-									<label for="inputUserName">Username</label> <input
-										class="form-control" name="username" placeHolder="Username"
-										type="text" id="inputUsername" />
-								</div>
-								<div class="form-group">
-									<label for="inputPassword">Password</label> <input
-										class="form-control" name="password" placeHolder="Password"
-										type="password" id="inputUsername" />
-								</div>
-								<div>
-									<button id="buttonLogin" type="submit"
-										class="btn btn-default col-md-2 col-md-offset-5">Login
-									</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer" id="modalFooter">
-					<div>Non sei ancora registrato?</div>
-					<div>
-						<a href="registrazione.jsp">Registrati</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 </body>
 </html>

@@ -89,7 +89,5 @@
 
 	<%@ include file="includes/footer.jsp"%>
 	
-	<%@ include file="includes/form_accedi.jsp"%>
-	
 </body>
 </html>
