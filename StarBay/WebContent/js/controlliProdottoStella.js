@@ -208,7 +208,7 @@ function controlloNome(x)
 		document.getElementById("iconNome").setAttribute("class", "glyphicon glyphicon-remove form-control-feedback");
 		document.getElementById("iconNome").style.display="block";
 	}
-	else if (/[^a-zA-Z0-9]/.test(x.value))
+	else if (/[^a-zA-Z0-9 ]/.test(x.value))
 	{
 		document.getElementById("divNome").setAttribute("class", "form-group has-error has-feedback");
 		document.getElementById("labelNome").setAttribute("class", "control-label");
