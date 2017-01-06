@@ -20,7 +20,10 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/style.css">
+<script src="dist/sweetalert-dev.js"></script>
+<link rel="stylesheet" href="dist/sweetalert.css">	
 <script	src="js/logout.js"></script>
+<script	src="js/gestore.js"></script>
 </head>
 <body>
 
@@ -38,7 +41,7 @@
 							<li>Modifica prodotto<a href="modifica_prodotto_stella.jsp"><img src="images/arrow.png">Stella</a><a href="modifica_prodotto_store.jsp"><img src="images/arrow.png">Store</a></li>
 							<li>Elimina prodotto<a href="elimina_prodotto_stella.jsp"><img src="images/arrow.png">Stella</a><a href="elimina_prodotto_store.jsp"><img src="images/arrow.png">Store</a></li>
 							<li><a href="#">Elimina Utente </a></li>
-							<li>Visualizza<a href="#"><img src="images/arrow.png">Guadagno</a><a href="#"><img src="images/arrow.png">Ricavo</a></li>
+							<li>Visualizza<a href="#" onclick="visualizzaGuadagno()"><img src="images/arrow.png">Guadagno</a><a href="#" onclick="visualizzaRicavo()"><img src="images/arrow.png">Ricavo</a></li>
 							<li><a href="#">Visualizza guadagno per singolo prodotto</a></li>
 						</ul>
 					</div>
