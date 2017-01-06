@@ -80,7 +80,7 @@ public class ManagerStatistiche
 		try
 		{
 			statement = connection.createStatement();
-			result = statement.executeQuery("SELECT coordinate, nome, sum(prezzo) FROM DETTAGLI_ORDINI natural join INCLUDE_STELLE natural join STELLE GROUP BY (coordinate, nome)");
+			result = statement.executeQuery("SELECT coordinate, nome, sum(prezzo) FROM DETTAGLI_ORDINI natural join INCLUDE_STELLE natural join STELLE GROUP BY coordinate, nome");
 			
 			while(result.next())
 				righe.add("<tr><td>" + result.getString(1) + "</td><td>" + result.getString(2) + "</td><td>" + result.getString(3) + "</td></tr>");

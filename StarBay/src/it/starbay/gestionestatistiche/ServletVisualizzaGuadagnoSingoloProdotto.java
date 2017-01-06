@@ -22,7 +22,7 @@ public class ServletVisualizzaGuadagnoSingoloProdotto extends HttpServlet
 		ManagerStatistiche ms = new ManagerStatistiche();
 		ArrayList<String> righe = ms.dammiGuadagnoSingoloProdotto();
 
-		if (righe == null) response.addHeader("tableGuadagni", "nok");
+		if (righe == null) response.addHeader("tbody", "nok");
 		else
 		{
 			String tbody = "";
