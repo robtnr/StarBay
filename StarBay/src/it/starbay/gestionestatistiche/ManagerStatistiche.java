@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import it.starbay.gestionebean.CallDatabase;
 
@@ -73,5 +74,24 @@ public class ManagerStatistiche
 		return "" + ricavoTotale;
 	}
 
+	public ArrayList<String> dammiGuadagnoSingoloProdotto() 
+	{
+		ArrayList<String> righe = new ArrayList<>();
+		try
+		{
+			statement = connection.createStatement();
+			result = statement.executeQuery("SELECT coordinate, nome, sum(prezzo) FROM DETTAGLI_ORDINI natural join INCLUDE_STELLE natural join STELLE GROUP BY (coordinate, nome)");
+			
+			while(result.next())
+				righe.add("<tr><td>" + result.getString(1) + "</td><td>" + result.getString(2) + "</td><td>" + result.getString(3) + "</td></tr>");
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		if (righe.isEmpty()) return null;
 
+		return righe;
+	}
 }
