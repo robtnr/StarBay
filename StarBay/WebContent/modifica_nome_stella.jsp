@@ -34,18 +34,7 @@
     	String nome_stella = request.getParameter("nome_stella");
     	String prezzo = request.getParameter("prezzo");
     	session.setAttribute("prezzo", prezzo);
-    	if(session.getAttribute("stelle_attuali")==null)
-    	{
-        	ArrayList<String> stelle_attuali = new ArrayList<String>();
-        	stelle_attuali.add(nome_stella);
-        	session.setAttribute("stelle_attuali", stelle_attuali);
-    	}
-    	else
-    	{
-    		ArrayList<String> stelle_attuali=(ArrayList<String>)session.getAttribute("stelle_attuali");
-    		stelle_attuali.add(nome_stella);
-    		session.setAttribute("stelle_attuali", stelle_attuali);
-    	}
+    	
     	session.setAttribute("nome_stella", nome_stella);
     %>
 			

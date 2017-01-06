@@ -11,7 +11,7 @@ function aggiungiStellaCarrello()
 			{
 				setTimeout(function(){
 					open("index.jsp","_self");
-				}, 2000);
+				}, 1200);
 				
 				swal("Successo","Prodotto stella inserito con successo", "success");
 			}
@@ -19,9 +19,9 @@ function aggiungiStellaCarrello()
 			{
 				setTimeout(function(){
 					open("index.jsp","_self");
-				}, 2000);
+				}, 1200);
 				
-				swal("Errore","Stella già presente!", "success");
+				swal("Errore","Stella gia' presente!", "error");
 			}
 		}
 	}
