@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import it.starbay.gestionebean.CallDatabase;
 
@@ -45,5 +46,52 @@ public class ManagerStatistiche
 		if(guadagnoTotale == null || guadagnoTotale.equals("")) return "0";
 		
 		return guadagnoTotale;
+	}
+
+	public String dammiRicavoTotale() 
+	{
+		String guadagnoTotale = null;
+		String spesa = null;
+		
+		try
+		{
+			statement = connection.createStatement();
+			result = statement.executeQuery("SELECT sum(prezzo) FROM DETTAGLI_ORDINI");
+			guadagnoTotale = result.getString(1);
+			
+			result = statement.executeQuery("SELECT sum(prezzoAcquisto) FROM INCLUDE_STORE natural join STORE");
+			spesa = result.getString(1);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		if(guadagnoTotale == null || guadagnoTotale.equals("")) return "0";
+		
+		double ricavoTotale = Double.parseDouble(guadagnoTotale) - Double.parseDouble(spesa); 
+		
+		return "" + ricavoTotale;
+	}
+
+	public ArrayList<String> dammiGuadagnoSingoloProdotto() 
+	{
+		ArrayList<String> righe = new ArrayList<>();
+		try
+		{
+			statement = connection.createStatement();
+			result = statement.executeQuery("SELECT coordinate, nome, sum(prezzo) FROM DETTAGLI_ORDINI natural join INCLUDE_STELLE natural join STELLE GROUP BY (coordinate, nome)");
+			
+			while(result.next())
+				righe.add("<tr><td>" + result.getString(1) + "</td><td>" + result.getString(2) + "</td><td>" + result.getString(3) + "</td></tr>");
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		if (righe.isEmpty()) return null;
+
+		return righe;
 	}
 }
