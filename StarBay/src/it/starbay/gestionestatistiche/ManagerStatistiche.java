@@ -46,4 +46,32 @@ public class ManagerStatistiche
 		
 		return guadagnoTotale;
 	}
+
+	public String dammiRicavoTotale() 
+	{
+		String guadagnoTotale = null;
+		String spesa = null;
+		
+		try
+		{
+			statement = connection.createStatement();
+			result = statement.executeQuery("SELECT sum(prezzo) FROM DETTAGLI_ORDINI");
+			guadagnoTotale = result.getString(1);
+			
+			result = statement.executeQuery("SELECT sum(prezzoAcquisto) FROM INCLUDE_STORE natural join STORE");
+			spesa = result.getString(1);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		if(guadagnoTotale == null || guadagnoTotale.equals("")) return "0";
+		
+		double ricavoTotale = Double.parseDouble(guadagnoTotale) - Double.parseDouble(spesa); 
+		
+		return "" + ricavoTotale;
+	}
+
+
 }
