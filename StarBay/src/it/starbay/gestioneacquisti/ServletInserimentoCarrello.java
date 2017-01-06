@@ -38,45 +38,25 @@ public class ServletInserimentoCarrello extends HttpServlet {
 			{
 				//Inserimento di una stella
 				String nome_stella_nuova = request.getHeader("nome_stella_nuova");
+				String nome_stella =(String) sessione.getAttribute("nome_stella");
 				ProdottoCarrello prodotto = new ProdottoCarrello();
 				//Controllo dei nomi delle stelle per vedere se è cambiato
-				if(sessione.getAttribute("nome_stella").equals(nome_stella_nuova))
+				if(nome_stella.equals(nome_stella_nuova))
 				{
 					//Non cambia
-					prodotto.setNome((String) sessione.getAttribute("nome_stella"));
-					//Array di nomi delle stelle nuove
-					if(sessione.getAttribute("stelle_nuove")==null)
-					{
-						//se non cambia il nome il valore è "no"
-						ArrayList<String> stelle_nuove = new ArrayList<String>();
-						stelle_nuove.add("no");
-						sessione.setAttribute("stelle_nuove", stelle_nuove);
-					}
-					else
-					{
-						ArrayList<String> stelle_nuove = (ArrayList<String>)sessione.getAttribute("stelle_nuove");
-						stelle_nuove.add("no");
-						sessione.setAttribute("stelle_nuove", stelle_nuove);
-					}
+					prodotto.setNome(nome_stella);
+					//Array di nomi delle stelle
 				}
 				else
 				{
 					//nome stella cambia
-					prodotto.setNome((String) sessione.getAttribute("nome_stella_nuova"));
-					if(sessione.getAttribute("stelle_nuove")==null)
-					{
-						//ArrayList di stelle nuove
-						ArrayList<String> stelle_nuove = new ArrayList<String>();
-						stelle_nuove.add((String) sessione.getAttribute("nome_stella_nuova"));
-						sessione.setAttribute("stelle_nuove", stelle_nuove);
-					}
-					else
-					{
-						ArrayList<String> stelle_nuove = (ArrayList<String>)sessione.getAttribute("stelle_nuove");
-						stelle_nuove.add((String) sessione.getAttribute("nome_stella_nuova"));
-						sessione.setAttribute("stelle_nuove", stelle_nuove);
-					}
+					prodotto.setNome(nome_stella_nuova);
+					//Array di nomi delle stelle
 				}
+				ArrayList<String> stelle_inserite = new ArrayList<String>();
+				stelle_inserite.add(nome_stella);
+				sessione.setAttribute("stelle_inserite", stelle_inserite);
+				
 				GregorianCalendar oggi = new GregorianCalendar();
 				int gg = oggi.get(Calendar.DAY_OF_MONTH);
 				int mm = oggi.get(Calendar.MONTH);
@@ -86,13 +66,32 @@ public class ServletInserimentoCarrello extends HttpServlet {
 				prodotto.setQuantita("incrementa");
 				prodotto.setPrezzo(Double.parseDouble((String)sessione.getAttribute("prezzo")));
 				carrello.setProdotti(prodotto);
+				carrello.setTotale(Double.parseDouble((String)sessione.getAttribute("prezzo")),"incrementa");
 				sessione.setAttribute("carrello",carrello);
 				
 				response.setHeader("verificato","true");
 			}
 			else
 			{
+				//store
+				String nome_prodotto_store = request.getHeader("nome_prodotto_store");
+				Double prezzo = Double.parseDouble(request.getHeader("prezzo"));
+				Integer quantita = Integer.parseInt(request.getHeader("quantita"));
+				ProdottoCarrello prodotto = new ProdottoCarrello();
 				
+				prodotto.setNome(nome_prodotto_store);
+				GregorianCalendar oggi = new GregorianCalendar();
+				int gg = oggi.get(Calendar.DAY_OF_MONTH);
+				int mm = oggi.get(Calendar.MONTH);
+				int aa = oggi.get(Calendar.YEAR);
+				prodotto.setData("" + aa + "-" + (mm+1) + "-" + gg);
+				prodotto.setQuantita("incrementa");
+				prodotto.setPrezzo(prezzo);
+				carrello.setProdotti(prodotto);
+				carrello.setTotale(prezzo,"incrementa");
+				sessione.setAttribute("carrello",carrello);
+				
+				response.setHeader("verificato","true");
 			}
 		}
 		else
@@ -100,71 +99,27 @@ public class ServletInserimentoCarrello extends HttpServlet {
 			if(tipo.equals("stella"))
 			{
 				//Se il carrello esiste
-				Carrello carrello = (Carrello)sessione.getAttribute("carrello");
+				carrello = (Carrello)sessione.getAttribute("carrello");
 				ArrayList<ProdottoCarrello> prodotti = (ArrayList<ProdottoCarrello>) carrello.getProdotti();
 				String nome_stella_nuova = request.getHeader("nome_stella_nuova");
+				String nome_stella =(String) sessione.getAttribute("nome_stella");
 				ProdottoCarrello prodotto = new ProdottoCarrello();
-				ArrayList<String> stelle_attuali = (ArrayList<String>) sessione.getAttribute("stelle_attuali");
-				int n_stelle_attuali = stelle_attuali.size();
-				if(nome_stella_nuova.equals(stelle_attuali.get(n_stelle_attuali-1)))
+				if(sessione.getAttribute("stelle_inserite")==null)
 				{
-					prodotto.setNome(nome_stella_nuova);
-					if(sessione.getAttribute("stelle_nuove")==null)
+					ArrayList<String> stelle_inserite = new ArrayList<String>();
+					if(nome_stella.equals(nome_stella))
 					{
-						//se non cambia il nome il valore è "no"
-						ArrayList<String> stelle_nuove = new ArrayList<String>();
-						stelle_nuove.add("no");
-						sessione.setAttribute("stelle_nuove", stelle_nuove);
+						//non cambia il nome
+						prodotto.setNome(nome_stella);
 					}
 					else
 					{
-						ArrayList<String> stelle_nuove = (ArrayList<String>)sessione.getAttribute("stelle_nuove");
-						stelle_nuove.add("no");
-						sessione.setAttribute("stelle_nuove", stelle_nuove);
+						//cambia il nome
+						prodotto.setNome(nome_stella_nuova);
 					}
-				}
-				else
-				{
-					prodotto.setNome(nome_stella_nuova);
-					if(sessione.getAttribute("stelle_nuove")==null)
-					{
-						//se cambia il nome della stella
-						ArrayList<String> stelle_nuove = new ArrayList<String>();
-						stelle_nuove.add(nome_stella_nuova);
-						sessione.setAttribute("stelle_nuove", stelle_nuove);
-					}
-					else
-					{
-						ArrayList<String> stelle_nuove = (ArrayList<String>)sessione.getAttribute("stelle_nuove");
-						stelle_nuove.add(nome_stella_nuova);
-						sessione.setAttribute("stelle_nuove", stelle_nuove);
-					}
-				}
-				boolean trovata_stella = false;
-				
-				for(int i=0;i<stelle_attuali.size()-1;i++)
-				{
-					if(stelle_attuali.get(i).equals(prodotto.getNome()))
-					{
-						trovata_stella = true;
-					}
-				}
-				
-				ArrayList<String> stelle_nuove = (ArrayList<String>)sessione.getAttribute("stelle_nuove");
-				for(int i=0;i<stelle_nuove.size()-1;i++)
-				{
-					if(stelle_nuove.get(i).equals(prodotto.getNome()))
-					{
-						trovata_stella = true;
-					}
-				}
-				
-				if(trovata_stella = true)
-				{
-					response.setHeader("verificato","false");
-				}
-				else
-				{
+					stelle_inserite.add(nome_stella);
+					sessione.setAttribute("stelle_inserite", stelle_inserite);
+					
 					GregorianCalendar oggi = new GregorianCalendar();
 					int gg = oggi.get(Calendar.DAY_OF_MONTH);
 					int mm = oggi.get(Calendar.MONTH);
@@ -174,14 +129,106 @@ public class ServletInserimentoCarrello extends HttpServlet {
 					prodotto.setQuantita("incrementa");
 					prodotto.setPrezzo(Double.parseDouble((String)sessione.getAttribute("prezzo")));
 					carrello.setProdotti(prodotto);
+					carrello.setTotale(Double.parseDouble((String)sessione.getAttribute("prezzo")),"incrementa");
 					sessione.setAttribute("carrello",carrello);
 					
 					response.setHeader("verificato","true");
 				}
+				else
+				{
+					boolean trovata_stella = false;
+					ArrayList<String> stelle_inserite = (ArrayList<String>)sessione.getAttribute("stelle_inserite");
+					for(String s: stelle_inserite)
+					{
+						if(s.equals(nome_stella))
+						{
+							trovata_stella=true;
+						}
+					}
+					
+					if(trovata_stella == true)
+					{
+						response.setHeader("verificato","false");
+					}
+					else
+					{
+						if(nome_stella.equals(nome_stella_nuova))
+							prodotto.setNome(nome_stella);
+						else
+							prodotto.setNome(nome_stella_nuova);
+						
+						stelle_inserite.add(nome_stella);
+						sessione.setAttribute("stelle_inserite", stelle_inserite);
+						GregorianCalendar oggi = new GregorianCalendar();
+						int gg = oggi.get(Calendar.DAY_OF_MONTH);
+						int mm = oggi.get(Calendar.MONTH);
+						int aa = oggi.get(Calendar.YEAR);
+						
+						prodotto.setData("" + aa + "-" + (mm+1) + "-" + gg);
+						prodotto.setQuantita("incrementa");
+						prodotto.setPrezzo(Double.parseDouble((String)sessione.getAttribute("prezzo")));
+						carrello.setProdotti(prodotto);
+						carrello.setTotale(Double.parseDouble((String)sessione.getAttribute("prezzo")),"incrementa");
+						sessione.setAttribute("carrello",carrello);
+						
+						response.setHeader("verificato","true");
+					}
+				}
+				
 			}
 			else
 			{
+				boolean errore = false;
+				boolean trovato = false;
 				
+				carrello = (Carrello)sessione.getAttribute("carrello");
+				String nome_prodotto_store = request.getHeader("nome_prodotto_store");
+				Double prezzo = Double.parseDouble(request.getHeader("prezzo"));
+				Integer quantita = Integer.parseInt(request.getHeader("quantita"));
+				
+				
+				ArrayList<ProdottoCarrello> prodotti = carrello.getProdotti();	
+				int indice=0;
+				int i=0;
+				for(ProdottoCarrello p:prodotti)
+				{
+					if(p.getNome().equals(nome_prodotto_store))
+					{
+						if(p.getQuantita()+1>quantita)
+							errore=true;
+						else
+							trovato=true;
+						indice=i;
+					}
+					i++;
+				}
+				
+				if(trovato==false)
+				{
+					ProdottoCarrello prodotto = new ProdottoCarrello();
+					prodotto.setNome(nome_prodotto_store);
+					GregorianCalendar oggi = new GregorianCalendar();
+					int gg = oggi.get(Calendar.DAY_OF_MONTH);
+					int mm = oggi.get(Calendar.MONTH);
+					int aa = oggi.get(Calendar.YEAR);
+					prodotto.setData("" + aa + "-" + (mm+1) + "-" + gg);
+					prodotto.setQuantita("incrementa");
+					prodotto.setPrezzo(prezzo);
+					carrello.setProdotti(prodotto);
+					carrello.setTotale(prezzo,"incrementa");
+					sessione.setAttribute("carrello",carrello);
+					response.setHeader("verificato","true");
+				}
+				else if(trovato==true && errore==false)
+				{
+					carrello.getProdotti().get(indice).setQuantita("incrementa");
+					sessione.setAttribute("carrello",carrello);
+					response.setHeader("verificato","true");
+				}
+				else if(trovato=true && errore==true)
+				{
+					response.setHeader("verificato","false");
+				}
 			}
 		}
 		
