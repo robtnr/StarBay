@@ -222,6 +222,7 @@ public class ServletInserimentoCarrello extends HttpServlet {
 				else if(trovato==true && errore==false)
 				{
 					carrello.getProdotti().get(indice).setQuantita("incrementa");
+					carrello.setTotale(prezzo, "incrementa");
 					sessione.setAttribute("carrello",carrello);
 					response.setHeader("verificato","true");
 				}

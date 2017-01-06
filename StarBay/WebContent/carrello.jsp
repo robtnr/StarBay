@@ -1,3 +1,6 @@
+<%@page import="it.starbay.gestionebean.ProdottoCarrello"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="it.starbay.gestionebean.Carrello"%>
 <%@ page language="java" contentType="text/html;"%>
 <!DOCTYPE html>
 <html>
@@ -56,25 +59,68 @@
 					        <th></th>
 					      </tr>
 					    </thead>
+					     <% if(session.getAttribute("carrello")==null)
+					      {
+					     %>
 					    <tbody>
+					    <tr style="font-size:20px"><center>Non ci sono prodotti nel carrello</center></tr>
+					    </tbody> 
+					     <% 
+					      }
+					     else
+					     {
+					    	Carrello carrello = (Carrello)session.getAttribute("carrello");
+					    	ArrayList<ProdottoCarrello> prodotti = carrello.getProdotti();
+					     %>
+					    <tbody>
+					     <%
+					     for(ProdottoCarrello p: prodotti)
+					     {
+					     %>
 					      <tr>
-						    <td class="nome_prodotto">Andromeda</td>
-							<td>1</td>
-							<td>25.00 &euro;</td>
+						    <td class="nome_prodotto"><%= p.getNome() %></td>
+							<td><%= p.getQuantita() %></td>
+							<td><%= p.getPrezzo() %> &euro;</td>
 							<td><img src="images/less.png" title="clicca qui per eliminare"></td>  
 					      </tr>
-					      <tr>
-						    <td class="nome_prodotto">Andromeda</td>
-							<td>1</td>
-							<td>25.00 &euro;</td>
-							<td><img src="images/less.png" title="clicca qui per eliminare"></td>  
-					      </tr>
+					      <%
+					      }
+					      } 
+					      %>
 					    </tbody>
 					    </table>					
 					</div>
 					<div id="scontrino_bar"><hr></div>
-					<div id="scontrino_tot">TOTALE<p>100.00 &euro;</p></div>
+					<div id="scontrino_tot">TOTALE
+						<p>
+						<% 
+						if(session.getAttribute("carrello")==null)
+					      {
+						%>
+					    0.00 &euro;
+					 	<%
+					      }
+						else
+						{
+						Carrello carrello = (Carrello) session.getAttribute("carrello");	
+					 	%>
+					 	<%= carrello.getTotale()%> &euro;
+					 	<%
+						}
+					 	%>
+					 	</p>
+					 </div>
+					 <%
+					 if(session.getAttribute("carrello")==null)
+				     { 
+				     }
+					 else
+					 {
+					 %>
 					<div id="scontrino_acquista"><input class="submit_acquista" type="submit" value="acquista"></div>
+					 <%
+					 }
+					 %>
 			    </div>			
 
 				</div>
