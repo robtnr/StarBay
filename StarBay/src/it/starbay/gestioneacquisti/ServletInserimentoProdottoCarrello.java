@@ -30,8 +30,6 @@ public class ServletInserimentoProdottoCarrello extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		HttpSession sessione = request.getSession();
-		if(sessione.getAttribute("cliente")!=null)
-			carrello.setUsername(((Cliente)sessione.getAttribute("cliente")).getNome());
 		String tipo = request.getHeader("tipo");
 		//Calcolare la pagina di reindirizzamento
 		calcoloHeaderIndirizzamento(request,response);
@@ -240,7 +238,8 @@ public class ServletInserimentoProdottoCarrello extends HttpServlet {
 				}
 			}
 		}
-		
+		if(sessione.getAttribute("cliente")!=null)
+			carrello.setUsername(((Cliente)sessione.getAttribute("cliente")).getNome());
 	}
 
 
