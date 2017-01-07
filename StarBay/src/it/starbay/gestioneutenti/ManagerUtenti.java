@@ -117,21 +117,21 @@ public class ManagerUtenti
 	public ArrayList<Cliente> dammiClienti() 
 	{
 		ArrayList<Cliente> clienti = new ArrayList<>();
-		Cliente c = new Cliente();
+		Cliente c = null;
 		try
 		{
 			statement = connection.createStatement();
 			result = statement.executeQuery("SELECT cognome, nome, username, email FROM UTENTI");
-
+			
 			while(result.next())
 			{
+				c = new Cliente();
 				c.setCognome(result.getString(1));
 				c.setNome(result.getString(2));
 				c.setUsername(result.getString(3));
 				c.setEmail(result.getString(4));
 				clienti.add(c);
 			}
-
 		}
 		catch (Exception e)
 		{

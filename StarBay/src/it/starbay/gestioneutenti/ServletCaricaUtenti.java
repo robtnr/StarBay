@@ -19,7 +19,6 @@ public class ServletCaricaUtenti extends HttpServlet
 	{
 		ManagerUtenti mu = new ManagerUtenti();
 		ArrayList<Cliente> clienti = mu.dammiClienti();
-		System.out.println("ok");
 		if (clienti.isEmpty()) response.addHeader("tbody", "nok");
 		else
 		{
