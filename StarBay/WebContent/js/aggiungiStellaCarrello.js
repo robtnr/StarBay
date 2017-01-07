@@ -7,10 +7,11 @@ function aggiungiStellaCarrello()
 		if(http.readyState==4 && http.status==200)
 		{
 			var verificato = http.getResponseHeader("verificato");
+			var pagina_da_reindirizzare = http.getResponseHeader("pagina_da_reindirizzare");
 			if(verificato=="true")
 			{
 				setTimeout(function(){
-					open("index.jsp","_self");
+					open(pagina_da_reindirizzare,"_self");
 				}, 1200);
 				
 				swal("Successo","Prodotto stella inserito con successo", "success");
@@ -18,14 +19,14 @@ function aggiungiStellaCarrello()
 			else
 			{
 				setTimeout(function(){
-					open("index.jsp","_self");
+					open(pagina_da_reindirizzare,"_self");
 				}, 1200);
 				
 				swal("Errore","Stella gia' presente!", "error");
 			}
 		}
 	}
-	http.open("POST", "http://localhost:8080/StarBay/ServletInserimentoCarrello", true);
+	http.open("POST", "http://localhost:8080/StarBay/ServletInserimentoProdottoCarrello", true);
 	http.setRequestHeader("nome_stella_nuova",nome_stella_nuova);
 	http.setRequestHeader("tipo","stella");
 	http.send();

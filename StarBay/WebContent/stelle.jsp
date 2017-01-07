@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="css/style.css">
 <script	src="js/controlliLogin.js"></script>
 <script	src="js/logout.js"></script>
+<script	src="js/richiediNomeStella.js"></script>
 <!-- Link per SweetAlert -->
 	<script src="dist/sweetalert-dev.js"></script>
     <link rel="stylesheet" href="dist/sweetalert.css">	
@@ -66,12 +67,12 @@
 								<div id="immagine_article_new">
 									<img src="<%=s.getSrc()%>" class="img-responsive">
 								</div>
-								<div id="descrizione_pagina"><%= s.getNome()%>, <%=s.getDescrizione()%></div>
+								<div id="descrizione_pagina"><span><%= s.getNome()%></span>, <%=s.getDescrizione()%></div>
 								<div id="compra_articolo">
 									<div id="prezzo">
 										PREZZO: <span id="cifra"><%=s.getPrezzo()%></span> &euro;
 									</div>
-									<button type="button" id="bottonePiu">
+									<button type="button" id="bottonePiu" onclick="richiediNomeStella(this)">
 										<span><img src="images/carrello_piu.png"
 											alt="Aggiungi al carrello" title="Aggiungi al carrello"></span>
 									</button>

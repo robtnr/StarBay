@@ -36,6 +36,8 @@
     	session.setAttribute("prezzo", prezzo);
     	
     	session.setAttribute("nome_stella", nome_stella);
+    	
+    	session.setAttribute("pagina_da_reindirizzare", request.getParameter("title"));
     %>
 			
 </head>
