@@ -32,22 +32,16 @@ public class ServletLoginUtente extends HttpServlet {
 		else
 		{
 			ManagerUtenti manager;
-			try 
+			manager = new ManagerUtenti();
+			Cliente cliente = manager.controlloCredenziali(username, password);
+			if(cliente.getNome().equals("none"))
 			{
-				manager = new ManagerUtenti();
-				Cliente cliente = manager.controlloCredenziali(username, password);
-				if(cliente.getNome().equals("none"))
-				{
-					response.setHeader("esito_login", "false");
-				}
-				else
-				{
-					response.setHeader("esito_login","true");
-					sessione.setAttribute("cliente", cliente);
-				}
-			} catch (ClassNotFoundException | SQLException e) 
+				response.setHeader("esito_login", "false");
+			}
+			else
 			{
-				e.printStackTrace();
+				response.setHeader("esito_login","true");
+				sessione.setAttribute("cliente", cliente);
 			}
 		}
 	}

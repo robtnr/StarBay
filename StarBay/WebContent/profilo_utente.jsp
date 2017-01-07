@@ -20,7 +20,6 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/style.css">
-<script	src="js/controlliLogin.js"></script>
 <script	src="js/logout.js"></script>
 <!-- Link per SweetAlert -->
 	<script src="dist/sweetalert-dev.js"></script>
@@ -51,7 +50,7 @@
 							<div id="info_user">
 							<div id="nome_utente">${cliente.nome}  ${cliente.cognome}</div>
 								<br> ${cliente.email}
-								<br> ${cliente.username}
+								<br> <span id="username">${cliente.username}</span>
 								<br> ${cliente.comune}
 								<br> ${cliente.indirizzo}
 							</div>
@@ -68,14 +67,8 @@
 						        <th>Contratto</th>
 						      </tr>
 						    </thead>
-						    <tbody>
-						      <tr>
-							    <td>Telescopio</td>
-								<td>25.00</td>
-								<td>1</td>
-								<td>2016-05-05</td>
-								<td><a href="#">link pdf</a></td>   
-						      </tr>
+						    <tbody id="tbody">
+						      
 						    </tbody>
 						    </table>
 						    <div style="background-color:#070d19; height:2px;"><hr></div>
@@ -89,5 +82,6 @@
 
 	<%@ include file="includes/footer.jsp"%>
 	
+<script	src="js/profiloUtente.js"></script>
 </body>
 </html>

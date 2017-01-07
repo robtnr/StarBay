@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import it.starbay.gestionebean.CallDatabase;
 import it.starbay.gestionebean.Cliente;
@@ -14,11 +15,20 @@ public class ManagerUtenti
 	private CallDatabase db;
 	private Connection connection;
 	private PreparedStatement inserter;
+	private Statement statement;
+	private ResultSet result;
 	
-	public ManagerUtenti() throws ClassNotFoundException, SQLException
+	public ManagerUtenti()
 	{
-		db = new CallDatabase();
-		connection = db.getConnection();
+		try 
+		{
+			db = new CallDatabase();
+			connection = db.getConnection();
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
 	}
 	
 	public boolean registraUtente(Cliente c)
@@ -76,5 +86,31 @@ public class ManagerUtenti
 		}
 		
 		return cliente;
+	}
+
+	public ArrayList<String> dammiOrdiniUtente(String username) 
+	{
+		ArrayList<String> righe = new ArrayList<String>();
+		try
+		{
+			statement = connection.createStatement();
+			result = statement.executeQuery("SELECT idOrdine, nome, prezzo, quantitaAcquistata FROM ORDINI NATURAL JOIN DETTAGLI_ORDINI NATURAL JOIN INCLUDE_STELLE NATURAL JOIN STELLE WHERE username = "+username);
+
+			while(result.next())
+				righe.add("<tr><td>" + result.getString(1) + "</td><td>" + result.getString(2) + "</td><td>" + result.getString(3) + "</td><td>" + result.getString(4) + "</td></tr>");
+			
+			result = statement.executeQuery("SELECT idOrdine, nome, prezzo, quantitaAcquistata FROM ORDINI NATURAL JOIN DETTAGLI_ORDINI NATURAL JOIN INCLUDE_STORE NATURAL JOIN STORE WHERE username = "+username);
+
+			while(result.next())
+				righe.add("<tr><td>" + result.getString(1) + "</td><td>" + result.getString(2) + "</td><td>" + result.getString(3) + "</td><td>" + result.getString(4) + "</td></tr>");
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		if (righe.isEmpty()) return null;
+		
+		return righe;
 	}
 }
