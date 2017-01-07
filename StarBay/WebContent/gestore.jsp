@@ -40,7 +40,7 @@
 							<li>Inserimento prodotto<a href="inserimento_prodotto_stella.jsp"><img src="images/arrow.png">Stella</a><a href="inserimento_prodotto_store.jsp"><img src="images/arrow.png">Store</a></li>
 							<li>Modifica prodotto<a href="modifica_prodotto_stella.jsp"><img src="images/arrow.png">Stella</a><a href="modifica_prodotto_store.jsp"><img src="images/arrow.png">Store</a></li>
 							<li>Elimina prodotto<a href="elimina_prodotto_stella.jsp"><img src="images/arrow.png">Stella</a><a href="elimina_prodotto_store.jsp"><img src="images/arrow.png">Store</a></li>
-							<li><a href="#">Elimina Utente </a></li>
+							<li><a href="elimina_utente.jsp">Elimina Utente </a></li>
 							<li>Visualizza<a href="#" onclick="visualizzaGuadagno()"><img src="images/arrow.png">Guadagno</a><a href="#" onclick="visualizzaRicavo()"><img src="images/arrow.png">Ricavo</a></li>
 							<li><a href="visualizza_guadagno_singolo_prodotto.jsp">Visualizza guadagno per singolo prodotto</a></li>
 						</ul>

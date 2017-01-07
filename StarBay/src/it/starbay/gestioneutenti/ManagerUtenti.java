@@ -17,7 +17,7 @@ public class ManagerUtenti
 	private PreparedStatement inserter;
 	private Statement statement;
 	private ResultSet result;
-	
+
 	public ManagerUtenti()
 	{
 		try 
@@ -30,7 +30,7 @@ public class ManagerUtenti
 			e.printStackTrace();
 		}
 	}
-	
+
 	public boolean registraUtente(Cliente c)
 	{
 		boolean errore=false;
@@ -50,12 +50,12 @@ public class ManagerUtenti
 			connection.close();
 		} catch (SQLException e) 
 		{
-			
+
 			errore=true;
 		}
 		return errore;
 	}
-	
+
 	public Cliente controlloCredenziali(String username,String password)
 	{
 		Cliente cliente= new Cliente();
@@ -84,7 +84,7 @@ public class ManagerUtenti
 		{
 			e.printStackTrace();
 		}
-		
+
 		return cliente;
 	}
 
@@ -98,7 +98,7 @@ public class ManagerUtenti
 
 			while(result.next())
 				righe.add("<tr><td>" + result.getString(1) + "</td><td>" + result.getString(2) + "</td><td>" + result.getString(3) + "</td><td>" + result.getString(4) + "</td></tr>");
-			
+
 			result = statement.executeQuery("SELECT idOrdine, nome, prezzo, quantitaAcquistata FROM ORDINI NATURAL JOIN DETTAGLI_ORDINI NATURAL JOIN INCLUDE_STORE NATURAL JOIN STORE WHERE username = "+username);
 
 			while(result.next())
@@ -108,9 +108,35 @@ public class ManagerUtenti
 		{
 			e.printStackTrace();
 		}
-		
+
 		if (righe.isEmpty()) return null;
-		
+
 		return righe;
+	}
+
+	public ArrayList<Cliente> dammiClienti() 
+	{
+		ArrayList<Cliente> clienti = new ArrayList<>();
+		Cliente c = new Cliente();
+		try
+		{
+			statement = connection.createStatement();
+			result = statement.executeQuery("SELECT cognome, nome, username, email FROM UTENTI");
+
+			while(result.next())
+			{
+				c.setCognome(result.getString(1));
+				c.setNome(result.getString(2));
+				c.setUsername(result.getString(3));
+				c.setEmail(result.getString(4));
+				clienti.add(c);
+			}
+
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		return clienti;
 	}
 }
