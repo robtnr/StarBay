@@ -47,6 +47,7 @@
 				        <th>Nome</th>
 				        <th>Username</th>
 				        <th>Email</th>
+				        <th></th>
 				      </tr>
 				    </thead>
 				    <tbody id ="tbody">

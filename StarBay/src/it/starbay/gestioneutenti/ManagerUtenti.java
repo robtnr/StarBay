@@ -139,4 +139,17 @@ public class ManagerUtenti
 		}
 		return clienti;
 	}
+
+	public void eliminaUtente(String utente) 
+	{
+		try 
+		{
+			statement = connection.createStatement();
+			result = statement.executeQuery("DELETE FROM UTENTI WHERE username=" + utente);
+		}
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+	}
 }
