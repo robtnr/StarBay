@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="css/style.css">
 <script	src="js/controlliLogin.js"></script>
 <script	src="js/logout.js"></script>
+<script	src="js/rimozioneProdottoCarrello.js"></script>
 <!-- Link per SweetAlert -->
 	<script src="dist/sweetalert-dev.js"></script>
     <link rel="stylesheet" href="dist/sweetalert.css">	
@@ -80,8 +81,8 @@
 					      <tr>
 						    <td class="nome_prodotto"><%= p.getNome() %></td>
 							<td><%= p.getQuantita() %></td>
-							<td><%= p.getPrezzo() %> &euro;</td>
-							<td><img src="images/less.png" title="clicca qui per eliminare"></td>  
+							<td><span><%= p.getPrezzo() %></span> &euro;</td>
+							<td><img src="images/less.png" title="clicca qui per eliminare" onclick="rimozioneProdottoCarrello(this)"></td>  
 					      </tr>
 					      <%
 					      }

@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -55,6 +57,7 @@ public class ServletInserimentoCarrello extends HttpServlet {
 				}
 				ArrayList<String> stelle_inserite = new ArrayList<String>();
 				stelle_inserite.add(nome_stella);
+				stelle_inserite.add(nome_stella_nuova);
 				sessione.setAttribute("stelle_inserite", stelle_inserite);
 				
 				GregorianCalendar oggi = new GregorianCalendar();
@@ -118,6 +121,7 @@ public class ServletInserimentoCarrello extends HttpServlet {
 						prodotto.setNome(nome_stella_nuova);
 					}
 					stelle_inserite.add(nome_stella);
+					stelle_inserite.add(nome_stella_nuova);
 					sessione.setAttribute("stelle_inserite", stelle_inserite);
 					
 					GregorianCalendar oggi = new GregorianCalendar();
@@ -158,6 +162,7 @@ public class ServletInserimentoCarrello extends HttpServlet {
 							prodotto.setNome(nome_stella_nuova);
 						
 						stelle_inserite.add(nome_stella);
+						stelle_inserite.add(nome_stella_nuova);
 						sessione.setAttribute("stelle_inserite", stelle_inserite);
 						GregorianCalendar oggi = new GregorianCalendar();
 						int gg = oggi.get(Calendar.DAY_OF_MONTH);
