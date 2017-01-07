@@ -17,12 +17,13 @@ import javax.servlet.http.HttpSession;
 import it.starbay.gestionebean.Carrello;
 import it.starbay.gestionebean.Cliente;
 import it.starbay.gestionebean.ProdottoCarrello;
+import jdk.nashorn.internal.ir.RuntimeNode.Request;
 
 /**
  * Servlet implementation class ServletInserimentoCarrello
  */
-@WebServlet("/ServletInserimentoCarrello")
-public class ServletInserimentoCarrello extends HttpServlet {
+@WebServlet("/ServletInserimentoProdottoCarrello")
+public class ServletInserimentoProdottoCarrello extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Carrello carrello;
        
@@ -32,12 +33,14 @@ public class ServletInserimentoCarrello extends HttpServlet {
 		if(sessione.getAttribute("cliente")!=null)
 			carrello.setUsername(((Cliente)sessione.getAttribute("cliente")).getNome());
 		String tipo = request.getHeader("tipo");
+		//Calcolare la pagina di reindirizzamento
+		calcoloHeaderIndirizzamento(request,response);
 		if(sessione.getAttribute("carrello")==null)
 		{
 			//Se il carrello è vuoto
 			carrello = new Carrello();
 			if(tipo.equals("stella"))
-			{
+			{	
 				//Inserimento di una stella
 				String nome_stella_nuova = request.getHeader("nome_stella_nuova");
 				String nome_stella =(String) sessione.getAttribute("nome_stella");
@@ -238,6 +241,25 @@ public class ServletInserimentoCarrello extends HttpServlet {
 			}
 		}
 		
+	}
+
+
+	public void calcoloHeaderIndirizzamento(HttpServletRequest request, HttpServletResponse response) 
+	{
+		HttpSession sessione = request.getSession();
+		if(sessione.getAttribute("pagina_da_reindirizzare")==null)
+			sessione.setAttribute("pagina_da_reindirizzare", request.getHeader("pagina_da_reindirizzare"));
+		
+		String nome = (String)sessione.getAttribute("pagina_da_reindirizzare");
+		
+		if(nome.equals("StarBay"))
+			response.setHeader("pagina_da_reindirizzare", "index.jsp");
+		else if(nome.equals("Stelle"))
+			response.setHeader("pagina_da_reindirizzare", "stelle.jsp");
+		else if(nome.equals("Store"))
+			response.setHeader("pagina_da_reindirizzare", "store.jsp");
+		
+		sessione.removeAttribute("pagina_da_reindirizzare");
 	}
 
 
