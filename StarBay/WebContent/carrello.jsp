@@ -25,6 +25,7 @@
 <script	src="js/controlliLogin.js"></script>
 <script	src="js/logout.js"></script>
 <script	src="js/rimozioneProdottoCarrello.js"></script>
+<script	src="js/ricercaProdotto.js"></script>
 <!-- Link per SweetAlert -->
 	<script src="dist/sweetalert-dev.js"></script>
     <link rel="stylesheet" href="dist/sweetalert.css">	

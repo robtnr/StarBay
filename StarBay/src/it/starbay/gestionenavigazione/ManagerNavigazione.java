@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-
 import it.starbay.gestionebean.CallDatabase;
 import it.starbay.gestionebean.Stella;
 import it.starbay.gestionebean.Store;
@@ -215,5 +214,75 @@ public class ManagerNavigazione
 			
 		}
 		return prodotti_store;
+	}
+	
+	public ArrayList cercaProdotti(String chiave)
+	{
+		String template;
+		PreparedStatement inserter;
+		ResultSet result;
+		ArrayList prodotti_trovati = new ArrayList(); 
+		
+		template = "SELECT * FROM STELLE WHERE nome LIKE ?";
+		try
+		{
+			inserter = connection.prepareStatement(template);
+			inserter.setString(1, "%"+chiave+"%");
+			result = inserter.executeQuery();
+		
+			while(result.next())
+			{
+				Stella stella = new Stella();
+				stella.setCoordinate(result.getString(1));
+				stella.setDescrizione(result.getString(2));
+				stella.setSrc(result.getString(3));
+				stella.setPrezzo(result.getDouble(4));
+				stella.setNome(result.getString(5));
+				stella.setData(result.getString(7));
+				prodotti_trovati.add("stella");
+				prodotti_trovati.add(stella);
+			}
+			inserter.close();
+			
+		} catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
+		template = "SELECT * FROM STORE WHERE nome LIKE ?";
+		try
+		{
+			inserter = connection.prepareStatement(template);
+			inserter.setString(1, "%"+chiave+"%");
+			result = inserter.executeQuery();
+			while(result.next())
+			{
+				Store prodotto_store = new Store();
+				prodotto_store.setNome(result.getString(1));
+				prodotto_store.setDescrizione(result.getString(2));
+				prodotto_store.setSrc(result.getString(3));
+				prodotto_store.setPrezzoVendita(result.getDouble(4));
+				prodotto_store.setQuantita(result.getInt(5));
+				prodotto_store.setPrezzoAcquisto(result.getDouble(6));
+				prodotto_store.setData(result.getString(7));
+				prodotti_trovati.add("store");
+				prodotti_trovati.add(prodotto_store);
+			}
+			inserter.close();
+			
+		} catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
+		try 
+		{
+			connection.close();
+		} catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		return prodotti_trovati;
 	}
 }
