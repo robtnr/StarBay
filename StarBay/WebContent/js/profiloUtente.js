@@ -20,5 +20,5 @@ xhttp.onreadystatechange = function()
 	}
 };
 xhttp.open("GET", "ServletCaricaOrdiniUtente", true);
-xhttp.addRequestHeader("username", document.getElementById("username").innerHTML);
+xhttp.setRequestHeader("username", document.getElementById("username").innerHTML);
 xhttp.send();

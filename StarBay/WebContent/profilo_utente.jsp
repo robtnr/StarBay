@@ -21,7 +21,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/style.css">
 <script	src="js/logout.js"></script>
-<script	src="js/ricercaProdotto.js"></script>
+<script	src="js/profiloUtente.js"></script>
 <!-- Link per SweetAlert -->
 	<script src="dist/sweetalert-dev.js"></script>
     <link rel="stylesheet" href="dist/sweetalert.css">	
@@ -61,11 +61,11 @@
 							<table class="table">
 						    <thead>
 						      <tr style="background-color:#070d19; color:#ffc307;">
-						        <th>Nome Prodotto</th>
+						        <th>ID Ordine</th>
+						        <th>Nome</th>
 						        <th>Prezzo</th>
 						        <th>Quantità</th>
-						        <th>Data Acquisto</th>
-						        <th>Contratto</th>
+						       <!--<th>Contratto</th>-->
 						      </tr>
 						    </thead>
 						    <tbody id="tbody">
