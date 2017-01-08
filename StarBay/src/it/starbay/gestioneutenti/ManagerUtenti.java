@@ -91,26 +91,34 @@ public class ManagerUtenti
 	public ArrayList<String> dammiOrdiniUtente(String username) 
 	{
 		ArrayList<String> righe = new ArrayList<String>();
+		double totale = 0;
 		try
 		{
 			statement = connection.createStatement();
-			result = statement.executeQuery("SELECT idOrdine, nome, prezzo, quantitaAcquistata FROM ORDINI NATURAL JOIN DETTAGLI_ORDINI NATURAL JOIN INCLUDE_STELLE NATURAL JOIN STELLE WHERE username = "+username);
+			result = statement.executeQuery("SELECT idOrdine, nome, prezzo, quantitaAcquistata FROM ORDINI NATURAL JOIN DETTAGLI_ORDINI NATURAL JOIN INCLUDE_STELLE NATURAL JOIN STELLE WHERE username = '"+username+"'");
 
 			while(result.next())
+			{
 				righe.add("<tr><td>" + result.getString(1) + "</td><td>" + result.getString(2) + "</td><td>" + result.getString(3) + "</td><td>" + result.getString(4) + "</td></tr>");
-
-			result = statement.executeQuery("SELECT idOrdine, nome, prezzo, quantitaAcquistata FROM ORDINI NATURAL JOIN DETTAGLI_ORDINI NATURAL JOIN INCLUDE_STORE NATURAL JOIN STORE WHERE username = "+username);
+				totale += Double.parseDouble(result.getString(3));
+			}
+			
+			result = statement.executeQuery("SELECT idOrdine, nome, prezzo, quantitaAcquistata FROM ORDINI NATURAL JOIN DETTAGLI_ORDINI NATURAL JOIN INCLUDE_STORE NATURAL JOIN STORE WHERE username = '"+username+"'");
 
 			while(result.next())
+			{
 				righe.add("<tr><td>" + result.getString(1) + "</td><td>" + result.getString(2) + "</td><td>" + result.getString(3) + "</td><td>" + result.getString(4) + "</td></tr>");
+				totale += Double.parseDouble(result.getString(3));
+			}
 		}
 		catch (Exception e)
 		{
 			e.printStackTrace();
 		}
-
+		
 		if (righe.isEmpty()) return null;
 
+		righe.add(0, ""+totale);
 		return righe;
 	}
 

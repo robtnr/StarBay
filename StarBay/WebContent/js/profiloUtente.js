@@ -16,7 +16,10 @@ xhttp.onreadystatechange = function()
 			});
 		}
 		else
+		{
 			document.getElementById("tbody").innerHTML = tbody;
+			document.getElementById("totale").innerHTML = xhttp.getResponseHeader("totale");
+		}
 	}
 };
 xhttp.open("GET", "ServletCaricaOrdiniUtente", true);
