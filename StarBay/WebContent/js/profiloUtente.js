@@ -16,7 +16,11 @@ xhttp.onreadystatechange = function()
 			});
 		}
 		else
+		{
 			document.getElementById("tbody").innerHTML = tbody;
+			var totale = xhttp.getResponseHeader("totale");
+			document.getElementById("totale").innerHTML = "Totale: "+totale+" &euro;"
+		}
 	}
 };
 xhttp.open("GET", "ServletCaricaOrdiniUtente", true);

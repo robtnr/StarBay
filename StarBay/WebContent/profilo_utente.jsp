@@ -74,7 +74,7 @@
 						    </tbody>
 						    </table>
 						    <div style="background-color:#070d19; height:2px;"><hr></div>
-							<div style="text-align:center; font-size:16px;">Totale: 100.00 &euro;</div>
+							<div id="totale" style="text-align:center; font-size:16px;">Totale: 100.00 &euro;</div>
 						</div>
 					</div>	
 				</div>

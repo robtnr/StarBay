@@ -22,6 +22,9 @@ public class ServletCaricaOrdiniUtente extends HttpServlet
 		if (righe == null) response.addHeader("tbody", "nok");
 		else
 		{
+			response.addHeader("totale", righe.get(0));
+			righe.remove(0);
+			
 			String tbody = "";
 
 			for(String tr: righe)
