@@ -92,7 +92,6 @@ public class ManagerUtenti
 	{
 		ArrayList<String> righe = new ArrayList<String>();
 		double totale = 0;
-		String funzione = "";
 		try
 		{
 			statement = connection.createStatement();
@@ -100,8 +99,7 @@ public class ManagerUtenti
 
 			while(result.next())
 			{
-				funzione = "'"+result.getString(1)+"', '"+result.getString(2)+"', '"+result.getString(3)+"', '"+result.getString(5)+"', '"+result.getString(6)+"', '"+result.getString(7)+"', \""+result.getString(8)+"\"";
-				righe.add("<tr><td>" + result.getString(1) + "</td><td>" + result.getString(2) + "</td><td>" + result.getString(3) + "</td><td>" + result.getString(4) + "</td><td style='text-align: center;'><img onclick='contratto("+funzione+")' style='width: 30px' src='images/pdf.png' /></td></tr>");
+				righe.add("<tr><td>" + result.getString(1) + "</td><td>" + result.getString(2) + "</td><td>" + result.getString(3) + "</td><td>" + result.getString(4) + "</td><td style='text-align: center;'><img style='width: 30px' src='images/pdf.png' /></td></tr>");
 				totale += Double.parseDouble(result.getString(3));
 			}
 			
