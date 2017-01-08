@@ -63,7 +63,7 @@ public class ManagerUtenti
 		try 
 		{
 			Statement statement = connection.createStatement();
-			ResultSet result = statement.executeQuery("SELECT * FROM UTENTI");
+			ResultSet result = statement.executeQuery("SELECT email, nome, cognome, comune, indirizzo, username, password, iban FROM UTENTI");
 			while(result.next())
 			{			
 				if(username.equals(result.getString(6)) && password.equals(result.getString(7)))
