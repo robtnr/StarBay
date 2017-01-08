@@ -66,7 +66,7 @@
 						        <th>Nome</th>
 						        <th>Prezzo</th>
 						        <th>Quantità</th>
-						       <!--<th>Contratto</th>-->
+						       	<th>Contratto</th>
 						      </tr>
 						    </thead>
 						    <tbody id="tbody">

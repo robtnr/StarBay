@@ -92,14 +92,16 @@ public class ManagerUtenti
 	{
 		ArrayList<String> righe = new ArrayList<String>();
 		double totale = 0;
+		String funzione = "";
 		try
 		{
 			statement = connection.createStatement();
-			result = statement.executeQuery("SELECT idOrdine, nome, prezzo, quantitaAcquistata FROM ORDINI NATURAL JOIN DETTAGLI_ORDINI NATURAL JOIN INCLUDE_STELLE NATURAL JOIN STELLE WHERE username = '"+username+"'");
+			result = statement.executeQuery("SELECT idOrdine, nome, prezzo, quantitaAcquistata, data, ora, coordinate, descrizione FROM ORDINI NATURAL JOIN DETTAGLI_ORDINI NATURAL JOIN INCLUDE_STELLE NATURAL JOIN STELLE WHERE username = '"+username+"'");
 
 			while(result.next())
 			{
-				righe.add("<tr><td>" + result.getString(1) + "</td><td>" + result.getString(2) + "</td><td>" + result.getString(3) + "</td><td>" + result.getString(4) + "</td></tr>");
+				funzione = "'"+result.getString(1)+"', '"+result.getString(2)+"', '"+result.getString(3)+"', '"+result.getString(5)+"', '"+result.getString(6)+"', '"+result.getString(7)+"', \""+result.getString(8)+"\"";
+				righe.add("<tr><td>" + result.getString(1) + "</td><td>" + result.getString(2) + "</td><td>" + result.getString(3) + "</td><td>" + result.getString(4) + "</td><td style='text-align: center;'><img onclick='contratto("+funzione+")' style='width: 30px' src='images/pdf.png' /></td></tr>");
 				totale += Double.parseDouble(result.getString(3));
 			}
 			
@@ -107,7 +109,7 @@ public class ManagerUtenti
 
 			while(result.next())
 			{
-				righe.add("<tr><td>" + result.getString(1) + "</td><td>" + result.getString(2) + "</td><td>" + result.getString(3) + "</td><td>" + result.getString(4) + "</td></tr>");
+				righe.add("<tr><td>" + result.getString(1) + "</td><td>" + result.getString(2) + "</td><td>" + result.getString(3) + "</td><td>" + result.getString(4) + "</td><td></td></tr>");
 				totale += Double.parseDouble(result.getString(3));
 			}
 		}
