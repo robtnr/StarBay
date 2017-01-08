@@ -34,7 +34,7 @@ public class ManagerUtenti
 	public boolean registraUtente(Cliente c)
 	{
 		boolean errore=false;
-		String query = "INSERT INTO UTENTI VALUES(?,?,?,?,?,?,?,?)";
+		String query = "INSERT INTO UTENTI (email, nome, cognome, comune, indirizzo, username, password, iban) VALUES(?,?,?,?,?,?,?,?)";
 		try {
 			inserter = connection.prepareStatement(query);
 			inserter.setString(1, c.getEmail());
