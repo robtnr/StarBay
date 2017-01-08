@@ -27,7 +27,7 @@ function aggiungiProdottoStoreCarrello(x)
 					open(pagina_da_reindirizzare,"_self");
 				}, 1000);
 				
-				swal("Errore","Prodotto store esaurito", "success");
+				swal("Errore","Prodotto store esaurito", "error");
 			}
 		}
 	}

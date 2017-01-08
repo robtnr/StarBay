@@ -201,7 +201,10 @@ public class ServletInserimentoProdottoCarrello extends HttpServlet {
 					if(p.getNome().equals(nome_prodotto_store))
 					{
 						if(p.getQuantita()+1>quantita)
+						{
 							errore=true;
+							trovato = true;
+						}
 						else
 							trovato=true;
 						indice=i;
@@ -232,7 +235,7 @@ public class ServletInserimentoProdottoCarrello extends HttpServlet {
 					sessione.setAttribute("carrello",carrello);
 					response.setHeader("verificato","true");
 				}
-				else if(trovato=true && errore==true)
+				else if(trovato==true && errore==true)
 				{
 					response.setHeader("verificato","false");
 				}
