@@ -126,12 +126,32 @@ public class ManagerAcquisti {
 				return result.getInt(1);
 			}
 			statement.close();
-			connection.close();
 		} catch (SQLException e) 
 		{
 			e.printStackTrace();
 		}
 		
 		return 0;
+	}
+	
+	public void creaDettagliOrdine(Ordine ordine)
+	{
+		String query = "INSERT INTO DETTAGLI_ORDINI VALUES(?,?,?,?)";
+		
+		try 
+		{
+			PreparedStatement inserter = connection.prepareStatement(query);
+			inserter.setInt(1, ordine.getIdDettaglioOrdine());
+			inserter.setDouble(2, ordine.getPrezzo());
+			inserter.setInt(3, ordine.getQuantita());
+			inserter.setInt(4, ordine.getIdOrdine());
+			inserter.executeUpdate();
+			inserter.close();
+			connection.close();
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
 	}
 }
