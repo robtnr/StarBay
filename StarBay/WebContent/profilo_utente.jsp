@@ -1,3 +1,7 @@
+<%@page import="it.starbay.gestionebean.Ordine"%>
+<%@page import="it.starbay.gestionebean.Cliente"%>
+<%@page import="it.starbay.gestioneutenti.ManagerUtenti"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -69,8 +73,21 @@
 						       	<th>Contratto</th>
 						      </tr>
 						    </thead>
-						    <tbody id="tbody">
-						      
+						    <tbody>
+						      <%
+						     	ManagerUtenti mu = new ManagerUtenti();
+								Cliente c = (Cliente) session.getAttribute("cliente");
+								ArrayList<Ordine> ordini = mu.dammiOrdiniUtente(c.getUsername());
+								session.setAttribute("ordini", ordini);
+						      	
+						      	for (Ordine o: ordini)
+						      	{
+						      		if (o.getTipo().equals("stella"))
+						      			out.println("<tr><td>"+o.getIdOrdine()+"</td><td>"+o.getNomeProdotto()+"</td><td>"+o.getPrezzo()+"</td><td>"+o.getQuantita()+"</td><td>CONTRATTO QUI</td></tr>");
+						      		else if(o.getTipo().equals("store"))
+						      			out.println("<tr><td>"+o.getIdOrdine()+"</td><td>"+o.getIdProdotto()+"</td><td>"+o.getPrezzo()+"</td><td>"+o.getQuantita()+"</td><td></td></tr>");
+						      	}
+						      %>
 						    </tbody>
 						    </table>
 						    <div style="background-color:#070d19; height:2px;"><hr></div>
