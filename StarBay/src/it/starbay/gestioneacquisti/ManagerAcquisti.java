@@ -154,4 +154,49 @@ public class ManagerAcquisti {
 			e.printStackTrace();
 		}
 	}
+	
+	public void creaIncludeStella(Ordine ordine)
+	{
+		String query = "INSERT INTO INCLUDE_STELLE VALUES(?,?)";
+		
+		String coordinate = getCoordinate(ordine.getNomeProdotto());
+		try 
+		{
+			PreparedStatement inserter = connection.prepareStatement(query);
+			inserter.setInt(1, ordine.getIdDettaglioOrdine());
+			inserter.setDouble(2, ordine.getPrezzo());
+			inserter.setInt(3, ordine.getQuantita());
+			inserter.setInt(4, ordine.getIdOrdine());
+			inserter.executeUpdate();
+			inserter.close();
+			connection.close();
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+	}
+
+	public String getCoordinate(String nomeProdotto) 
+	{
+		String query = "SELECT coordinate FROM STELLE WHERE nome=?";
+		PreparedStatement inserter;
+		try
+		{
+			inserter = connection.prepareStatement(query);
+			inserter.setString(1,nomeProdotto);
+			ResultSet result = inserter.executeQuery();
+			while(result.next())
+			{
+				return result.getString(1);
+			}
+			inserter.close();
+			connection.close();
+		} catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 }
