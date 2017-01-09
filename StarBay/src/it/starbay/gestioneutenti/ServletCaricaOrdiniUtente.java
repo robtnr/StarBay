@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import it.starbay.gestionebean.Ordine;
+
 
 @WebServlet("/ServletCaricaOrdiniUtente")
 public class ServletCaricaOrdiniUtente extends HttpServlet 
@@ -17,21 +19,8 @@ public class ServletCaricaOrdiniUtente extends HttpServlet
 	{
 		ManagerUtenti mu = new ManagerUtenti();
 		String username = request.getHeader("username");
-		ArrayList<String> righe = mu.dammiOrdiniUtente(username);
-		
-		if (righe == null) response.addHeader("tbody", "nok");
-		else
-		{
-			response.addHeader("totale", righe.get(0));
-			righe.remove(0);
-			
-			String tbody = "";
-
-			for(String tr: righe)
-				tbody += tr;
-
-			response.addHeader("tbody", tbody);
-		}
+		ArrayList<Ordine> ordini = mu.dammiOrdiniUtente(username);
+		request.getSession().setAttribute("ordini", ordini);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 

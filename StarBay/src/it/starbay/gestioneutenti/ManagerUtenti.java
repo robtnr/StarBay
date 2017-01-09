@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import it.starbay.gestionebean.CallDatabase;
 import it.starbay.gestionebean.Cliente;
+import it.starbay.gestionebean.Ordine;
 
 public class ManagerUtenti 
 {
@@ -88,27 +89,44 @@ public class ManagerUtenti
 		return cliente;
 	}
 
-	public ArrayList<String> dammiOrdiniUtente(String username) 
+	public ArrayList<Ordine> dammiOrdiniUtente(String username) 
 	{
-		ArrayList<String> righe = new ArrayList<String>();
-		double totale = 0;
+		ArrayList<Ordine> ordini = new ArrayList<Ordine>();
+		Ordine ordine = null;
+		
 		try
 		{
 			statement = connection.createStatement();
-			result = statement.executeQuery("SELECT idOrdine, nome, prezzo, quantitaAcquistata, data, ora, coordinate, descrizione FROM ORDINI NATURAL JOIN DETTAGLI_ORDINI NATURAL JOIN INCLUDE_STELLE NATURAL JOIN STELLE WHERE username = '"+username+"'");
+			result = statement.executeQuery("SELECT idOrdine, data, ora, idDettaglioOrdine, quantita, prezzo, coordinate FROM ORDINI NATURAL JOIN DETTAGLI_ORDINI NATURAL JOIN INCLUDE_STELLE NATURAL JOIN STELLE WHERE username = '"+username+"'");
 
 			while(result.next())
 			{
-				righe.add("<tr><td>" + result.getString(1) + "</td><td>" + result.getString(2) + "</td><td>" + result.getString(3) + "</td><td>" + result.getString(4) + "</td><td style='text-align: center;'><img style='width: 30px' src='images/pdf.png' /></td></tr>");
-				totale += Double.parseDouble(result.getString(3));
+				ordine = new Ordine();
+				ordine.setIdOrdine(Integer.parseInt(result.getString(1)));
+				ordine.setData(result.getString(2));
+				ordine.setOra(result.getString(3));
+				ordine.setIdDettaglioOrdine(Integer.parseInt(result.getString(4)));
+				ordine.setQuantita(Integer.parseInt(result.getString(4)));
+				ordine.setPrezzo(Double.parseDouble(result.getString(6)));
+				ordine.setIdProdotto(result.getString(7));
+				
+				ordini.add(ordine);
 			}
 			
-			result = statement.executeQuery("SELECT idOrdine, nome, prezzo, quantitaAcquistata FROM ORDINI NATURAL JOIN DETTAGLI_ORDINI NATURAL JOIN INCLUDE_STORE NATURAL JOIN STORE WHERE username = '"+username+"'");
+			result = statement.executeQuery("SELECT idOrdine, data, ora, idDettaglioOrdine, quantita, prezzo, nome FROM ORDINI NATURAL JOIN DETTAGLI_ORDINI NATURAL JOIN INCLUDE_STORE NATURAL JOIN STORE WHERE username = '"+username+"'");
 
 			while(result.next())
 			{
-				righe.add("<tr><td>" + result.getString(1) + "</td><td>" + result.getString(2) + "</td><td>" + result.getString(3) + "</td><td>" + result.getString(4) + "</td><td></td></tr>");
-				totale += Double.parseDouble(result.getString(3));
+				ordine = new Ordine();
+				ordine.setIdOrdine(Integer.parseInt(result.getString(1)));
+				ordine.setData(result.getString(2));
+				ordine.setOra(result.getString(3));
+				ordine.setIdDettaglioOrdine(Integer.parseInt(result.getString(4)));
+				ordine.setQuantita(Integer.parseInt(result.getString(4)));
+				ordine.setPrezzo(Double.parseDouble(result.getString(6)));
+				ordine.setIdProdotto(result.getString(7));
+				
+				ordini.add(ordine);
 			}
 		}
 		catch (Exception e)
@@ -116,10 +134,8 @@ public class ManagerUtenti
 			e.printStackTrace();
 		}
 		
-		if (righe.isEmpty()) return null;
-
-		righe.add(0, ""+totale);
-		return righe;
+		if (ordini.isEmpty()) return null;
+		return ordini;
 	}
 
 	public ArrayList<Cliente> dammiClienti() 
