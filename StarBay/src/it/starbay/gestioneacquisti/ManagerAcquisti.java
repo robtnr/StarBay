@@ -14,19 +14,17 @@ import it.starbay.gestionebean.Stella;
 public class ManagerAcquisti {
 
 	private CallDatabase db;
-	private Connection connection;
 	
 	public ManagerAcquisti() throws ClassNotFoundException, SQLException
 	{
 		db = new CallDatabase();
-		connection = db.getConnection();
 	}
 	
-	public int getQuantitaProdotto(String nome, String tipo)
+	public int getQuantitaProdotto(String nome, String tipo) throws ClassNotFoundException, SQLException
 	{
-		
+		Connection connection = db.getConnection();
 		Statement statement;
-		PreparedStatement inserter;
+		PreparedStatement inserter = null;
 		ResultSet result;
 		
 		if(tipo.equals("stella"))
@@ -43,15 +41,23 @@ public class ManagerAcquisti {
 				return result.getInt(1);
 			}
 			statement.close();
+			inserter.close();
+			connection.close();
 			} catch (SQLException e) 
 			{
 				e.printStackTrace();
+			}
+			finally 
+			{
+				inserter.close();
+				connection.close();
 			}
 		}
 		else
 		{
 			try 
 			{
+			connection = db.getConnection();
 			statement = connection.createStatement();
 			inserter = connection.prepareStatement("SELECT quantita FROM STORE WHERE nome=?");
 			inserter.setString(1, nome);
@@ -62,19 +68,28 @@ public class ManagerAcquisti {
 				return result.getInt(1);
 			}
 			statement.close();
+			inserter.close();
+			connection.close();
 			} catch (SQLException e) 
 			{
 				e.printStackTrace();
+			}
+			finally 
+			{
+				inserter.close();
+				connection.close();
 			}
 		}
 		return 0;
 	}
 	
-	public int getCountOrdine()
+	public int getCountOrdine() throws ClassNotFoundException, SQLException
 	{
-		Statement statement;
+		Statement statement = null;
+		Connection connection = db.getConnection();
 		try 
 		{
+			
 			statement = connection.createStatement();
 			ResultSet result = statement.executeQuery("SELECT count(idOrdine) FROM ORDINI");
 			
@@ -87,18 +102,24 @@ public class ManagerAcquisti {
 		} catch (SQLException e) 
 		{
 			e.printStackTrace();
+		}finally 
+		{
+			statement.close();
+			connection.close();
 		}
 		
 		return 0;
 	}
 	
-	public void creaOrdine(Ordine ordine)
+	public void creaOrdine(Ordine ordine) throws ClassNotFoundException, SQLException
 	{
 		String query = "INSERT INTO ORDINI VALUES(?,?,?,?)";
-		
+		Connection connection = db.getConnection();
+		PreparedStatement inserter = connection.prepareStatement(query);
 		try 
 		{
-			PreparedStatement inserter = connection.prepareStatement(query);
+			
+			System.out.println(ordine.getIdOrdine());
 			inserter.setInt(1, ordine.getIdOrdine());
 			inserter.setString(2, ordine.getData());
 			inserter.setString(3, ordine.getOra());
@@ -110,12 +131,18 @@ public class ManagerAcquisti {
 		catch (SQLException e) 
 		{
 			e.printStackTrace();
+		}finally 
+		{
+			inserter.close();
+			connection.close();
 		}
+		
 	}
 	
-	public int getCountDettaglioOrdine()
+	public int getCountDettaglioOrdine() throws ClassNotFoundException, SQLException
 	{
-		Statement statement;
+		Statement statement = null;
+		Connection connection = db.getConnection();
 		try 
 		{
 			statement = connection.createStatement();
@@ -126,21 +153,27 @@ public class ManagerAcquisti {
 				return result.getInt(1);
 			}
 			statement.close();
+			connection.close();
 		} catch (SQLException e) 
 		{
 			e.printStackTrace();
+		}finally 
+		{
+			statement.close();
+			connection.close();
 		}
 		
 		return 0;
 	}
 	
-	public void creaDettagliOrdine(Ordine ordine)
+	public void creaDettagliOrdine(Ordine ordine) throws ClassNotFoundException, SQLException
 	{
 		String query = "INSERT INTO DETTAGLI_ORDINI VALUES(?,?,?,?)";
-		
+		Connection connection = db.getConnection();
+		PreparedStatement inserter = connection.prepareStatement(query);
 		try 
 		{
-			PreparedStatement inserter = connection.prepareStatement(query);
+			
 			inserter.setInt(1, ordine.getIdDettaglioOrdine());
 			inserter.setDouble(2, ordine.getPrezzo());
 			inserter.setInt(3, ordine.getQuantita());
@@ -152,17 +185,22 @@ public class ManagerAcquisti {
 		catch (SQLException e) 
 		{
 			e.printStackTrace();
+		}finally 
+		{
+			inserter.close();
+			connection.close();
 		}
 	}
 	
-	public void creaIncludeStella(Ordine ordine)
+	public void creaIncludeStella(Ordine ordine) throws ClassNotFoundException, SQLException
 	{
 		String query = "INSERT INTO INCLUDE_STELLE VALUES(?,?)";
 		
 		String coordinate = getCoordinate(ordine.getNomeProdotto());
+		Connection connection = db.getConnection();
+		PreparedStatement inserter = connection.prepareStatement(query);
 		try 
 		{
-			PreparedStatement inserter = connection.prepareStatement(query);
 			inserter.setInt(1, ordine.getIdDettaglioOrdine());
 			inserter.setString(2, coordinate);
 			inserter.executeUpdate();
@@ -172,13 +210,19 @@ public class ManagerAcquisti {
 		catch (SQLException e) 
 		{
 			e.printStackTrace();
+		}finally 
+		{
+			inserter.close();
+			connection.close();
 		}
+		
 	}
 
-	public String getCoordinate(String nomeProdotto) 
+	public String getCoordinate(String nomeProdotto) throws ClassNotFoundException, SQLException 
 	{
+		Connection connection = db.getConnection();
 		String query = "SELECT coordinate FROM STELLE WHERE nome=?";
-		PreparedStatement inserter;
+		PreparedStatement inserter = null;
 		try
 		{
 			inserter = connection.prepareStatement(query);
@@ -193,19 +237,24 @@ public class ManagerAcquisti {
 		} catch (SQLException e) 
 		{
 			e.printStackTrace();
+		}finally 
+		{
+			inserter.close();
+			connection.close();
 		}
 		
 		return null;
 	}
 	
-	public void creaIncludeStore(Ordine ordine)
+	public void creaIncludeStore(Ordine ordine) throws ClassNotFoundException, SQLException
 	{
 		String query = "INSERT INTO INCLUDE_STORE VALUES(?,?)";
 		
 		String coordinate = getCoordinate(ordine.getNomeProdotto());
+		Connection connection = db.getConnection();
+		PreparedStatement inserter = connection.prepareStatement(query);
 		try 
 		{
-			PreparedStatement inserter = connection.prepareStatement(query);
 			inserter.setInt(1, ordine.getIdDettaglioOrdine());
 			inserter.setString(2, ordine.getNomeProdotto());
 			inserter.executeUpdate();
@@ -215,6 +264,10 @@ public class ManagerAcquisti {
 		catch (SQLException e) 
 		{
 			e.printStackTrace();
+		}finally 
+		{
+			inserter.close();
+			connection.close();
 		}
 	}
 	

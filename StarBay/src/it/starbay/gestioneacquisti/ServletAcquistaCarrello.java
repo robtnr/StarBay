@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.Manager;
+
 import it.starbay.gestionebean.Carrello;
 import it.starbay.gestionebean.Ordine;
 import it.starbay.gestionebean.ProdottoCarrello;
