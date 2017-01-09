@@ -112,4 +112,26 @@ public class ManagerAcquisti {
 			e.printStackTrace();
 		}
 	}
+	
+	public int getCountDettaglioOrdine()
+	{
+		Statement statement;
+		try 
+		{
+			statement = connection.createStatement();
+			ResultSet result = statement.executeQuery("SELECT count(idDettaglioOrdine) FROM DETTAGLI_ORDINI");
+			
+			while(result.next())
+			{
+				return result.getInt(1);
+			}
+			statement.close();
+			connection.close();
+		} catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
 }
