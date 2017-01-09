@@ -164,9 +164,7 @@ public class ManagerAcquisti {
 		{
 			PreparedStatement inserter = connection.prepareStatement(query);
 			inserter.setInt(1, ordine.getIdDettaglioOrdine());
-			inserter.setDouble(2, ordine.getPrezzo());
-			inserter.setInt(3, ordine.getQuantita());
-			inserter.setInt(4, ordine.getIdOrdine());
+			inserter.setString(2, coordinate);
 			inserter.executeUpdate();
 			inserter.close();
 			connection.close();
@@ -199,4 +197,25 @@ public class ManagerAcquisti {
 		
 		return null;
 	}
+	
+	public void creaIncludeStore(Ordine ordine)
+	{
+		String query = "INSERT INTO INCLUDE_STORE VALUES(?,?)";
+		
+		String coordinate = getCoordinate(ordine.getNomeProdotto());
+		try 
+		{
+			PreparedStatement inserter = connection.prepareStatement(query);
+			inserter.setInt(1, ordine.getIdDettaglioOrdine());
+			inserter.setString(2, ordine.getNomeProdotto());
+			inserter.executeUpdate();
+			inserter.close();
+			connection.close();
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+	}
+	
 }
