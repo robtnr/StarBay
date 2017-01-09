@@ -3,6 +3,8 @@ package it.starbay.gestioneacquisti;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import it.starbay.gestionebean.Carrello;
+import it.starbay.gestionebean.Ordine;
 import it.starbay.gestionebean.ProdottoCarrello;
 
 /**
@@ -21,10 +24,11 @@ import it.starbay.gestionebean.ProdottoCarrello;
 public class ServletAcquistaCarrello extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private ArrayList<String> stelle_inserite;
+    private HttpSession sessione;
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		HttpSession sessione = request.getSession();
+		sessione = request.getSession();
 		boolean errore = false;
 		boolean trovata_stella = false;
 		int quantita_esatta = 0;
@@ -78,13 +82,6 @@ public class ServletAcquistaCarrello extends HttpServlet {
 				}
 			}
 			
-			for(int j=0;j<quantita_nome.size(); j=j+2)
-			{
-				String nome = (String)quantita_nome.get(j);
-				int quantita_trovata = (Integer) quantita_nome.get(j+1);
-				System.out.println(nome+" "+quantita_trovata);
-				System.out.println("fine");
-			}
 			
 			//Controllo quantità
 			for(int i=0;i<prodotti.size();i++)
@@ -93,8 +90,6 @@ public class ServletAcquistaCarrello extends HttpServlet {
 				{
 					String nome = (String)quantita_nome.get(j);
 					int quantita_trovata = (Integer) quantita_nome.get(j+1);
-					System.out.println(nome+" "+quantita_trovata);
-					System.out.println(prodotti.get(i).getNome());
 					if(prodotti.get(i).getNome().equals(nome))
 					{
 						if(prodotti.get(i).getQuantita()>quantita_trovata)
@@ -137,13 +132,13 @@ public class ServletAcquistaCarrello extends HttpServlet {
 				String nome = (String)quantita_nome_header.get(i+1);
 				int quantita_trovata = (Integer)quantita_nome_header.get(i+2);
 				int quantita_vecchia = (Integer)quantita_nome_header.get(i+3);
-				System.out.println("----"+ tipo+" "+ nome+" "+  quantita_trovata+" "+  quantita_vecchia);
 			}
 			
 			
 			if(errore == false)
 			{
 				response.setHeader("mex_acquisto", "ok");
+				creaOrdine();
 				sessione.removeAttribute("carrello");
 			}
 			else
@@ -172,5 +167,58 @@ public class ServletAcquistaCarrello extends HttpServlet {
 	{
 		doGet(request, response);
 	}
+	
+	public void creaOrdine()
+	{
+		ManagerAcquisti manager;
+		try 
+		{
+			manager = new ManagerAcquisti();
+			int idOrdine = manager.getCountOrdine();
+			
+			salvaOrdine(idOrdine);
+		} catch (ClassNotFoundException | SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		
+	}
 
+	public void salvaOrdine(int idOrdine) 
+	{ 
+		Carrello carrello = (Carrello)sessione.getAttribute("carrello");
+		for(ProdottoCarrello p: carrello.getProdotti())
+		{
+			Ordine ordine = new Ordine();
+			ordine.setIdOrdine(++idOrdine);
+			GregorianCalendar oggi = new GregorianCalendar();
+			int gg = oggi.get(Calendar.DAY_OF_MONTH);
+			int mm = oggi.get(Calendar.MONTH);
+			int aa = oggi.get(Calendar.YEAR);
+			ordine.setData("" + aa + "-" + (mm+1) + "-" + gg);
+			int ore = oggi.get(Calendar.HOUR);
+			int min = oggi.get(Calendar.MINUTE);
+			int sec = oggi.get(Calendar.SECOND);
+			ordine.setOra(""+ore+":"+min+":"+sec);
+			ordine.setUsername(carrello.getUsername());
+			ManagerAcquisti manager;
+			try 
+			{
+				manager = new ManagerAcquisti();
+				manager.creaOrdine(ordine);
+			} catch (ClassNotFoundException | SQLException e) 
+			{
+				e.printStackTrace();
+			}
+			creaIdDettaglioOrdine(ordine);
+		}
+		
+	}
+
+	private void creaIdDettaglioOrdine(Ordine ordine) 
+	{
+		
+		
+	}
+	
 }
