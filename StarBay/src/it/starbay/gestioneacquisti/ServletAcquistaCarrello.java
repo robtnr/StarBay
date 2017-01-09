@@ -204,6 +204,8 @@ public class ServletAcquistaCarrello extends HttpServlet {
 			ordine.setOra(""+ore+":"+min+":"+sec);
 			ordine.setUsername(carrello.getUsername());
 			ordine.setPrezzo(p.getPrezzo());
+			ordine.setQuantita(p.getQuantita());
+			ordine.setNomeProdotto(p.getNome());
 			
 			if(sessione.getAttribute("stelle_inserite")!=null)
 			{
@@ -244,12 +246,21 @@ public class ServletAcquistaCarrello extends HttpServlet {
 			ManagerAcquisti manager = new ManagerAcquisti();
 			idDettaglioOrdine = manager.getCountDettaglioOrdine();
 			ordine.setIdDettaglioOrdine(++idDettaglioOrdine);
+			manager.creaDettagliOrdine(ordine);
 			
 		} catch (ClassNotFoundException | SQLException e) 
 		{
 			e.printStackTrace();
 		}
 		
+		if(ordine.getTipo().equals("stella"))
+		{
+			
+		}
+		else
+		{
+			
+		}
 		
 		
 	}
