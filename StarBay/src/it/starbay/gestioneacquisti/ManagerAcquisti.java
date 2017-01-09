@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import it.starbay.gestionebean.CallDatabase;
+import it.starbay.gestionebean.Ordine;
+import it.starbay.gestionebean.Stella;
 
 public class ManagerAcquisti {
 
@@ -66,5 +68,48 @@ public class ManagerAcquisti {
 			}
 		}
 		return 0;
+	}
+	
+	public int getCountOrdine()
+	{
+		Statement statement;
+		try 
+		{
+			statement = connection.createStatement();
+			ResultSet result = statement.executeQuery("SELECT count(idOrdine) FROM ORDINI");
+			
+			while(result.next())
+			{
+				return result.getInt(1);
+			}
+			statement.close();
+			connection.close();
+		} catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+	
+	public void creaOrdine(Ordine ordine)
+	{
+		String query = "INSERT INTO ORDINI VALUES(?,?,?,?)";
+		
+		try 
+		{
+			PreparedStatement inserter = connection.prepareStatement(query);
+			inserter.setInt(1, ordine.getIdOrdine());
+			inserter.setString(2, ordine.getData());
+			inserter.setString(3, ordine.getOra());
+			inserter.setString(4, ordine.getUsername());
+			inserter.executeUpdate();
+			inserter.close();
+			connection.close();
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
 	}
 }
