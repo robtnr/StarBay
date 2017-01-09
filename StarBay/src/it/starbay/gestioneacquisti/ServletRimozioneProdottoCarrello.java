@@ -72,10 +72,10 @@ public class ServletRimozioneProdottoCarrello extends HttpServlet {
 				if(p.getNome().equals(nome_prodotto))
 				{
 					if(p.getQuantita()>1)
-						carrello.getProdotti().get(i).setQuantita("decrementa");
+						carrello.getProdotti().get(i).setQuantita("decrementa",0);
 					else
 					{
-						carrello.getProdotti().get(i).setQuantita("decrementa");
+						carrello.getProdotti().get(i).setQuantita("decrementa",0);
 						indice_eliminato = i;
 						elimina=true;
 					}
