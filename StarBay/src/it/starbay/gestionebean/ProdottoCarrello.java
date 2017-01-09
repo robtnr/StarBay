@@ -32,12 +32,14 @@ public class ProdottoCarrello
 		return quantita;
 	}
 
-	public void setQuantita(String tipo) 
+	public void setQuantita(String tipo, int numero) 
 	{
 		if(tipo.equals("incrementa"))
 		this.quantita++;
-		else
+		else if(tipo.equals("decrementa"))
 		this.quantita--;
+		else if(tipo.equals("cambio"))
+		this.quantita = numero;
 	}
 
 	public String getData() 
