@@ -186,7 +186,9 @@ public class ServletAcquistaCarrello extends HttpServlet {
 
 	public void salvaOrdine(int idOrdine) 
 	{ 
+		ArrayList<String> stelle_inserite;
 		Carrello carrello = (Carrello)sessione.getAttribute("carrello");
+		boolean trovata_stella = false;
 		for(ProdottoCarrello p: carrello.getProdotti())
 		{
 			Ordine ordine = new Ordine();
@@ -201,6 +203,25 @@ public class ServletAcquistaCarrello extends HttpServlet {
 			int sec = oggi.get(Calendar.SECOND);
 			ordine.setOra(""+ore+":"+min+":"+sec);
 			ordine.setUsername(carrello.getUsername());
+			ordine.setPrezzo(p.getPrezzo());
+			
+			if(sessione.getAttribute("stelle_inserite")!=null)
+			{
+				stelle_inserite = (ArrayList<String>)sessione.getAttribute("stelle_inserite");
+				for(String s: stelle_inserite)
+				{
+					if(s.equals(p.getNome()))
+					{
+						trovata_stella=true;
+					}
+				}
+			}
+			if(trovata_stella==true)
+				ordine.setTipo("stella");
+			else
+				ordine.setTipo("store");
+			trovata_stella = false;
+			
 			ManagerAcquisti manager;
 			try 
 			{
@@ -210,13 +231,25 @@ public class ServletAcquistaCarrello extends HttpServlet {
 			{
 				e.printStackTrace();
 			}
-			creaIdDettaglioOrdine(ordine);
+			creaDettaglioOrdine(ordine);
 		}
 		
 	}
 
-	private void creaIdDettaglioOrdine(Ordine ordine) 
+	public void creaDettaglioOrdine(Ordine ordine) 
 	{
+		int idDettaglioOrdine;
+		try 
+		{
+			ManagerAcquisti manager = new ManagerAcquisti();
+			idDettaglioOrdine = manager.getCountDettaglioOrdine();
+			ordine.setIdDettaglioOrdine(++idDettaglioOrdine);
+			
+		} catch (ClassNotFoundException | SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		
 		
 		
 	}
