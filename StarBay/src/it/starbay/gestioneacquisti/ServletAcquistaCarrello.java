@@ -255,7 +255,8 @@ public class ServletAcquistaCarrello extends HttpServlet {
 		
 		if(ordine.getTipo().equals("stella"))
 			creaIncludeStella(ordine);
-		
+		else
+			creaIncludeStore(ordine);
 
 		
 		
@@ -268,6 +269,20 @@ public class ServletAcquistaCarrello extends HttpServlet {
 		{
 			manager = new ManagerAcquisti();
 			manager.creaIncludeStella(ordine);
+		} catch (ClassNotFoundException | SQLException e) 
+		{
+			e.printStackTrace();
+		}
+			
+	}
+
+	public void creaIncludeStore(Ordine ordine) 
+	{
+		ManagerAcquisti manager;
+		try 
+		{
+			manager = new ManagerAcquisti();
+			manager.creaIncludeStore(ordine);
 		} catch (ClassNotFoundException | SQLException e) 
 		{
 			e.printStackTrace();
