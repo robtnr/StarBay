@@ -17,9 +17,11 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import it.starbay.gestionebean.Cliente;
+import it.starbay.gestionebean.Ordine;
+
 public class PdfMaker 
 {
-	private String FILE = "Starbay_Contratto_Sella.pdf";
 	private Font bigFont = new Font(Font.FontFamily.UNDEFINED, 16, Font.NORMAL);
 	private Font bigFontBold = new Font(Font.FontFamily.UNDEFINED, 16, Font.BOLD);
 	private Font redFont = new Font(Font.FontFamily.UNDEFINED, 12, Font.NORMAL, BaseColor.RED);
@@ -35,20 +37,24 @@ public class PdfMaker
 	private String nome;
 	private String descrizione;
 	private String prezzo;
+	private String nome_cognome;
+	private String path;
 
-	public PdfMaker(String nome_cognome, String idOrdine, String data, String ora, String coordinate, String nome, String descrizione, String prezzo) 
+	public PdfMaker(String path, Cliente c, Ordine o) 
 	{
 		try 
 		{
-			this.idOrdine = idOrdine;
-			this.data = data;
-			this.ora = ora;
-			this.coordinate = coordinate;
-			this.nome = nome;
-			this.descrizione = descrizione;
-			this.prezzo = prezzo;
+			this.path = path;
+			this.nome_cognome = c.getNome()+" "+c.getCognome();
+			this.idOrdine = ""+o.getIdOrdine();
+			this.data = o.getData();
+			this.ora = o.getOra();
+			this.coordinate = o.getIdProdotto();
+			this.nome = o.getNomeProdotto();
+			this.descrizione = o.getDescrizione();
+			this.prezzo = ""+o.getPrezzo();
 			document = new Document();
-			PdfWriter.getInstance(document, new FileOutputStream(FILE));
+			PdfWriter.getInstance(document, new FileOutputStream(this.path + "pdf/Starbay_Contratto_Stella.pdf"));
 			document.open();
 
 			PdfPTable thead = creaTabellaIntestazione();
@@ -80,7 +86,7 @@ public class PdfMaker
 		tabella.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
 
 		Image img = null;
-		img = Image.getInstance("images/logo.png");
+		img = Image.getInstance(this.path + "pdf/img/logo.png");
 
 		PdfPCell cell = new PdfPCell(new Paragraph("CONTRATTO PER LA VENDITA ONLINE DI STELLE", bigFontBold));
 		cell.setHorizontalAlignment(Element.ALIGN_LEFT);
@@ -100,7 +106,7 @@ public class PdfMaker
 		tabella.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
 
 		PdfPCell c1 = new PdfPCell(new Paragraph("N. Ordine", subFont));
-		PdfPCell c2 = new PdfPCell(new Paragraph("Giorno", subFont));
+		PdfPCell c2 = new PdfPCell(new Paragraph("Data AA-MM-GG", subFont));
 		PdfPCell c3 = new PdfPCell(new Paragraph("Ora", subFont));
 		PdfPCell c4 = new PdfPCell(new Paragraph(""));
 		PdfPCell c5 = new PdfPCell(new Paragraph(""));
@@ -193,5 +199,10 @@ public class PdfMaker
 		tabella.addCell(new Paragraph(" L’Acquirente si impegna, una volta conclusa la procedura d’acquisto online, a provvedere alla stampa e alla conservazione del presente contratto. Le informazioni contenute in questo contratto sono state, peraltro, già visionate e accettate dall’Acquirente, che ne dà atto, in quanto questo passaggio viene reso obbligatorio prima della conferma di acquisto.", subFont));
 
 		return tabella;
+	}
+	
+	public String getPath()
+	{
+		return path + "pdf/Starbay_Contratto_Stella.pdf";
 	}
 }
