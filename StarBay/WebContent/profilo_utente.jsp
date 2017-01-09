@@ -100,7 +100,5 @@
 	</div>
 
 	<%@ include file="includes/footer.jsp"%>
-	
-<script	src="js/profiloUtente.js"></script>
 </body>
 </html>
