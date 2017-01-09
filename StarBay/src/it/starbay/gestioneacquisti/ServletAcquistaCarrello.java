@@ -254,15 +254,27 @@ public class ServletAcquistaCarrello extends HttpServlet {
 		}
 		
 		if(ordine.getTipo().equals("stella"))
-		{
-			
-		}
-		else
-		{
-			
-		}
+			creaIncludeStella(ordine);
+		
+
 		
 		
 	}
+
+	public void creaIncludeStella(Ordine ordine) 
+	{
+		ManagerAcquisti manager;
+		try 
+		{
+			manager = new ManagerAcquisti();
+			manager.creaIncludeStella(ordine);
+		} catch (ClassNotFoundException | SQLException e) 
+		{
+			e.printStackTrace();
+		}
+			
+	}
+	
+	
 	
 }
