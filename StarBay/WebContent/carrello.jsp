@@ -26,6 +26,7 @@
 <script	src="js/logout.js"></script>
 <script	src="js/rimozioneProdottoCarrello.js"></script>
 <script	src="js/ricercaProdotto.js"></script>
+<script	src="js/acquistaCarrello.js"></script>
 <!-- Link per SweetAlert -->
 	<script src="dist/sweetalert-dev.js"></script>
     <link rel="stylesheet" href="dist/sweetalert.css">	
@@ -119,7 +120,7 @@
 					 else
 					 {
 					 %>
-					<div id="scontrino_acquista"><input class="submit_acquista" type="submit" value="acquista"></div>
+					<div id="scontrino_acquista"><input class="submit_acquista" type="submit" value="acquista" onclick="acquistaCarrello()"></div>
 					 <%
 					 }
 					 %>
