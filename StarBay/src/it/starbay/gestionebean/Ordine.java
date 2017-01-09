@@ -9,6 +9,15 @@ public class Ordine
 	private int quantita;
 	private double prezzo;
 	private String idProdotto;
+	private String nomeProdotto;
+	public String getNomeProdotto() {
+		return nomeProdotto;
+	}
+
+	public void setNomeProdotto(String nomeProdotto) {
+		this.nomeProdotto = nomeProdotto;
+	}
+
 	private String tipo;
 	
 	public Ordine() {}

@@ -97,7 +97,7 @@ public class ManagerUtenti
 		try
 		{
 			statement = connection.createStatement();
-			result = statement.executeQuery("SELECT idOrdine, data, ora, idDettaglioOrdine, quantita, prezzo, coordinate FROM ORDINI NATURAL JOIN DETTAGLI_ORDINI NATURAL JOIN INCLUDE_STELLE NATURAL JOIN STELLE WHERE username = '"+username+"'");
+			result = statement.executeQuery("SELECT idOrdine, data, ora, idDettaglioOrdine, quantita, prezzo, coordinate, nome FROM ORDINI NATURAL JOIN DETTAGLI_ORDINI NATURAL JOIN INCLUDE_STELLE NATURAL JOIN STELLE WHERE username = '"+username+"'");
 
 			while(result.next())
 			{
@@ -109,6 +109,7 @@ public class ManagerUtenti
 				ordine.setQuantita(Integer.parseInt(result.getString(4)));
 				ordine.setPrezzo(Double.parseDouble(result.getString(6)));
 				ordine.setIdProdotto(result.getString(7));
+				ordine.setNomeProdotto(result.getString(8));
 				ordine.setTipo("stella");
 				
 				ordini.add(ordine);
