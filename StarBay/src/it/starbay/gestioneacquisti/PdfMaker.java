@@ -31,6 +31,7 @@ public class PdfMaker
 
 	private Document document;
 	private String idOrdine;
+	private int idDettaglioOrdine;
 	private String data;
 	private String ora;
 	private String coordinate;
@@ -47,6 +48,7 @@ public class PdfMaker
 			this.path = path;
 			this.nome_cognome = c.getNome()+" "+c.getCognome();
 			this.idOrdine = ""+o.getIdOrdine();
+			this.idDettaglioOrdine = o.getIdDettaglioOrdine();
 			this.data = o.getData();
 			this.ora = o.getOra();
 			this.coordinate = o.getIdProdotto();
@@ -203,6 +205,6 @@ public class PdfMaker
 	
 	public String getPath()
 	{
-		return path + "pdf/Starbay_Contratto_Stella"+this.idOrdine+".pdf";
+		return path + "pdf/Starbay_Contratto_Stella"+this.idDettaglioOrdine+".pdf";
 	}
 }
