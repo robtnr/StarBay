@@ -9,6 +9,7 @@ public class Ordine
 	private int quantita;
 	private double prezzo;
 	private String idProdotto;
+	private String tipo;
 	
 	public Ordine() {}
 
@@ -66,6 +67,14 @@ public class Ordine
 
 	public void setIdProdotto(String idProdotto) {
 		this.idProdotto = idProdotto;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 	
 }
