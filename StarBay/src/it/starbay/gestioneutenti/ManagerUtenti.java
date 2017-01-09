@@ -109,6 +109,7 @@ public class ManagerUtenti
 				ordine.setQuantita(Integer.parseInt(result.getString(4)));
 				ordine.setPrezzo(Double.parseDouble(result.getString(6)));
 				ordine.setIdProdotto(result.getString(7));
+				ordine.setTipo("stella");
 				
 				ordini.add(ordine);
 			}
@@ -125,6 +126,7 @@ public class ManagerUtenti
 				ordine.setQuantita(Integer.parseInt(result.getString(4)));
 				ordine.setPrezzo(Double.parseDouble(result.getString(6)));
 				ordine.setIdProdotto(result.getString(7));
+				ordine.setTipo("store");
 				
 				ordini.add(ordine);
 			}
