@@ -54,7 +54,7 @@ public class PdfMaker
 			this.descrizione = o.getDescrizione();
 			this.prezzo = ""+o.getPrezzo();
 			document = new Document();
-			PdfWriter.getInstance(document, new FileOutputStream(this.path + "pdf/Starbay_Contratto_Stella.pdf"));
+			PdfWriter.getInstance(document, new FileOutputStream(this.path + "pdf/Starbay_Contratto_Stella"+idOrdine+".pdf"));
 			document.open();
 
 			PdfPTable thead = creaTabellaIntestazione();
@@ -203,6 +203,6 @@ public class PdfMaker
 	
 	public String getPath()
 	{
-		return path + "pdf/Starbay_Contratto_Stella.pdf";
+		return path + "pdf/Starbay_Contratto_Stella"+this.idOrdine+".pdf";
 	}
 }
