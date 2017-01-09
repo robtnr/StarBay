@@ -67,7 +67,7 @@ public class ServletInserimentoProdottoCarrello extends HttpServlet {
 				int aa = oggi.get(Calendar.YEAR);
 				
 				prodotto.setData("" + aa + "-" + (mm+1) + "-" + gg);
-				prodotto.setQuantita("incrementa");
+				prodotto.setQuantita("incrementa",0);
 				prodotto.setPrezzo(Double.parseDouble((String)sessione.getAttribute("prezzo")));
 				carrello.setProdotti(prodotto);
 				carrello.setTotale(Double.parseDouble((String)sessione.getAttribute("prezzo")),"incrementa");
@@ -89,7 +89,7 @@ public class ServletInserimentoProdottoCarrello extends HttpServlet {
 				int mm = oggi.get(Calendar.MONTH);
 				int aa = oggi.get(Calendar.YEAR);
 				prodotto.setData("" + aa + "-" + (mm+1) + "-" + gg);
-				prodotto.setQuantita("incrementa");
+				prodotto.setQuantita("incrementa",0);
 				prodotto.setPrezzo(prezzo);
 				carrello.setProdotti(prodotto);
 				carrello.setTotale(prezzo,"incrementa");
@@ -131,7 +131,7 @@ public class ServletInserimentoProdottoCarrello extends HttpServlet {
 					int aa = oggi.get(Calendar.YEAR);
 					
 					prodotto.setData("" + aa + "-" + (mm+1) + "-" + gg);
-					prodotto.setQuantita("incrementa");
+					prodotto.setQuantita("incrementa",0);
 					prodotto.setPrezzo(Double.parseDouble((String)sessione.getAttribute("prezzo")));
 					carrello.setProdotti(prodotto);
 					carrello.setTotale(Double.parseDouble((String)sessione.getAttribute("prezzo")),"incrementa");
@@ -171,7 +171,7 @@ public class ServletInserimentoProdottoCarrello extends HttpServlet {
 						int aa = oggi.get(Calendar.YEAR);
 						
 						prodotto.setData("" + aa + "-" + (mm+1) + "-" + gg);
-						prodotto.setQuantita("incrementa");
+						prodotto.setQuantita("incrementa",0);
 						prodotto.setPrezzo(Double.parseDouble((String)sessione.getAttribute("prezzo")));
 						carrello.setProdotti(prodotto);
 						carrello.setTotale(Double.parseDouble((String)sessione.getAttribute("prezzo")),"incrementa");
@@ -221,7 +221,7 @@ public class ServletInserimentoProdottoCarrello extends HttpServlet {
 					int mm = oggi.get(Calendar.MONTH);
 					int aa = oggi.get(Calendar.YEAR);
 					prodotto.setData("" + aa + "-" + (mm+1) + "-" + gg);
-					prodotto.setQuantita("incrementa");
+					prodotto.setQuantita("incrementa",0);
 					prodotto.setPrezzo(prezzo);
 					carrello.setProdotti(prodotto);
 					carrello.setTotale(prezzo,"incrementa");
@@ -230,7 +230,7 @@ public class ServletInserimentoProdottoCarrello extends HttpServlet {
 				}
 				else if(trovato==true && errore==false)
 				{
-					carrello.getProdotti().get(indice).setQuantita("incrementa");
+					carrello.getProdotti().get(indice).setQuantita("incrementa",0);
 					carrello.setTotale(prezzo, "incrementa");
 					sessione.setAttribute("carrello",carrello);
 					response.setHeader("verificato","true");
