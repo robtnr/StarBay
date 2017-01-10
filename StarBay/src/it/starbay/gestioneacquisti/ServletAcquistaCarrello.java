@@ -142,6 +142,11 @@ public class ServletAcquistaCarrello extends HttpServlet {
 				response.setHeader("mex_acquisto", "ok");
 				creaOrdine();
 				sessione.removeAttribute("carrello");
+				sessione.removeAttribute("stelle_inserite");
+				sessione.removeAttribute("stelle");
+				sessione.removeAttribute("prodotti_store");
+				sessione.removeAttribute("store_ultimi_prodotti");
+				sessione.removeAttribute("stelle_ultimi_prodotti");
 			}
 			else
 			{
@@ -266,6 +271,8 @@ public class ServletAcquistaCarrello extends HttpServlet {
 			creaIncludeStella(ordine);
 		else
 			creaIncludeStore(ordine);
+		
+		aggiornaQuantitaENome(ordine);
 	}
 
 	public void creaIncludeStella(Ordine ordine) 
@@ -296,6 +303,19 @@ public class ServletAcquistaCarrello extends HttpServlet {
 			
 	}
 	
+	private void aggiornaQuantitaENome(Ordine ordine) 
+	{
+		ManagerAcquisti manager;
+		try 
+		{
+			manager = new ManagerAcquisti();
+			manager.aggiornaQuantitaNomeProdotto(ordine);;
+		} catch (ClassNotFoundException | SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		
+	}
 	
 	
 }
