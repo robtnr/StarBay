@@ -25,7 +25,7 @@ public class ServletCaricaUtenti extends HttpServlet
 			String tbody = "";
 
 			for(Cliente c: clienti)
-				tbody += "<tr><td>" + c.getCognome() + "</td><td>" + c.getNome() + "</td><td>" + c.getUsername() + "</td><td>" + c.getEmail() + "</td><td><img id='modifica_prodotto' onclick=eliminaUtente('"+c.getUsername()+"') src='images/delete.png' title='elimina'></td></tr>";
+				tbody += "<tr><td>" + c.getCognome() + "</td><td>" + c.getNome() + "</td><td>" + c.getUsername() + "</td><td>" + c.getEmail() + "</td><td><img id='modifica_prodotto' onclick=eliminaUtente('"+c.getUsername()+"') src='images/delete_rosso.png' title='elimina'></td></tr>";
 
 			response.addHeader("tbody", tbody);
 		}

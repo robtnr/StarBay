@@ -71,7 +71,7 @@
 				        <td><%= s.getCoordinate() %></td>
 				        <td><%= s.getPrezzo() %></td>
 				        <td><%= s.getData()%></td>
-				        <td><img id="modifica_prodotto" onclick=eliminaProdottoStella(this) src="images/delete.png" title="elimina"></td>
+				        <td><img id="modifica_prodotto" onclick=eliminaProdottoStella(this) src="images/delete_rosso.png" title="elimina"></td>
 				      </tr>
 				     <%
 				    		}

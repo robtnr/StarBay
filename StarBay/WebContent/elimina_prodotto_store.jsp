@@ -73,7 +73,7 @@
 				        <td><%= s.getPrezzoAcquisto() %></td>
 				        <td><%= s.getQuantita() %></td>
 				        <td><%= s.getData()%></td>
-				        <td><img id="modifica_prodotto" onclick=eliminaProdottoStore(this) src="images/delete.png" title="modifica"></td>
+				        <td><img id="modifica_prodotto" onclick=eliminaProdottoStore(this) src="images/delete_rosso.png" title="modifica"></td>
 				      </tr>
 				     <%
 				    		}
