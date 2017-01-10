@@ -67,10 +67,19 @@ function acquistaCarrello()
 			}
 			else if(mex_acquisto=="ok")
 				{
-					setTimeout(function(){
-						open("carrello.jsp","_self");
-					}, 1200);
-					swal("Successo", "I prodotti nel carrello sono stati acquistati!", "success")
+				swal({
+					  title: "I prodotti nel carrello sono stati acquistati!",
+					  text: text,
+					  type: "success",
+					  showCancelButton: false,
+					  confirmButtonText: "OK",
+					  closeOnConfirm: false,
+					},
+					function(isConfirm){
+					  if (isConfirm) {
+						  open("carrello.jsp","_self");
+					  }
+					});
 				}
 			}
 		}
