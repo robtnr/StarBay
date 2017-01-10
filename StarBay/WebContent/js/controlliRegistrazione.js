@@ -195,7 +195,7 @@ function controlloDati()
 			document.getElementById("iconComune").setAttribute("class", "glyphicon glyphicon-remove form-control-feedback");
 			document.getElementById("iconComune").style.display="block";
 		}
-		else if (/[^a-zA-Z]/.test(x.value))
+		else if (/[^a-zA-Z ']/.test(x.value))
 		{
 			document.getElementById("divComune").setAttribute("class", "form-group has-error has-feedback");
 			document.getElementById("labelComune").setAttribute("class", "control-label");
