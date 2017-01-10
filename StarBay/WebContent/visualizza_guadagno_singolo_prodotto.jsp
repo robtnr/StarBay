@@ -43,7 +43,7 @@
 				        <th>ID</th>
 				        <th>Nome prodotto</th>
 				        <th>Guadagno</th>
-				        <th>AAAA-MM-GG</th>
+				        <th>Data (AAAA-MM-GG)</th>
 				      </tr>
 				    </thead>
 				    <tbody id ="tbody">
