@@ -56,7 +56,7 @@ function controlloDati()
 
 		swal({
 			  title: "Prodotto store inserito con successo",
-			  type: "error",
+			  type: "success",
 			  showCancelButton: false,
 			  confirmButtonText: "OK",
 			  closeOnConfirm: false,

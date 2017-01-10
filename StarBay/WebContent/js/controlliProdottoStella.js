@@ -48,7 +48,7 @@ function controlloDati()
 		
 		swal({
 			  title: "Prodotto stella inserito con successo",
-			  type: "error",
+			  type: "success",
 			  showCancelButton: false,
 			  confirmButtonText: "OK",
 			  closeOnConfirm: false,
