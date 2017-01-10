@@ -49,11 +49,19 @@ function controlloDatiSingolaStella()
 		{
 			if(http.readyState==4 && http.status==200)
 			{
-				setTimeout(function(){
-					open("modifica_prodotto_stella.jsp","_self");
-				}, 3000);
 				
-				swal("Successo","Stella modificata con successo", "success");
+				swal({
+					  title: "Stella modificata con successo!",
+					  type: "success",
+					  showCancelButton: false,
+					  confirmButtonText: "OK",
+					  closeOnConfirm: false,
+					},
+					function(isConfirm){
+					  if (isConfirm) {
+						  open("modifica_prodotto_stella.jsp","_self");
+					  }
+					});
 			}
 		}
 		http.open("POST", "http://localhost:8080/StarBay/ServletModificaProdottoSingolo", true);
