@@ -9,11 +9,20 @@ function rimozioneProdottoCarrello(x)
 	{
 		if(http.readyState==4 && http.status==200)
 		{
-			setTimeout(function(){
-				open("carrello.jsp","_self");
-			}, 1200);
-				
-			swal("Successo","Prodotto eliminato dal carrello", "success");
+			
+			swal({
+				  title: "Prodotto eliminato dal carrello!",
+				  type: "success",
+				  showCancelButton: false,
+				  confirmButtonText: "OK",
+				  closeOnConfirm: false,
+				},
+				function(isConfirm){
+				  if (isConfirm) {
+					  open("carrello.jsp","_self");
+				  }
+				});
+			
 		}
 	}
 	http.open("POST", "http://localhost:8080/StarBay/ServletRimozioneProdottoCarrello", true);
