@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import it.starbay.gestionebean.CallDatabase;
+import it.starbay.gestionebean.Ordine;
 
 public class ManagerStatistiche 
 {
@@ -74,24 +75,46 @@ public class ManagerStatistiche
 		return "" + ricavoTotale;
 	}
 
-	public ArrayList<String> dammiGuadagnoSingoloProdotto() 
+	public ArrayList<Ordine> dammiGuadagnoSingoloProdotto() 
 	{
-		ArrayList<String> righe = new ArrayList<>();
+		ArrayList<Ordine> ordini = new ArrayList<Ordine>();
+		Ordine o = new Ordine();
+		
 		try
 		{
 			statement = connection.createStatement();
-			result = statement.executeQuery("SELECT coordinate, nome, sum(prezzo) FROM DETTAGLI_ORDINI natural join INCLUDE_STELLE natural join STELLE GROUP BY coordinate, nome");
+			result = statement.executeQuery("SELECT coordinate, nome, sum(prezzo), data FROM DETTAGLI_ORDINI natural join INCLUDE_STELLE natural join STELLE GROUP BY coordinate, nome, data ORDER BY data");
 			
 			while(result.next())
-				righe.add("<tr><td>" + result.getString(1) + "</td><td>" + result.getString(2) + "</td><td>" + result.getString(3) + "</td></tr>");
+			{
+				o = new Ordine();
+				o.setIdProdotto(result.getString(1));
+				o.setNomeProdotto(result.getString(2));
+				o.setPrezzo(Double.parseDouble(result.getString(3)));
+				o.setData(result.getString(4));
+				
+				ordini.add(o);
+			}
+			
+			result = statement.executeQuery("SELECT nome, sum(prezzo), data FROM DETTAGLI_ORDINI NATURAL JOIN INCLUDE_STORE NATURAL JOIN STORE GROUP BY nome, prezzoAcquisto, data ORDER BY data");
+			
+			while(result.next())
+			{
+				o = new Ordine();
+				o.setIdProdotto(result.getString(1));
+				o.setNomeProdotto("");
+				o.setPrezzo(Double.parseDouble(result.getString(2)));
+				o.setData(result.getString(3));
+				ordini.add(o);
+			}
 		}
 		catch (Exception e)
 		{
 			e.printStackTrace();
 		}
 		
-		if (righe.isEmpty()) return null;
+		if (ordini.isEmpty()) return null;
 
-		return righe;
+		return ordini;
 	}
 }

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import it.starbay.gestionebean.Ordine;
 import it.starbay.gestionebean.Stella;
 import it.starbay.gestionebean.Store;
 
@@ -20,15 +21,15 @@ public class ServletVisualizzaGuadagnoSingoloProdotto extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		ManagerStatistiche ms = new ManagerStatistiche();
-		ArrayList<String> righe = ms.dammiGuadagnoSingoloProdotto();
+		ArrayList<Ordine> ordini = ms.dammiGuadagnoSingoloProdotto();
 
-		if (righe == null) response.addHeader("tbody", "nok");
+		if (ordini == null) response.addHeader("tbody", "nok");
 		else
 		{
 			String tbody = "";
 
-			for(String tr: righe)
-				tbody += tr;
+			for(Ordine o: ordini)
+				tbody += "<tr><td>"+o.getIdProdotto()+"</td><td>"+o.getNomeProdotto()+"</td><td>"+o.getPrezzo()+"</td><td>"+o.getData()+"</td></tr>";
 
 			response.addHeader("tbody", tbody);
 		}
