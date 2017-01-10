@@ -79,9 +79,9 @@
 						     	ManagerUtenti mu = new ManagerUtenti();
 								Cliente c = (Cliente) session.getAttribute("cliente");
 								ArrayList<Ordine> ordini = mu.dammiOrdiniUtente(c.getUsername());
+								double totale = 0;
 								if (ordini != null)
 								{
-									//session.setAttribute("ordini", ordini);
 									PdfMaker pdf = null;
 									String path = getServletContext().getRealPath("/");
 							      	for (Ordine o: ordini)
@@ -93,13 +93,16 @@
 							      		}
 							      		else if(o.getTipo().equals("store"))
 							      			out.println("<tr><td>"+o.getIdOrdine()+"</td><td>"+o.getIdProdotto()+"</td><td>"+o.getPrezzo()+"</td><td>"+o.getQuantita()+"</td><td></td></tr>");
+							      		totale += o.getPrezzo();
 							      	}
 								}
 						      %>
 						    </tbody>
 						    </table>
 						    <div style="background-color:#070d19; height:2px;"><hr></div>
-							<div id="totale" style="text-align:center; font-size:16px;">Totale: 100.00 &euro;</div>
+							<div id="totale" style="text-align:center; font-size:16px;">
+							<b>Totale</b> <%= totale %> &euro;
+							</div>
 						</div>
 					</div>	
 				</div>
