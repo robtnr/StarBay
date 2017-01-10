@@ -53,17 +53,19 @@ function controlloDati()
 	
 	if ((c1 && c2 && c3 && c4 && c5 && c6))
 	{
-		setTimeout(function(){
-			document.getElementById("formStore").submit();
-		}, 3000);
 
 		swal({
-			title: "OK!",
-			text: "Prodotto inserito con successo",
-			type: "success",
-			showCancelButton: false,
-			showConfirmButton: false
-		});
+			  title: "Prodotto store inserito con successo",
+			  type: "error",
+			  showCancelButton: false,
+			  confirmButtonText: "OK",
+			  closeOnConfirm: false,
+			},
+			function(isConfirm){
+			  if (isConfirm) {
+				  document.getElementById("formStore").submit();
+			  }
+			});
 	}
 }
 
