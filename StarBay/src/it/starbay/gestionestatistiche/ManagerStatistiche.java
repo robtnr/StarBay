@@ -59,7 +59,7 @@ public class ManagerStatistiche
 			result = statement.executeQuery("SELECT sum(prezzo) FROM DETTAGLI_ORDINI");
 			guadagnoTotale = result.getString(1);
 			
-			result = statement.executeQuery("SELECT sum(prezzoAcquisto) FROM INCLUDE_STORE natural join STORE");
+			result = statement.executeQuery("SELECT (quantitaAcquistata*prezzoAcquisto) FROM DETTAGLI_ORDINI D NATURAL JOIN INCLUDE_STORE NATURAL JOIN STORE");
 			spesa = result.getString(1);
 		}
 		catch (Exception e)
