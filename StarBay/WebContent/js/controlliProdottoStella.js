@@ -45,17 +45,19 @@ function controlloDati()
 	var c5 = controlloSrc(document.getElementById("inputSrc"));
 	if((c1 && c2 && c3 && c4 && c5))
 	{
-		setTimeout(function(){
-			document.getElementById("formStella").submit();
-		}, 3000);
-
+		
 		swal({
-			title: "OK!",
-			text: "Prodotto inserito con successo",
-			type: "success",
-			showCancelButton: false,
-			showConfirmButton: false
-		});
+			  title: "Prodotto stella inserito con successo",
+			  type: "error",
+			  showCancelButton: false,
+			  confirmButtonText: "OK",
+			  closeOnConfirm: false,
+			},
+			function(isConfirm){
+			  if (isConfirm) {
+				  document.getElementById("formStella").submit();
+			  }
+			});
 	}
 }
 
