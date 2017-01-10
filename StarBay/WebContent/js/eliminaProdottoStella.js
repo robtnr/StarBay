@@ -7,11 +7,18 @@ function eliminaProdottoStella(x)
 		{
 			if(http.readyState==4 && http.status==200)
 			{
-				setTimeout(function(){
-					open("elimina_prodotto_stella.jsp","_self");
-				}, 3000);
-				
-				swal("Successo","Stella eliminata con successo", "success");
+				swal({
+					  title: "Stella eliminata con successo!",
+					  type: "success",
+					  showCancelButton: false,
+					  confirmButtonText: "OK",
+					  closeOnConfirm: false,
+					},
+					function(isConfirm){
+					  if (isConfirm) {
+						  open("elimina_prodotto_stella.jsp","_self");
+					  }
+					});
 			}
 		}
 		http.open("POST", "http://localhost:8080/StarBay/ServletEliminaProdotto", true);
