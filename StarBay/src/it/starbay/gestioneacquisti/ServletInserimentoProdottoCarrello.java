@@ -242,7 +242,7 @@ public class ServletInserimentoProdottoCarrello extends HttpServlet {
 			}
 		}
 		if(sessione.getAttribute("cliente")!=null)
-			carrello.setUsername(((Cliente)sessione.getAttribute("cliente")).getNome());
+			carrello.setUsername(((Cliente)sessione.getAttribute("cliente")).getUsername());
 	}
 
 
