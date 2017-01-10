@@ -57,12 +57,19 @@ function controlloDatiSingoloStore()
 		{
 			if(http.readyState==4 && http.status==200)
 			{
-				setTimeout(function(){
-					open("modifica_prodotto_store.jsp","_self");
-				}, 3000);
 				
-				swal("Successo","Prodotto store modificato con successo", "success");
-				
+				swal({
+					  title: "Prodotto store modificato con successo!",
+					  type: "success",
+					  showCancelButton: false,
+					  confirmButtonText: "OK",
+					  closeOnConfirm: false,
+					},
+					function(isConfirm){
+					  if (isConfirm) {
+						  open("modifica_prodotto_store.jsp","_self");
+					  }
+					});
 				
 			}
 		}
