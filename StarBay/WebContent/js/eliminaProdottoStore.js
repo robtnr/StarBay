@@ -7,11 +7,20 @@ function eliminaProdottoStore(x)
 		{
 			if(http.readyState==4 && http.status==200)
 			{
-				setTimeout(function(){
-					open("elimina_prodotto_store.jsp","_self");
-				}, 3000);
 				
-				swal("Successo","Prodotto store eliminato con successo", "success");
+				swal({
+					  title: "Prodotto store eliminato con successo!",
+					  type: "success",
+					  showCancelButton: false,
+					  confirmButtonText: "OK",
+					  closeOnConfirm: false,
+					},
+					function(isConfirm){
+					  if (isConfirm) {
+						  open("elimina_prodotto_store.jsp","_self");
+					  }
+					});
+				
 			}
 		}
 		http.open("POST", "http://localhost:8080/StarBay/ServletEliminaProdotto", true);
