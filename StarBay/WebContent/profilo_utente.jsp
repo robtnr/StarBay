@@ -89,10 +89,10 @@
 							      		if (o.getTipo().equals("stella"))
 							      		{
 							      			pdf = new PdfMaker(path, c, o);
-							      			out.println("<tr><td>"+o.getIdOrdine()+"</td><td>"+o.getNomeProdotto()+"</td><td>"+o.getPrezzo()+"</td><td>"+o.getQuantita()+"</td><td style='text-align: center'><a target='_blank' href='"+pdf.getPath()+"'><img src='images/pdf.png' style='width: 30px' /></a></td></tr>");
+							      			out.println("<tr><td>"+o.getIdOrdine()+"</td><td>"+o.getNomeProdotto()+"</td><td>"+o.getPrezzo()+"&euro;</td><td>"+o.getQuantita()+"</td><td style='text-align: center'><a target='_blank' href='"+pdf.getPath()+"'><img src='images/pdf.png' style='width: 30px' /></a></td></tr>");
 							      		}
 							      		else if(o.getTipo().equals("store"))
-							      			out.println("<tr><td>"+o.getIdOrdine()+"</td><td>"+o.getIdProdotto()+"</td><td>"+o.getPrezzo()+"</td><td>"+o.getQuantita()+"</td><td></td></tr>");
+							      			out.println("<tr><td>"+o.getIdOrdine()+"</td><td>"+o.getIdProdotto()+"</td><td>"+o.getPrezzo()+"&euro;</td><td>"+o.getQuantita()+"</td><td></td></tr>");
 							      		totale += o.getPrezzo();
 							      	}
 								}
