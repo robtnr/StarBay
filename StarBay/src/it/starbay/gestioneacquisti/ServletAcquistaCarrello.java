@@ -62,7 +62,7 @@ public class ServletAcquistaCarrello extends HttpServlet {
 						{
 							if(stelle_inserite.get(i).equals(p.getNome()) || stelle_inserite.get(i+1).equals(p.getNome()))
 							{
-								quantita_esatta = manager.getQuantitaProdotto(p.getNome(),"stella");
+								quantita_esatta = manager.getQuantitaProdotto(stelle_inserite.get(i),"stella");
 								quantita_nome.add(p.getNome());
 								quantita_nome.add(quantita_esatta);
 								trovata_stella = true;
@@ -191,33 +191,50 @@ public class ServletAcquistaCarrello extends HttpServlet {
 		ArrayList<String> stelle_inserite;
 		Carrello carrello = (Carrello)sessione.getAttribute("carrello");
 		boolean trovata_stella = false;
+		
+		Ordine ordine = new Ordine();
+		ordine.setIdOrdine(++idOrdine);
+		
+		GregorianCalendar oggi = new GregorianCalendar();
+		int gg = oggi.get(Calendar.DAY_OF_MONTH);
+		int mm = oggi.get(Calendar.MONTH);
+		int aa = oggi.get(Calendar.YEAR);
+		ordine.setData("" + aa + "-" + (mm+1) + "-" + gg);
+		
+		int ore = oggi.get(Calendar.HOUR);
+		int min = oggi.get(Calendar.MINUTE);
+		int sec = oggi.get(Calendar.SECOND);
+		ordine.setOra(""+ore+":"+min+":"+sec);
+		
+		ordine.setUsername(carrello.getUsername());
+		
+		ManagerAcquisti manager;
+		try 
+		{
+			manager = new ManagerAcquisti();
+			manager.creaOrdine(ordine);
+		} catch (ClassNotFoundException | SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		
 		for(ProdottoCarrello p: carrello.getProdotti())
 		{
-			Ordine ordine = new Ordine();
-			ordine.setIdOrdine(++idOrdine);
-			GregorianCalendar oggi = new GregorianCalendar();
-			int gg = oggi.get(Calendar.DAY_OF_MONTH);
-			int mm = oggi.get(Calendar.MONTH);
-			int aa = oggi.get(Calendar.YEAR);
-			ordine.setData("" + aa + "-" + (mm+1) + "-" + gg);
-			int ore = oggi.get(Calendar.HOUR);
-			int min = oggi.get(Calendar.MINUTE);
-			int sec = oggi.get(Calendar.SECOND);
-			ordine.setOra(""+ore+":"+min+":"+sec);
-			ordine.setUsername(carrello.getUsername());
 			ordine.setPrezzo(p.getPrezzo());
 			ordine.setQuantita(p.getQuantita());
 			ordine.setNomeProdotto(p.getNome());
-			
 			if(sessione.getAttribute("stelle_inserite")!=null)
 			{
 				stelle_inserite = (ArrayList<String>)sessione.getAttribute("stelle_inserite");
-				for(String s: stelle_inserite)
+				for(int i=0;i<stelle_inserite.size();i=i+2)
 				{
-					if(s.equals(p.getNome()))
+					if(stelle_inserite.get(i).equals(p.getNome()) || stelle_inserite.get(i+1).equals(p.getNome()))
 					{
-						trovata_stella=true;
+						trovata_stella = true;
+						ordine.setIdProdotto(stelle_inserite.get(i));
 					}
+					if(trovata_stella == true)
+						break;
 				}
 			}
 			if(trovata_stella==true)
@@ -225,16 +242,6 @@ public class ServletAcquistaCarrello extends HttpServlet {
 			else
 				ordine.setTipo("store");
 			trovata_stella = false;
-			
-			ManagerAcquisti manager;
-			try 
-			{
-				manager = new ManagerAcquisti();
-				manager.creaOrdine(ordine);
-			} catch (ClassNotFoundException | SQLException e) 
-			{
-				e.printStackTrace();
-			}
 			creaDettaglioOrdine(ordine);
 		}
 		
@@ -259,9 +266,6 @@ public class ServletAcquistaCarrello extends HttpServlet {
 			creaIncludeStella(ordine);
 		else
 			creaIncludeStore(ordine);
-
-		
-		
 	}
 
 	public void creaIncludeStella(Ordine ordine) 
