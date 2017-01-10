@@ -108,7 +108,7 @@ public class ServletInserimentoProdottoStella extends HttpServlet {
                         String fileName = new File(item.getName()).getName();
                         String filePath = uploadPath + "/" + fileName;
                         File storeFile = new File(filePath);
-                        parametri.add("img/"+fileName);
+                        parametri.add("images/stelle/"+fileName);
                         // saves the file on disk
                         item.write(storeFile);
                         System.out.println(filePath);
