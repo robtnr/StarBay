@@ -239,4 +239,47 @@ public class ManagerAcquisti {
 		}
 	}
 	
+	public void aggiornaQuantitaNomeProdotto(Ordine ordine) throws ClassNotFoundException, SQLException
+	{
+		  PreparedStatement inserter;
+		  Connection connection = db.getConnection();
+		  ResultSet result;
+		  String template;
+		  boolean cambiare_nome = false;
+		  if(ordine.getTipo().equals("store"))
+			  template = "UPDATE STORE SET quantita=quantita-? WHERE nome=?";
+		  else
+		  {
+			  if(ordine.getNomeProdotto().equals(ordine.getIdProdotto()))
+			  {
+				  template = "UPDATE STELLE SET quantita=quantita-? WHERE nome=?";
+			  }
+			  else
+			  {
+				  cambiare_nome = true;
+				  template = "UPDATE STELLE SET quantita=quantita-?, nome=? WHERE nome=?";
+			  }
+		  }
+		  
+			try
+			{
+				inserter = connection.prepareStatement(template);
+				inserter.setInt(1, ordine.getQuantita());
+				if(cambiare_nome == true)
+				{
+					inserter.setString(2, ordine.getNomeProdotto());
+					inserter.setString(3, ordine.getIdProdotto());
+				}
+				else
+					inserter.setString(2, ordine.getNomeProdotto());
+				
+				inserter.executeUpdate();
+				inserter.close();
+				connection.close();
+			} catch (SQLException e)
+			{
+				e.printStackTrace();
+			}
+	}
+	
 }
