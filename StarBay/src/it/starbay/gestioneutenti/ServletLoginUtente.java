@@ -42,6 +42,8 @@ public class ServletLoginUtente extends HttpServlet {
 			{
 				response.setHeader("esito_login","true");
 				sessione.setAttribute("cliente", cliente);
+				sessione.removeAttribute("carrello");
+				sessione.setAttribute("carrello", null);
 			}
 		}
 	}
