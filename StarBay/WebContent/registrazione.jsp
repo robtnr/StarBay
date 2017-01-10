@@ -28,7 +28,7 @@
 			<section class="col-md-10 col-md-offset-1">
 				<div class="row">
 					<div id="formRegistrazione" class="col-md-4 col-md-offset-4">
-						<form action"#">
+						<form action"#" style="margin-top:20px;">
 							<div id="divNome" class="form-group">
 								<label id="labelNome" for="inputNome">Nome</label>
 								<input id="inputNome" class="form-control" name="nome" placeholder="Nome" type="text" onblur="controlloNome(this)"/>
@@ -81,7 +81,7 @@
 								
 							</div>
 						</form>
-						<button id="buttonLogin" onclick="controlloDati()" class="btn btn-default col-md-4 col-md-offset-4">
+						<button style="margin-bottom:20px; margin-top:5px;" id="buttonLogin" onclick="controlloDati()" class="btn btn-default col-md-4 col-md-offset-4">
 									Registrati
 								</button>
 					</div>
