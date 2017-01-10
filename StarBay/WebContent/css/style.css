@@ -305,7 +305,8 @@ button#bottonePiu:hover
 
 #scontrino img
 {
-	width: 20px;
+	width: 16px;
+	margin-left: 15px;
 }
 
 #scontrino img:hover

@@ -59,7 +59,7 @@
 					        <th>Nome</th>
 					        <th>Quantità</th>
 					        <th>Prezzo &euro;</th>
-					        <th></th>
+					        <th>Elimina</th>
 					      </tr>
 					    </thead>
 					     <% if(session.getAttribute("carrello")==null)
@@ -84,7 +84,7 @@
 						    <td class="nome_prodotto"><%= p.getNome() %></td>
 							<td><%= p.getQuantita() %></td>
 							<td><span><%= p.getPrezzo() %></span> &euro;</td>
-							<td><img src="images/less.png" title="clicca qui per eliminare" onclick="rimozioneProdottoCarrello(this)"></td>  
+							<td><img src="images/delete.png" title="clicca qui per eliminare" onclick="rimozioneProdottoCarrello(this)"></td>  
 					      </tr>
 					      <%
 					      }
