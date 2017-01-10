@@ -45,7 +45,6 @@
 				      <tr>
 				        <th>Nome</th>
 				        <th>Descrizione</th>
-				        <th>Src</th>
 				        <th>Prezzo vendita</th>
 				        <th>Prezzo d'acquisto</th>
 				        <th>Quantità</th>
@@ -70,7 +69,6 @@
 				      <tr>
 				        <td><%= s.getNome() %></td>
 				        <td><%= s.getDescrizione() %></td>
-				        <td><%= s.getSrc() %></td>
 				        <td><%= s.getPrezzoVendita() %></td>
 				        <td><%= s.getPrezzoAcquisto() %></td>
 				        <td><%= s.getQuantita() %></td>
