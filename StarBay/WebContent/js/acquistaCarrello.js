@@ -69,7 +69,6 @@ function acquistaCarrello()
 				{
 				swal({
 					  title: "I prodotti nel carrello sono stati acquistati!",
-					  text: text,
 					  type: "success",
 					  showCancelButton: false,
 					  confirmButtonText: "OK",

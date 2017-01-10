@@ -15,19 +15,33 @@ function aggiungiProdottoStoreCarrello(x)
 			var pagina_da_reindirizzare = http.getResponseHeader("pagina_da_reindirizzare");
 			if(verificato=="true")
 			{
-				setTimeout(function(){
-					open(pagina_da_reindirizzare,"_self");
-				}, 1000);
-				
-				swal("Successo","Prodotto store inserito con successo", "success");
+				swal({
+					  title:"Prodotto store inserito con successo!",
+					  type: "success",
+					  showCancelButton: false,
+					  confirmButtonText: "OK",
+					  closeOnConfirm: false,
+					},
+					function(isConfirm){
+					  if (isConfirm) {
+						  open(pagina_da_reindirizzare,"_self");
+					  }
+					});
 			}
 			else
 			{
-				setTimeout(function(){
-					open(pagina_da_reindirizzare,"_self");
-				}, 1000);
-				
-				swal("Errore","Prodotto store esaurito", "error");
+				swal({
+					  title: "Prodotto store esaurito!",
+					  type: "success",
+					  showCancelButton: false,
+					  confirmButtonText: "OK",
+					  closeOnConfirm: false,
+					},
+					function(isConfirm){
+					  if (isConfirm) {
+						  open(pagina_da_reindirizzare,"_self");
+					  }
+					});
 			}
 		}
 	}
