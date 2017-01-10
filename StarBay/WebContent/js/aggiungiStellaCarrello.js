@@ -13,19 +13,33 @@ function aggiungiStellaCarrello()
 				var pagina_da_reindirizzare = http.getResponseHeader("pagina_da_reindirizzare");
 				if(verificato=="true")
 				{
-					setTimeout(function(){
-						open(pagina_da_reindirizzare,"_self");
-					}, 1200);
-
-					swal("Successo","Prodotto stella inserito con successo", "success");
+					swal({
+						  title: "Prodotto stella inserito con successo!",
+						  type: "success",
+						  showCancelButton: false,
+						  confirmButtonText: "OK",
+						  closeOnConfirm: false,
+						},
+						function(isConfirm){
+						  if (isConfirm) {
+							  open(pagina_da_reindirizzare,"_self");
+						  }
+						});
 				}
 				else
 				{
-					setTimeout(function(){
-						open(pagina_da_reindirizzare,"_self");
-					}, 1200);
-
-					swal("Errore","Stella gia' presente!", "error");
+					swal({
+						  title: "Stella gia' presente!",
+						  type: "error",
+						  showCancelButton: false,
+						  confirmButtonText: "OK",
+						  closeOnConfirm: false,
+						},
+						function(isConfirm){
+						  if (isConfirm) {
+							  open(pagina_da_reindirizzare,"_self");
+						  }
+						});
 				}
 			}
 		}
