@@ -43,7 +43,7 @@ function acquistaCarrello()
 						}
 					else if(tipo=="quantita_eliminata")
 						{
-						text+=i+") La quantita' di "+ quantita_vecchia+" "+nome+" richiesta non e' disponibile. In magazzino non ne sono presenti per cui il prodotto è stato eliminato dal carrello.\n "; 
+						text+=i+") La quantita' di "+ quantita_vecchia+" "+nome+" richiesta non e' disponibile. In magazzino non ne sono presenti per cui il prodotto e' stato eliminato dal carrello.\n "; 
 						}
 				}
 				swal({
