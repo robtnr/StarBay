@@ -35,18 +35,7 @@
 				<div class="row">
 					
 					<div id="menu_gestione" class="col-md-6 col-md-offset-3">
-					<img id="tool" alt="tool" src="images/gestore.png" />
-					<!-- 
-						<ul>
-							<li>INSERIMENTO PRODOTTO<a href="inserimento_prodotto_stella.jsp"><img src="images/arrow.png">Stella</a><a href="inserimento_prodotto_store.jsp"><img src="images/arrow.png">Store</a></li>
-							<li>MODIFICA PRODOTTO<a href="modifica_prodotto_stella.jsp"><img src="images/arrow.png">Stella</a><a href="modifica_prodotto_store.jsp"><img src="images/arrow.png">Store</a></li>
-							<li>ELIMINA PRODOTTO<a href="elimina_prodotto_stella.jsp"><img src="images/arrow.png">Stella</a><a href="elimina_prodotto_store.jsp"><img src="images/arrow.png">Store</a></li>
-							<li><a href="elimina_utente.jsp">ELIMINA UTENTE</a></li>
-							<li>VISUALIZZA<a href="#" onclick="visualizzaGuadagno()"><img src="images/arrow.png">Guadagno</a><a href="#" onclick="visualizzaRicavo()"><img src="images/arrow.png">Ricavo</a></li>
-							<li><a href="visualizza_guadagno_singolo_prodotto.jsp">VISUALIZZA GUADAGNO SINGOLO PRODOTTO</a></li>
-						</ul>
-					-->
-						
+					<img id="tool" alt="tool" src="images/gestore.png" />				
 					<div id="wrap">
 						<div class="wup">Inserimento prodotto:</div>
 						<div class="wdown">
@@ -78,7 +67,6 @@
 						</div>
 					</div>
 					</div>
-
 				</div>
 			</section>
 		</div>
