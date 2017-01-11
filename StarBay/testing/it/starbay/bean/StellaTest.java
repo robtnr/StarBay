@@ -50,18 +50,21 @@ public class StellaTest
 		assertEquals(30, prezzo, 30-prezzo);
 	}
 	
+	@Test
 	public void TestGetSrc()
 	{
 		String src = stella.getSrc();
 		assertEquals("images/stelle/urania.jpg", src);
 	}
 	
+	@Test
 	public void TestGetData()
 	{
 		String data = stella.getData();
 		assertEquals("2017-01-03", data);
 	}
 	
+	@Test
 	public void TestGetDescrizione()
 	{
 		String descrizione = stella.getDescrizione();
