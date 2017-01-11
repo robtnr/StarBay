@@ -35,17 +35,38 @@
 				<div class="row">
 					
 					<div id="menu_gestione" class="col-md-6 col-md-offset-3">
-					<img id="tool" alt="tool" src="images/gestore.png">
-						<ul>
-							<li>Inserimento prodotto<a href="inserimento_prodotto_stella.jsp"><img src="images/arrow.png">Stella</a><a href="inserimento_prodotto_store.jsp"><img src="images/arrow.png">Store</a></li>
-							<li>Modifica prodotto<a href="modifica_prodotto_stella.jsp"><img src="images/arrow.png">Stella</a><a href="modifica_prodotto_store.jsp"><img src="images/arrow.png">Store</a></li>
-							<li>Elimina prodotto<a href="elimina_prodotto_stella.jsp"><img src="images/arrow.png">Stella</a><a href="elimina_prodotto_store.jsp"><img src="images/arrow.png">Store</a></li>
-							<li><a href="elimina_utente.jsp">Elimina Utente </a></li>
-							<li>Visualizza<a href="#" onclick="visualizzaGuadagno()"><img src="images/arrow.png">Guadagno</a><a href="#" onclick="visualizzaRicavo()"><img src="images/arrow.png">Ricavo</a></li>
-							<li><a href="visualizza_guadagno_singolo_prodotto.jsp">Visualizza guadagno per singolo prodotto</a></li>
-						</ul>
+					<img id="tool" alt="tool" src="images/gestore.png" />				
+					<div id="wrap">
+						<div class="wup">Inserimento prodotto:</div>
+						<div class="wdown">
+							<button onclick="window.open('inserimento_prodotto_stella.jsp');"><img src="images/star.png" /> Stella</button>
+							<button onclick="window.open('inserimento_prodotto_store.jsp');"><img src="images/telescopio.png" /> Store</button>
+						</div>
+						<div class="wup">Modifica prodotto:</div>
+						<div class="wdown">
+							<button onclick="window.open('modifica_prodotto_stella.jsp');"><img src="images/star.png" /> Stella</button>
+							<button onclick="window.open('modifica_prodotto_store.jsp');"><img src="images/telescopio.png" /> Store</button>
+						</div>
+						<div class="wup">Elimina prodotto:</div>
+						<div class="wdown">
+							<button onclick="window.open('elimina_prodotto_stella.jsp');"><img src="images/star.png" /> Stella</button>
+							<button onclick="window.open('elimina_prodotto_store.jsp');"><img src="images/telescopio.png" /> Store</button>
+						</div>
+						<div class="wup">Gestione utenti:</div>
+						<div class="wdown">
+							<button onclick="window.open('elimina_utente.jsp');" style="width: 179px;"><img src="images/user.png" /> Elimina utente</button>
+						</div>
+						<div class="wup">Visualizza:</div>
+						<div class="wdown">
+							<button onclick="visualizzaGuadagno()" style="margin-right: 23px" /> Guadagno</button>
+							<button onclick="visualizzaRicavo()" /> Ricavo</button>
+						</div>
+						<div class="wup">Visualizza guadagno:</div>
+						<div class="wdown">
+							<button onclick="window.open('visualizza_guadagno_singolo_prodotto.jsp');" style="width: 179px;"><img src="images/earn.png" /> Singolo prodotto</button>
+						</div>
 					</div>
-
+					</div>
 				</div>
 			</section>
 		</div>
