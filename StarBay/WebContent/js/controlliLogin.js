@@ -57,7 +57,7 @@ function controlloUsername(x)
 		document.getElementById("iconUsername").setAttribute("class", "glyphicon glyphicon-warning-sign form-control-feedback");
 		document.getElementById("iconUsername").style.display="block";
 	}
-	else if(x.value.length > 30 && x.value.length < 8)
+	else if(x.value.length > 30 || x.value.length < 8)
 	{
 		document.getElementById("divUsername").setAttribute("class", "form-group has-error has-feedback");
 		document.getElementById("labelUsername").setAttribute("class", "control-label");
@@ -99,7 +99,7 @@ function controlloPassword(x)
 		document.getElementById("iconPassword").setAttribute("class", "glyphicon glyphicon-warning-sign form-control-feedback");
 		document.getElementById("iconPassword").style.display="block";
 	}
-	else if(x.value.length > 30 && x.value.length < 8)
+	else if(x.value.length > 30 || x.value.length < 8)
 	{
 		document.getElementById("divPassword").setAttribute("class", "form-group has-error has-feedback");
 		document.getElementById("labelPassword").setAttribute("class", "control-label");
