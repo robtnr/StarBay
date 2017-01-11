@@ -23,58 +23,21 @@ public class ManagerAcquisti {
 	public int getQuantitaProdotto(String nome, String tipo) throws ClassNotFoundException, SQLException
 	{
 		Connection connection = db.getConnection();
-		Statement statement;
-		PreparedStatement inserter = null;
+		Statement statement = connection.createStatement();
 		ResultSet result;
+		int quantita = 0;
 		
 		if(tipo.equals("stella"))
-		{
-			try 
-			{
-			int quantita = 0;
-			statement = connection.createStatement();
-			inserter = connection.prepareStatement("SELECT quantita FROM STELLE WHERE nome=?");
-			inserter.setString(1, nome);
-			result = inserter.executeQuery();
-			
-			while(result.next())
-			{
-				quantita = result.getInt(1);
-			}
-			statement.close();
-			inserter.close();
-			connection.close();
-			return quantita;
-			} catch (SQLException e) 
-			{
-				e.printStackTrace();
-			}
-		}
+			result = statement.executeQuery("SELECT quantita FROM STELLE WHERE nome='"+nome+"'");
 		else
-		{
-			try 
-			{
-			int quantita = 0;
-			connection = db.getConnection();
-			statement = connection.createStatement();
-			inserter = connection.prepareStatement("SELECT quantita FROM STORE WHERE nome=?");
-			inserter.setString(1, nome);
-			result = inserter.executeQuery();
+			result = statement.executeQuery("SELECT quantita FROM STORE WHERE nome='"+nome+"'");
 			
-			while(result.next())
-			{
-				quantita = result.getInt(1);
-			}
-			statement.close();
-			inserter.close();
-			connection.close();
-			return quantita;
-			} catch (SQLException e) 
-			{
-				e.printStackTrace();
-			}
-		}
-		return 0;
+		quantita = result.getInt(1);
+
+		statement.close();
+		connection.close();
+		System.out.println(quantita);
+		return quantita;
 	}
 	
 	public int getCountOrdine() throws ClassNotFoundException, SQLException
