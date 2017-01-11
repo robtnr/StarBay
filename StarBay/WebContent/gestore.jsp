@@ -39,22 +39,22 @@
 					<div id="wrap">
 						<div class="wup">Inserimento prodotto:</div>
 						<div class="wdown">
-							<button onclick="window.open('inserimento_prodotto_stella.jsp');"><img src="images/star.png" /> Stella</button>
-							<button onclick="window.open('inserimento_prodotto_store.jsp');"><img src="images/telescopio.png" /> Store</button>
+							<button onclick="window.open('inserimento_prodotto_stella.jsp','_self');"><img src="images/star.png" /> Stella</button>
+							<button onclick="window.open('inserimento_prodotto_store.jsp','_self');"><img src="images/telescopio.png" /> Store</button>
 						</div>
 						<div class="wup">Modifica prodotto:</div>
 						<div class="wdown">
-							<button onclick="window.open('modifica_prodotto_stella.jsp');"><img src="images/star.png" /> Stella</button>
-							<button onclick="window.open('modifica_prodotto_store.jsp');"><img src="images/telescopio.png" /> Store</button>
+							<button onclick="window.open('modifica_prodotto_stella.jsp','_self');"><img src="images/star.png" /> Stella</button>
+							<button onclick="window.open('modifica_prodotto_store.jsp','_self');"><img src="images/telescopio.png" /> Store</button>
 						</div>
 						<div class="wup">Elimina prodotto:</div>
 						<div class="wdown">
-							<button onclick="window.open('elimina_prodotto_stella.jsp');"><img src="images/star.png" /> Stella</button>
-							<button onclick="window.open('elimina_prodotto_store.jsp');"><img src="images/telescopio.png" /> Store</button>
+							<button onclick="window.open('elimina_prodotto_stella.jsp','_self');"><img src="images/star.png" /> Stella</button>
+							<button onclick="window.open('elimina_prodotto_store.jsp','_self');"><img src="images/telescopio.png" /> Store</button>
 						</div>
 						<div class="wup">Gestione utenti:</div>
 						<div class="wdown">
-							<button onclick="window.open('elimina_utente.jsp');" style="width: 179px;"><img src="images/user.png" /> Elimina utente</button>
+							<button onclick="window.open('elimina_utente.jsp','_self');" style="width: 179px;"><img src="images/user.png" /> Elimina utente</button>
 						</div>
 						<div class="wup">Visualizza:</div>
 						<div class="wdown">
@@ -63,7 +63,7 @@
 						</div>
 						<div class="wup">Visualizza guadagno:</div>
 						<div class="wdown">
-							<button onclick="window.open('visualizza_guadagno_singolo_prodotto.jsp');" style="width: 179px;"><img src="images/earn.png" /> Singolo prodotto</button>
+							<button onclick="window.open('visualizza_guadagno_singolo_prodotto.jsp','_self');" style="width: 179px;"><img src="images/earn.png" /> Singolo prodotto</button>
 						</div>
 					</div>
 					</div>
