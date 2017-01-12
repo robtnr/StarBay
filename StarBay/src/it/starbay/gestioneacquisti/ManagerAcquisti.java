@@ -36,7 +36,6 @@ public class ManagerAcquisti {
 
 		statement.close();
 		connection.close();
-		System.out.println(quantita);
 		return quantita;
 	}
 	
@@ -82,7 +81,7 @@ public class ManagerAcquisti {
 		} 
 		catch (SQLException e) 
 		{
-			e.printStackTrace();
+			e.printStackTrace();			
 		}
 	}
 	
@@ -184,8 +183,6 @@ public class ManagerAcquisti {
 	public void creaIncludeStore(Ordine ordine) throws ClassNotFoundException, SQLException
 	{
 		String query = "INSERT INTO INCLUDE_STORE VALUES(?,?)";
-		
-		String coordinate = getCoordinate(ordine.getNomeProdotto());
 		Connection connection = db.getConnection();
 		PreparedStatement inserter = connection.prepareStatement(query);
 		try 
