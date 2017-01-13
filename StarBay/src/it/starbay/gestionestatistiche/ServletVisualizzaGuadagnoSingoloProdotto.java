@@ -14,7 +14,10 @@ import it.starbay.gestionebean.Ordine;
 import it.starbay.gestionebean.Stella;
 import it.starbay.gestionebean.Store;
 
-
+/**
+ * ServletVisualizzaGuadagnoSingoloProdotto
+ * Classe control che si occupa della visualizzazione del guadagno per singolo prodotto
+ */
 @WebServlet("/ServletVisualizzaGuadagnoSingoloProdotto")
 public class ServletVisualizzaGuadagnoSingoloProdotto extends HttpServlet 
 {
