@@ -11,6 +11,11 @@ import it.starbay.gestionebean.CallDatabase;
 import it.starbay.gestionebean.Stella;
 import it.starbay.gestionebean.Store;
 
+/**
+ * ManagerNavigazione
+ * Classe manager riguardante il sottosistema della navigazione
+ * 
+ */
 public class ManagerNavigazione 
 {
 	private CallDatabase db;
@@ -18,12 +23,22 @@ public class ManagerNavigazione
 	private Statement statement;
 	private ResultSet result;
 	
+	/**
+	 * Costruisce ed inizializza un ManagerNavigazione chiamando il database
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public ManagerNavigazione() throws ClassNotFoundException, SQLException
 	{
 		db = new CallDatabase();
 		connection = db.getConnection();
 	}
 	
+	/**
+	 * prende gli ultimi 3 prodotti stella e gli ultimi 3 prodotti store dal database
+	 * @param tipo
+	 * @return array di prodotti
+	 */
 	public ArrayList caricaUltimiProdotti(String tipo)
 	{
 		ArrayList<Stella> stelle = new ArrayList<Stella>();
@@ -90,6 +105,10 @@ public class ManagerNavigazione
 		return prodotti_store;
 	}
 	
+	/**
+	 * prende i prodotti stella dal database
+	 * @return array di prodotti stella
+	 */
 	public ArrayList<Stella> caricaProdottiStella()
 	{
 		ArrayList<Stella> stelle = new ArrayList<Stella>();
@@ -120,6 +139,10 @@ public class ManagerNavigazione
 		return stelle;
 	}
 	
+	/**
+	 * prende i prodotti store dal database
+	 * @return array di prodotti store
+	 */
 	public ArrayList<Store> caricaProdottiStore()
 	{
 		ArrayList<Store> prodotti_store = new ArrayList<Store>();
@@ -155,6 +178,10 @@ public class ManagerNavigazione
 		return prodotti_store;
 	}
 	
+	/**
+	 * prende i prodotti dal database
+	 * @return array di prodotti
+	 */
 	public ArrayList caricaProdotti(String tipo)
 	{
 		ArrayList<Stella> stelle = new ArrayList<Stella>();
@@ -216,6 +243,10 @@ public class ManagerNavigazione
 		return prodotti_store;
 	}
 	
+	/**
+	 * prende i prodotti in base alla chiave di ricerca dal database
+	 * @return array di prodotti
+	 */
 	public ArrayList cercaProdotti(String chiave)
 	{
 		String template;
