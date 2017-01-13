@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import it.starbay.gestionebean.Cliente;
 
-
+/**
+ * ServletCaricaUtenti
+ * Classe control che si occupa di prendere gli utenti
+ */
 @WebServlet("/ServletCaricaUtenti")
 public class ServletCaricaUtenti extends HttpServlet 
 {
