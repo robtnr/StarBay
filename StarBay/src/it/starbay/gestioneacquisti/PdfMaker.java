@@ -20,6 +20,10 @@ import com.itextpdf.text.pdf.PdfWriter;
 import it.starbay.gestionebean.Cliente;
 import it.starbay.gestionebean.Ordine;
 
+/**
+ * PdfMaker
+ * Classe che si occupa della stampa dell'ordine di una stella su un file pdf
+ */
 public class PdfMaker 
 {
 	private Font bigFont = new Font(Font.FontFamily.UNDEFINED, 16, Font.NORMAL);
@@ -41,6 +45,12 @@ public class PdfMaker
 	private String nome_cognome;
 	private String path;
 
+	/**
+	 * Costruisce ed inizializza l'oggetto PdfMaker
+	 * @param path in cui si salvere il file pdf e da cui prendere il logo
+	 * @param c oggetto Cliente che rappresenta l'acquirente
+	 * @param o oggetto Ordine da cui prendere le informazioni
+	 */
 	public PdfMaker(String path, Cliente c, Ordine o) 
 	{
 		try 
@@ -81,6 +91,13 @@ public class PdfMaker
 		}
 	}
 
+	/**
+	 * crea una tabella per l'intestazione
+	 * @return
+	 * @throws MalformedURLException
+	 * @throws IOException
+	 * @throws DocumentException
+	 */
 	private PdfPTable creaTabellaIntestazione() throws MalformedURLException, IOException, DocumentException 
 	{
 		PdfPTable tabella = new PdfPTable(2);
@@ -101,6 +118,9 @@ public class PdfMaker
 		return tabella;
 	}
 
+	/**
+	 * crea tabella dettagli
+	 */
 	private PdfPTable creaTabellaDettagli() 
 	{		
 		PdfPTable tabella = new PdfPTable(6);
@@ -143,6 +163,9 @@ public class PdfMaker
 		return tabella;
 	}
 
+	/**
+	 * crea tabella ordine
+	 */
 	private PdfPTable creaTabellaOrdine() 
 	{		
 		PdfPTable tabella = new PdfPTable(4);
@@ -178,6 +201,9 @@ public class PdfMaker
 		return tabella;	
 	}
 
+	/**
+	 * crea tabella termini
+	 */
 	private PdfPTable creaTabellaTermini()
 	{
 		PdfPTable tabella = new PdfPTable(1);
@@ -203,6 +229,10 @@ public class PdfMaker
 		return tabella;
 	}
 	
+	/**
+	 * restituisce la path
+	 * @return path
+	 */
 	public String getPath()
 	{
 		return "pdf/Starbay_Contratto_Stella"+this.idDettaglioOrdine+".pdf";
