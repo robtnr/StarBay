@@ -127,6 +127,9 @@ public class ServletInserimentoProdottoStella extends HttpServlet {
         }
 	}
 
+	/**
+	 * Creazione oggetto Stella
+	 */
 	private void creaOggettoStella() 
 	{
 		nome = parametri.get(0);
