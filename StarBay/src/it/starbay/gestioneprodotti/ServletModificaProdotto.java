@@ -12,7 +12,8 @@ import it.starbay.gestionebean.Stella;
 import it.starbay.gestionebean.Store;
 
 /**
- * Servlet implementation class ServletModificaProdotto
+ * ServletModificaProdotto
+ * Classe control che si occupa della modifica di un prodotto store
  */
 @WebServlet("/ServletModificaProdotto")
 public class ServletModificaProdotto extends HttpServlet 
