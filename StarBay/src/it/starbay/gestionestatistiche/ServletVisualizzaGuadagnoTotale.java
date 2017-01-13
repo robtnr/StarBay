@@ -7,7 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+/**
+ * ServletVisualizzaGuadagnoTotale
+ * Classe control che si occupa della visualizzazione del guadagno totale
+ */
 @WebServlet("/ServletVisualizzaGuadagnoTotale")
 public class ServletVisualizzaGuadagnoTotale extends HttpServlet 
 {
