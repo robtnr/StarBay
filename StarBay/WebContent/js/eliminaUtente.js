@@ -1,3 +1,9 @@
+/**
+ * Elimina Utente
+ * si occupa di caricare tutti gli utenti dal database, chiamando la servlet, per poi eliminarli
+ * 
+ */
+
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() 
 {
