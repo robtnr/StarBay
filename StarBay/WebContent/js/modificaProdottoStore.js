@@ -1,9 +1,9 @@
 /**
-* Modifica prodotto singolo
+* Modifica prodotto store
 *
 * Metodo modificaProdottoStore
-* viene chiamata la servlet ServletModificaProdotto e si viene reindirizzati alla pagina modifica_prodotto_singolo_stella.jsp
-* @param x oggetto node
+* questo metodo chiama la servlet per modificare i parametri di un prodotto store
+* @param x oggetto node che rappresenta un table
 */
 
 function modificaProdottoStore(x)
