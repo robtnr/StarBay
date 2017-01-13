@@ -10,6 +10,10 @@ import java.util.ArrayList;
 import it.starbay.gestionebean.CallDatabase;
 import it.starbay.gestionebean.Ordine;
 
+/**
+ * ManagerStatistiche
+ * Classe manager riguardante il sottosistema delle statistiche
+ */
 public class ManagerStatistiche 
 {
 	private CallDatabase db;
@@ -17,6 +21,9 @@ public class ManagerStatistiche
 	private Statement statement;
 	private ResultSet result;
 
+	/**
+	 * Costruisce ed inizializza un ManagerStatistiche chiamando il database
+	 */
 	public ManagerStatistiche() 
 	{
 		db = new CallDatabase();
@@ -30,6 +37,10 @@ public class ManagerStatistiche
 		}
 	}
 
+	/**
+	 * calcola il guadagno totale dal database
+	 * @return guadagno totale
+	 */
 	public String dammiGuadagnoTotale() 
 	{
 		String guadagnoTotale = null;
@@ -49,6 +60,10 @@ public class ManagerStatistiche
 		return guadagnoTotale;
 	}
 
+	/**
+	 * calcola il ricavo totale dal database
+	 * @return ricavo totale
+	 */
 	public String dammiRicavoTotale() 
 	{
 		String guadagnoTotale = null;
@@ -75,6 +90,10 @@ public class ManagerStatistiche
 		return "" + ricavoTotale;
 	}
 
+	/**
+	 * calcola il guadagno totale per singolo prodotto dal database
+	 * @return array di Ordini
+	 */
 	public ArrayList<Ordine> dammiGuadagnoSingoloProdotto() 
 	{
 		ArrayList<Ordine> ordini = new ArrayList<Ordine>();
