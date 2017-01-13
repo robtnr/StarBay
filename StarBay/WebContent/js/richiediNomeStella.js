@@ -1,3 +1,12 @@
+/**
+ * Richiedi Nome Stella
+ * si occupa di prendere i valori della stella e reindirizzarli alla pagina per la sua modifica
+ * 
+ * Metodo richiediNomeStella
+ * questo metodo prende i valori della stella e li reindirizza alla pagina per la sua modifica
+ * @param x oggetto node che rappresenta un button
+ */
+
 function richiediNomeStella(x)
 {
 	var title = document.getElementsByTagName("TITLE")[0].childNodes[0].nodeValue;
