@@ -20,7 +20,8 @@ import it.starbay.gestionebean.Ordine;
 import it.starbay.gestionebean.ProdottoCarrello;
 
 /**
- * Servlet implementation class ServletAcquistaCarrello
+ * ServletAcquistaCarrello
+ * Classe control che gestisce l'acquisto dei prodotti nel carrello
  */
 @WebServlet("/ServletAcquistaCarrello")
 public class ServletAcquistaCarrello extends HttpServlet {
@@ -176,6 +177,9 @@ public class ServletAcquistaCarrello extends HttpServlet {
 		doGet(request, response);
 	}
 	
+	/**
+	 * passa l'id dell'ordine al metodo salvaOrdine()
+	 */
 	public void creaOrdine()
 	{
 		ManagerAcquisti manager;
@@ -192,6 +196,10 @@ public class ServletAcquistaCarrello extends HttpServlet {
 		
 	}
 
+	/**
+	 * crea un ordine
+	 * @param idOrdine idOrdine del prossimo ordine da inserire
+	 */
 	public void salvaOrdine(int idOrdine) 
 	{ 
 		ArrayList<String> stelle_inserite;
@@ -252,7 +260,11 @@ public class ServletAcquistaCarrello extends HttpServlet {
 		}
 		
 	}
-
+	
+	/**
+	 * crea dettaglio ordine
+	 * @param ordine ordine da cui prendere i dati per la creazione di un dettaglio ordine
+	 */
 	public void creaDettaglioOrdine(Ordine ordine) 
 	{
 		int idDettaglioOrdine;
@@ -276,6 +288,10 @@ public class ServletAcquistaCarrello extends HttpServlet {
 		aggiornaQuantitaENome(ordine);
 	}
 
+	/**
+	 * crea include stelle
+	 * @param ordine ordine da cui prendere i dati per la creazione di un include stelle
+	 */
 	public void creaIncludeStella(Ordine ordine) 
 	{
 		ManagerAcquisti manager;
@@ -290,6 +306,10 @@ public class ServletAcquistaCarrello extends HttpServlet {
 			
 	}
 
+	/**
+	 * crea include store
+	 * @param ordine ordine da cui prendere i dati per la creazione di un include store
+	 */
 	public void creaIncludeStore(Ordine ordine) 
 	{
 		ManagerAcquisti manager;
@@ -304,6 +324,10 @@ public class ServletAcquistaCarrello extends HttpServlet {
 			
 	}
 	
+	/**
+	 * aggiorna la quantità ed eventualmente il nome di un prodotto
+	 * @param ordine
+	 */
 	private void aggiornaQuantitaENome(Ordine ordine) 
 	{
 		ManagerAcquisti manager;

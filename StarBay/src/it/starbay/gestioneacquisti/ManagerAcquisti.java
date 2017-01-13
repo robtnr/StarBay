@@ -12,7 +12,7 @@ import it.starbay.gestionebean.Stella;
 
 /**
  * ManagerAcquisti
- * Classe manager riguardante il sottosistema degli acquisti che si occupa della logica business
+ * Classe manager riguardante il sottosistema degli acquisti
  *  
  */
 
@@ -318,7 +318,7 @@ public class ManagerAcquisti {
 	}
 
 	/**
-	 * aggiorna la quantità di un prodotto nel database
+	 * aggiorna la quantità ed eventualmente il nome di un prodotto stella nel database
 	 * @param ordine ordine da cui prendere gli attributi
 	 * @throws ClassNotFoundException
 	 * @throws SQLException
