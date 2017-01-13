@@ -68,12 +68,6 @@ public class ManagerUtentiTest {
 	}
 
 	@Test
-	public void testDammiOrdiniUtente() 
-	{
-		assertNotNull(mu.dammiOrdiniUtente("giandark"));
-	}
-
-	@Test
 	public void testDammiClienti() 
 	{
 		assertFalse(mu.dammiClienti().isEmpty());

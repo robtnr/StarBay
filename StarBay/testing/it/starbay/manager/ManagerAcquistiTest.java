@@ -84,6 +84,12 @@ public class ManagerAcquistiTest {
 	{
 		assertEquals(6, ma.getCountDettaglioOrdine());
 	}
+	
+	@Test
+	public void testDammiOrdiniUtente() 
+	{
+		assertFalse(ma.dammiOrdiniUtente("giandark").isEmpty());
+	}
 
 	@Test
 	public void testCreaDettagliOrdine() throws ClassNotFoundException, SQLException 
