@@ -17,7 +17,8 @@ import it.starbay.gestionebean.Store;
 import sun.util.calendar.Gregorian;
 
 /**
- * Servlet implementation class ServletModificaProdottoSingolo
+ * ServletModificaProdottoSingolo
+ * Classe control che si occupa della modifica effettiva di un prodotto
  */
 @WebServlet("/ServletModificaProdottoSingolo")
 public class ServletModificaProdottoSingolo extends HttpServlet {
