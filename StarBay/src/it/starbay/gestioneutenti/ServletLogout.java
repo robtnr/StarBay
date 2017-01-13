@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class ServletLogout
+ * ServletLogout
+ * Classe control che si occupa di effettuare il logout
  */
 @WebServlet("/ServletLogout")
 public class ServletLogout extends HttpServlet {
