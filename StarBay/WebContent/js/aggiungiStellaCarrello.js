@@ -1,3 +1,18 @@
+/**
+ * Aggiungi Stella al Carrello
+ * si occupa di aggiungere un prodotto stella al carrello
+ * 
+ * Metodo aggiungiStellaCarrello
+ * questo metodo chiama la servlet che inserisce il prodotto stella nel carrello e poi esso mostra un alert
+ * 
+ * Metodo controllaNome
+ * questo metodo controlla se il nome inserito rispetta la lunghezza e il formato
+ * @param x oggetto node che rappresenta un testo
+ * @return true se il nome inserito è corretto
+ * @return false se il nome inserito non è corretto
+ * 
+ */
+
 function aggiungiStellaCarrello()
 {
 	var c1 = controlloNome(document.getElementById("inputNome"));
