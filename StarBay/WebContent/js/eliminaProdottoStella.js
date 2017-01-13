@@ -1,3 +1,13 @@
+/**
+ * Elimina Prodotto Stella
+ * si occupa di eliminare un prodotto stella dal database
+ * 
+ * Metodo eliminaProdottoStella
+ * questo metodo chiama la servlet che elimina il prodotto stella dal database e poi esso mostra un alert
+ * @param x oggetto node che rappresenta un table
+ * 
+ */
+
 function eliminaProdottoStella(x)
 {
 		var http = new XMLHttpRequest();
