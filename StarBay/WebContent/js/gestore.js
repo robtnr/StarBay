@@ -1,3 +1,15 @@
+/**
+ * Gestore
+ * si occupa di gestire le statistiche
+ * 
+ * Metodo visualizzaGuadagno
+ * questo metodo chiama la servlet che calcola il guadagno totale e poi esso mostra un alert con il valore
+ * 
+ * Metodo visualizzaRicavo
+ * questo metodo chiama la servlet che calcola il ricavo totale e poi esso mostra un alert con il valore
+ * 
+ */
+
 function visualizzaGuadagno()
 {
 
