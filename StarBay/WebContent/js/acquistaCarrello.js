@@ -1,3 +1,13 @@
+/**
+ * 
+ * Acquista Carrello
+ * si occupa dell'acquisto dei prodotti nel carrello
+ * 
+ * Metodo acquistaCarrello
+ * questo metodo chiama la servlet che acquista i prodotti nel carrello e poi esso mostra un alert * 
+ * 
+ */
+
 function acquistaCarrello()
 {
 	var http = new XMLHttpRequest();
