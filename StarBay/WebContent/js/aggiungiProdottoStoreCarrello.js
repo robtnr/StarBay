@@ -1,3 +1,13 @@
+/**
+ * Aggiungi Prodotto Store al Carrello
+ * si occupa di aggiungere un prodotto store al carrello
+ * 
+ * Metodo aggiungiProdottoStoreCarrello
+ * questo metodo chiama la servlet che inserisce il prodotto store nel carrello e poi esso mostra un alert
+ * @param x oggetto node che rappresenta un button
+ * 
+ */
+
 function aggiungiProdottoStoreCarrello(x)
 {
 	var div_principale = x.parentNode.parentNode;
