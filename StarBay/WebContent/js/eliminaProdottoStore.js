@@ -1,3 +1,13 @@
+/**
+ * Elimina Prodotto Store
+ * si occupa di eliminare un prodotto store dal database
+ * 
+ * Metodo eliminaProdottoStore
+ * questo metodo chiama la servlet che elimina il prodotto store dal database e poi esso mostra un alert
+ * @param x oggetto node che rappresenta un table
+ * 
+ */
+
 function eliminaProdottoStore(x)
 {
 		var http = new XMLHttpRequest();
