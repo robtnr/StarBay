@@ -13,7 +13,8 @@ import javax.servlet.http.HttpSession;
 import it.starbay.gestionebean.Cliente;
 
 /**
- * Servlet implementation class ServletRegistrazione
+ * ServletRegistrazione
+ * Classe control che si occupa di effettuare la registrazione
  */
 @WebServlet("/ServletRegistrazione")
 public class ServletRegistrazione extends HttpServlet {
@@ -50,6 +51,10 @@ public class ServletRegistrazione extends HttpServlet {
 		doGet(request, response);
 	}
 	
+	/**
+	 * crea oggetto Cliente
+	 * @return cliente oggetto cliente
+	 */
 	public Cliente creazioneBeanCliente()
 	{
 		Cliente cliente = new Cliente();
