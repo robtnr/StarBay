@@ -2,7 +2,7 @@
 * Logout
 *
 * Metodo logOut
-* L'utente effettua il logout
+* questo metodo chiama la servlet per effettuare il logout
 */
 
 
