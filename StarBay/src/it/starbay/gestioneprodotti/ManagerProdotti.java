@@ -10,16 +10,29 @@ import it.starbay.gestionebean.Cliente;
 import it.starbay.gestionebean.Stella;
 import it.starbay.gestionebean.Store;
 
+/**
+ * ManagerProdotti
+ * Classe manager riguardante il sottosistema dei prodotti
+ */
 public class ManagerProdotti {
 	private CallDatabase db;
 	private Connection connection;
 	private PreparedStatement inserter;
 
+	/**
+	 * Costruisce ed inizializza un ManagerProdotti chimando il database 
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public ManagerProdotti() throws ClassNotFoundException, SQLException {
 		db = new CallDatabase();
 		connection = db.getConnection();
 	}
 
+	/**
+	 * inserisce un prodotto stella nel database
+	 * @param s oggetto Stella da inserire
+	 */
 	public void registraProdottoStella(Stella s) 
 	{
 		String query = "INSERT INTO STELLE VALUES(?,?,?,?,?,?,?)";
@@ -44,7 +57,10 @@ public class ManagerProdotti {
 		}
 	}
 
-
+	/**
+	 * inserisce un prodotto store nel database
+	 * @param s oggetto Store da inserire
+	 */
 	public void registraProdottoStore(Store s) 
 	{
 		String query = "INSERT INTO STORE VALUES(?,?,?,?,?,?,?)";
@@ -70,6 +86,11 @@ public class ManagerProdotti {
 		
 	}
 	
+	/**
+	 * modifica un prodotto store dal database
+	 * @param prodotto_vecchio rappresenta il prodotto da modificare
+	 * @param prodotto_nuovo rappresenta il prodotto modificato
+	 */
 	public void modificaProdottoStore(Store prodotto_vecchio, Store prodotto_nuovo)
 	{
 	    PreparedStatement inserter;
@@ -96,6 +117,11 @@ public class ManagerProdotti {
 		}
 	}
 	
+	/**
+	 * modifica un prodotto stella dal database
+	 * @param stella_vecchia rappresenta il prodotto da modificare
+	 * @param stella_nuova rappresenta il prodotto modificato
+	 */
 	public void modificaProdottoStella(Stella stella_vecchia, Stella stella_nuova)
 	{
 	    PreparedStatement inserter;
@@ -121,6 +147,10 @@ public class ManagerProdotti {
 		}
 	}
 	
+	/**
+	 * Elimina un prodotto stella dal database
+	 * @param coordinate rappresenta l'id della stella
+	 */
 	public void eliminaStella(String coordinate)
 	{
 		PreparedStatement inserter;
@@ -139,6 +169,10 @@ public class ManagerProdotti {
 		}
 	}
 	
+	/**
+	 * Elimina un prodotto store dal database
+	 * @param nome rappresenta l'id del prodotto store
+	 */
 	public void eliminaProdottoStore(String nome)
 	{
 		PreparedStatement inserter;
