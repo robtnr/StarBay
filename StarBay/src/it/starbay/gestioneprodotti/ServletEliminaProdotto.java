@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class ServletEliminaProdotto
+ * ServletEliminaProdotto
+ * Classe control che si occupa dell'eliminazione di un prodotto
  */
 @WebServlet("/ServletEliminaProdotto")
 public class ServletEliminaProdotto extends HttpServlet {
