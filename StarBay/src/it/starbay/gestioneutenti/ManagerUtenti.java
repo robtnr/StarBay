@@ -11,6 +11,10 @@ import it.starbay.gestionebean.CallDatabase;
 import it.starbay.gestionebean.Cliente;
 import it.starbay.gestionebean.Ordine;
 
+/**
+ * ManagerUtenti
+ * Classe manager riguardante il sottosistema degli utenti
+ */
 public class ManagerUtenti 
 {
 	private CallDatabase db;
@@ -19,6 +23,9 @@ public class ManagerUtenti
 	private Statement statement;
 	private ResultSet result;
 
+	/**
+	 * Costruisce ed inizializza un ManagerUtenti chiamando il database
+	 */
 	public ManagerUtenti()
 	{
 		try 
@@ -32,6 +39,11 @@ public class ManagerUtenti
 		}
 	}
 
+	/**
+	 * inserisce un cliente nel database
+	 * @param c cliente da inserire
+	 * @return true se l'inserimento è avvenuto, false altrimenti
+	 */
 	public boolean registraUtente(Cliente c)
 	{
 		boolean errore=false;
@@ -57,6 +69,12 @@ public class ManagerUtenti
 		return errore;
 	}
 
+	/**
+	 * controlla credenziali nel database
+	 * @param username username da controllare
+	 * @param password password da controllare
+	 * @return oggetto Cliente se il controllo è andato a buon fine
+	 */
 	public Cliente controlloCredenziali(String username,String password)
 	{
 		Cliente cliente= new Cliente();
@@ -89,6 +107,10 @@ public class ManagerUtenti
 		return cliente;
 	}
 	
+	/**
+	 * prende i clienti dal database
+	 * @return array di clienti
+	 */
 	public ArrayList<Cliente> dammiClienti() 
 	{
 		ArrayList<Cliente> clienti = new ArrayList<>();
@@ -114,7 +136,11 @@ public class ManagerUtenti
 		}
 		return clienti;
 	}
-
+	
+	/**
+	 * elimina un cliente dal database
+	 * @param utente username del cliente da eliminare
+	 */
 	public void eliminaUtente(String utente) 
 	{
 		try 
