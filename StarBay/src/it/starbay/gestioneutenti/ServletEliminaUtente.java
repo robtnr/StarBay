@@ -7,6 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * ServletEliminaUtente
+ * Classe control che si occupa di eliminare un utente
+ */
 @WebServlet("/ServletEliminaUtente")
 public class ServletEliminaUtente extends HttpServlet {
 	
