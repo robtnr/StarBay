@@ -17,7 +17,8 @@ import it.starbay.gestionebean.Ordine;
 import it.starbay.gestioneutenti.ManagerUtenti;
 
 /**
- * Servlet implementation class ServletCaricaOrdiniUtente
+ * ServletCaricaOrdiniUtente
+ * Classe control che gestisce il caricamento degli ordini di un utente
  */
 @WebServlet("/ServletCaricaOrdiniUtente")
 public class ServletCaricaOrdiniUtente extends HttpServlet 
@@ -37,5 +38,4 @@ public class ServletCaricaOrdiniUtente extends HttpServlet
 	{
 		doGet(request, response);
 	}
-
 }
