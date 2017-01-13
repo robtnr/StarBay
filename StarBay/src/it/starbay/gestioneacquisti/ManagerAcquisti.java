@@ -1,5 +1,4 @@
 package it.starbay.gestioneacquisti;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,15 +10,32 @@ import it.starbay.gestionebean.CallDatabase;
 import it.starbay.gestionebean.Ordine;
 import it.starbay.gestionebean.Stella;
 
+/**
+ * ManagerAcquisti
+ * Classe manager riguardante il sottosistema degli acquisti che si occupa della logica business
+ *  
+ */
+
 public class ManagerAcquisti {
 
 	private CallDatabase db;
 
+	/**
+	 * Costruisce ed inizializza un ManagerAcquisti chiamando il database
+	 */
 	public ManagerAcquisti()
 	{
 		db = new CallDatabase();
 	}
 
+	/**
+	 * prende la quantità di un prodotto dal database
+	 * @param nome nome del prodotto
+	 * @param tipo tipo del prodotto
+	 * @return quantità del prodotto
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public int getQuantitaProdotto(String nome, String tipo) throws ClassNotFoundException, SQLException
 	{
 		Connection connection = db.getConnection();
@@ -39,6 +55,12 @@ public class ManagerAcquisti {
 		return quantita;
 	}
 
+	/**
+	 * calcola il numero di ordini nel database
+	 * @return numero di ordini
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public int getCountOrdine() throws ClassNotFoundException, SQLException
 	{
 		Statement statement;
@@ -64,6 +86,12 @@ public class ManagerAcquisti {
 		return 0;
 	}
 
+	/**
+	 * inserisce un ordine nel database
+	 * @param ordine oggetto ordine da inserire
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public void creaOrdine(Ordine ordine) throws ClassNotFoundException, SQLException
 	{
 		String query = "INSERT INTO ORDINI VALUES(?,?,?,?)";
@@ -85,6 +113,12 @@ public class ManagerAcquisti {
 		}
 	}
 
+	/**
+	 * conta il numero di dettagli ordine nel database
+	 * @return numero di dettagli ordine
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public int getCountDettaglioOrdine() throws ClassNotFoundException, SQLException
 	{
 		Statement statement = null;
@@ -110,7 +144,12 @@ public class ManagerAcquisti {
 
 		return 0;
 	}
-
+	
+	/**
+	 * prende gli ordini di un utente dal database
+	 * @param username username dell'utente
+	 * @return array di ordini
+	 */
 	public ArrayList<Ordine> dammiOrdiniUtente(String username)  
 	{
 		ArrayList<Ordine> ordini = new ArrayList<Ordine>();
@@ -165,6 +204,12 @@ public class ManagerAcquisti {
 		return ordini;
 	}
 
+	/**
+	 * inserisce un dettaglio ordine nel database
+	 * @param ordine ordine da inserire
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public void creaDettagliOrdine(Ordine ordine) throws ClassNotFoundException, SQLException
 	{
 		String query = "INSERT INTO DETTAGLI_ORDINI VALUES(?,?,?,?)";
@@ -186,6 +231,12 @@ public class ManagerAcquisti {
 		}
 	}
 
+	/**
+	 * inserisce un include stella nel database
+	 * @param ordine ordine da cui prendere l'id
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public void creaIncludeStella(Ordine ordine) throws ClassNotFoundException, SQLException
 	{
 		String query = "INSERT INTO INCLUDE_STELLE VALUES(?,?)";
@@ -208,6 +259,13 @@ public class ManagerAcquisti {
 
 	}
 
+	/**
+	 * prende le coordinate dal database
+	 * @param nomeProdotto
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public String getCoordinate(String nomeProdotto) throws ClassNotFoundException, SQLException 
 	{
 		Connection connection = db.getConnection();
@@ -234,6 +292,12 @@ public class ManagerAcquisti {
 		return null;
 	}
 
+	/**
+	 * inserisce un include store nel database
+	 * @param ordine
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public void creaIncludeStore(Ordine ordine) throws ClassNotFoundException, SQLException
 	{
 		String query = "INSERT INTO INCLUDE_STORE VALUES(?,?)";
@@ -253,6 +317,12 @@ public class ManagerAcquisti {
 		}
 	}
 
+	/**
+	 * aggiorna la quantità di un prodotto nel database
+	 * @param ordine ordine da cui prendere gli attributi
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public void aggiornaQuantitaNomeProdotto(Ordine ordine) throws ClassNotFoundException, SQLException
 	{
 		PreparedStatement inserter;
