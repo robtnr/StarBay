@@ -22,6 +22,10 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import it.starbay.gestionebean.Stella;
 
+/**
+ * ServletInserimentoProdottoStella
+ * Classe control che si occupa dell'inserimento di un prodotto stella
+ */
 @WebServlet("/ServletInserimentoProdottoStella")
 public class ServletInserimentoProdottoStella extends HttpServlet {
 
