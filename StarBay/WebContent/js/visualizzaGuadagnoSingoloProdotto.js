@@ -1,3 +1,9 @@
+/**
+ * Visualizza Guadagno Singolo Prodotto
+ * si occupa di chiamare la servlet che calcola il guadagno per singolo prodotto
+ * 
+ */
+
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() 
 {
