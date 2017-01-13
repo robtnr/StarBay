@@ -15,7 +15,8 @@ import it.starbay.gestionebean.Stella;
 import it.starbay.gestionebean.Store;
 
 /**
- * Servlet implementation class ServletRicercaProdotto
+ * ServletRicercaProdotto
+ * Classe control che si occupa del caricamento dei prodotti cercati in base alla chiave di ricerca
  */
 @WebServlet("/ServletRicercaProdotto")
 public class ServletRicercaProdotto extends HttpServlet {
