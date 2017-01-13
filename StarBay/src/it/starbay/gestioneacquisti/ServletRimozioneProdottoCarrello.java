@@ -15,11 +15,13 @@ import it.starbay.gestionebean.Carrello;
 import it.starbay.gestionebean.ProdottoCarrello;
 
 /**
- * Servlet implementation class ServletRimozioneProdottoCarrello
+ * ServletRimozioneProdottoCarrello
+ * Classe control che si occupa della rimozione di un prodotto dal carrello
  */
 @WebServlet("/ServletRimozioneProdottoCarrello")
 public class ServletRimozioneProdottoCarrello extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		String nome_prodotto = request.getHeader("nome_prodotto");
