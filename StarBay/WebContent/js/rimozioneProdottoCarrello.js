@@ -1,3 +1,12 @@
+/**
+ * Rimozione Prodotto Carrello
+ * si occupa di rimuovere un prodotto dal carrello
+ * 
+ * Metodo rimozioneProdottoCarrello
+ * questo metodo chiama la servlet che elimina il prodotto dal carrello
+ * @param x
+ */
+
 function rimozioneProdottoCarrello(x)
 {
 	var tr = x.parentNode.parentNode;
