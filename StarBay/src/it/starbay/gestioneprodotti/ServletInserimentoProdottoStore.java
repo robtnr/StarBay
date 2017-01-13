@@ -22,6 +22,10 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import it.starbay.gestionebean.Store;
 
+/**
+ * ServletInserimentoProdottoStore
+ * Classe control che si occupa dell'inserimento di un prodotto store
+ */
 @WebServlet("/ServletInserimentoProdottoStore")
 public class ServletInserimentoProdottoStore extends HttpServlet {
 
@@ -60,6 +64,12 @@ public class ServletInserimentoProdottoStore extends HttpServlet {
 		disp.forward(request, response);  
 	}
 
+	/**
+	 * prende i paramentri e li inserisce nell'array
+	 * @param request
+	 * @param response
+	 * @throws IOException
+	 */
 	private void prendiParametri(HttpServletRequest request, HttpServletResponse response) throws IOException 
 	{
 		if (!ServletFileUpload.isMultipartContent(request)) {
@@ -125,6 +135,9 @@ public class ServletInserimentoProdottoStore extends HttpServlet {
         }
 	}
 
+	/**
+	 * crea oggetto Store
+	 */
 	private void creaOggettoStore() 
 	{
 		nome = parametri.get(0);
