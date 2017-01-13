@@ -1,3 +1,12 @@
+/**
+ * Ricerca Prodotto
+ * si occupa di ricercare un prodotto
+ * 
+ * Metodo ricercaProdotto
+ * questo metodo chiama la servlet passandole la chiave di ricerca
+ * 
+ */
+
 function ricercaProdotto()
 {
 	var chiave = document.getElementById("ricerca_prodotto").value;
