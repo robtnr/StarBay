@@ -16,7 +16,8 @@ import it.starbay.gestionebean.Stella;
 import it.starbay.gestionebean.Store;
 
 /**
- * Servlet implementation class ServletCaricaProdotti
+ * ServletCaricaProdotti
+ * Classe control che si occupa del caricamento dei prodotti
  */
 @WebServlet("/ServletCaricaProdotti")
 public class ServletCaricaProdotti extends HttpServlet {
