@@ -25,9 +25,9 @@ public class ServletCaricaOrdiniUtente extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		HttpSession session = request.getSession();
-		ManagerUtenti mu = new ManagerUtenti();
+		ManagerAcquisti ma = new ManagerAcquisti();
 		Cliente c = (Cliente) session.getAttribute("cliente");
-		ArrayList<Ordine> ordini = mu.dammiOrdiniUtente(c.getUsername());
+		ArrayList<Ordine> ordini = ma.dammiOrdiniUtente(c.getUsername());
 		session.setAttribute("ordini", ordini);
 		RequestDispatcher disp = request.getRequestDispatcher("/profilo_utente.jsp");
 		disp.forward(request, response);

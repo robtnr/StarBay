@@ -88,58 +88,7 @@ public class ManagerUtenti
 
 		return cliente;
 	}
-
-	public ArrayList<Ordine> dammiOrdiniUtente(String username) 
-	{
-		ArrayList<Ordine> ordini = new ArrayList<Ordine>();
-		Ordine ordine = null;
-		
-		try
-		{
-			statement = connection.createStatement();
-			result = statement.executeQuery("SELECT idOrdine, data, ora, idDettaglioOrdine, quantita, prezzo, coordinate, nome, descrizione FROM ORDINI NATURAL JOIN DETTAGLI_ORDINI NATURAL JOIN INCLUDE_STELLE NATURAL JOIN STELLE WHERE username = '"+username+"'");
-
-			while(result.next())
-			{
-				ordine = new Ordine();
-				ordine.setIdOrdine(Integer.parseInt(result.getString(1)));
-				ordine.setData(result.getString(2));
-				ordine.setOra(result.getString(3));
-				ordine.setIdDettaglioOrdine(Integer.parseInt(result.getString(4)));
-				ordine.setQuantita(Integer.parseInt(result.getString(5)));
-				ordine.setPrezzo(Double.parseDouble(result.getString(6)));
-				ordine.setIdProdotto(result.getString(7));
-				ordine.setNomeProdotto(result.getString(8));
-				ordine.setDescrizione(result.getString(9));
-				ordine.setTipo("stella");
-				
-				ordini.add(ordine);
-			}
-			
-			result = statement.executeQuery("SELECT idOrdine, data, ora, idDettaglioOrdine, quantita, prezzo, nome FROM ORDINI NATURAL JOIN DETTAGLI_ORDINI NATURAL JOIN INCLUDE_STORE NATURAL JOIN STORE WHERE username = '"+username+"'");
-
-			while(result.next())
-			{
-				ordine = new Ordine();
-				ordine.setIdOrdine(Integer.parseInt(result.getString(1)));
-				ordine.setData(result.getString(2));
-				ordine.setOra(result.getString(3));
-				ordine.setIdDettaglioOrdine(Integer.parseInt(result.getString(4)));
-				ordine.setQuantita(Integer.parseInt(result.getString(5)));
-				ordine.setPrezzo(Double.parseDouble(result.getString(6)));
-				ordine.setIdProdotto(result.getString(7));
-				ordine.setTipo("store");
-				
-				ordini.add(ordine);
-			}
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-		return ordini;
-	}
-
+	
 	public ArrayList<Cliente> dammiClienti() 
 	{
 		ArrayList<Cliente> clienti = new ArrayList<>();

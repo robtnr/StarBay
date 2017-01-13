@@ -14,31 +14,31 @@ import it.starbay.gestionebean.Stella;
 public class ManagerAcquisti {
 
 	private CallDatabase db;
-	
-	public ManagerAcquisti() throws ClassNotFoundException, SQLException
+
+	public ManagerAcquisti()
 	{
 		db = new CallDatabase();
 	}
-	
+
 	public int getQuantitaProdotto(String nome, String tipo) throws ClassNotFoundException, SQLException
 	{
 		Connection connection = db.getConnection();
 		Statement statement = connection.createStatement();
 		ResultSet result;
 		int quantita = 0;
-		
+
 		if(tipo.equals("stella"))
 			result = statement.executeQuery("SELECT quantita FROM STELLE WHERE nome='"+nome+"'");
 		else
 			result = statement.executeQuery("SELECT quantita FROM STORE WHERE nome='"+nome+"'");
-			
+
 		quantita = result.getInt(1);
 
 		statement.close();
 		connection.close();
 		return quantita;
 	}
-	
+
 	public int getCountOrdine() throws ClassNotFoundException, SQLException
 	{
 		Statement statement;
@@ -48,7 +48,7 @@ public class ManagerAcquisti {
 			int cont = 0;
 			statement = connection.createStatement();
 			ResultSet result = statement.executeQuery("SELECT count(idOrdine) FROM ORDINI");
-			
+
 			while(result.next())
 			{
 				cont = result.getInt(1);
@@ -60,10 +60,10 @@ public class ManagerAcquisti {
 		{
 			e.printStackTrace();
 		}
-		
+
 		return 0;
 	}
-	
+
 	public void creaOrdine(Ordine ordine) throws ClassNotFoundException, SQLException
 	{
 		String query = "INSERT INTO ORDINI VALUES(?,?,?,?)";
@@ -84,7 +84,7 @@ public class ManagerAcquisti {
 			e.printStackTrace();			
 		}
 	}
-	
+
 	public int getCountDettaglioOrdine() throws ClassNotFoundException, SQLException
 	{
 		Statement statement = null;
@@ -94,23 +94,77 @@ public class ManagerAcquisti {
 			int cont = 0;
 			statement = connection.createStatement();
 			ResultSet result = statement.executeQuery("SELECT count(idDettaglioOrdine) FROM DETTAGLI_ORDINI");
-			
+
 			while(result.next())
 			{
 				cont = result.getInt(1);
 			}
 			statement.close();
 			connection.close();
-			
+
 			return cont;
 		} catch (SQLException e) 
 		{
 			e.printStackTrace();
 		}
-		
+
 		return 0;
 	}
-	
+
+	public ArrayList<Ordine> dammiOrdiniUtente(String username)  
+	{
+		ArrayList<Ordine> ordini = new ArrayList<Ordine>();
+		try
+		{
+			Connection connection = db.getConnection();
+			Statement statement = connection.createStatement();
+			ResultSet result;
+
+			Ordine ordine = null;
+			statement = connection.createStatement();
+			result = statement.executeQuery("SELECT idOrdine, data, ora, idDettaglioOrdine, quantita, prezzo, coordinate, nome, descrizione FROM ORDINI NATURAL JOIN DETTAGLI_ORDINI NATURAL JOIN INCLUDE_STELLE NATURAL JOIN STELLE WHERE username = '"+username+"'");
+
+			while(result.next())
+			{
+				ordine = new Ordine();
+				ordine.setIdOrdine(Integer.parseInt(result.getString(1)));
+				ordine.setData(result.getString(2));
+				ordine.setOra(result.getString(3));
+				ordine.setIdDettaglioOrdine(Integer.parseInt(result.getString(4)));
+				ordine.setQuantita(Integer.parseInt(result.getString(5)));
+				ordine.setPrezzo(Double.parseDouble(result.getString(6)));
+				ordine.setIdProdotto(result.getString(7));
+				ordine.setNomeProdotto(result.getString(8));
+				ordine.setDescrizione(result.getString(9));
+				ordine.setTipo("stella");
+
+				ordini.add(ordine);
+			}
+
+			result = statement.executeQuery("SELECT idOrdine, data, ora, idDettaglioOrdine, quantita, prezzo, nome FROM ORDINI NATURAL JOIN DETTAGLI_ORDINI NATURAL JOIN INCLUDE_STORE NATURAL JOIN STORE WHERE username = '"+username+"'");
+
+			while(result.next())
+			{
+				ordine = new Ordine();
+				ordine.setIdOrdine(Integer.parseInt(result.getString(1)));
+				ordine.setData(result.getString(2));
+				ordine.setOra(result.getString(3));
+				ordine.setIdDettaglioOrdine(Integer.parseInt(result.getString(4)));
+				ordine.setQuantita(Integer.parseInt(result.getString(5)));
+				ordine.setPrezzo(Double.parseDouble(result.getString(6)));
+				ordine.setIdProdotto(result.getString(7));
+				ordine.setTipo("store");
+
+				ordini.add(ordine);
+			}
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		return ordini;
+	}
+
 	public void creaDettagliOrdine(Ordine ordine) throws ClassNotFoundException, SQLException
 	{
 		String query = "INSERT INTO DETTAGLI_ORDINI VALUES(?,?,?,?)";
@@ -131,11 +185,11 @@ public class ManagerAcquisti {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void creaIncludeStella(Ordine ordine) throws ClassNotFoundException, SQLException
 	{
 		String query = "INSERT INTO INCLUDE_STELLE VALUES(?,?)";
-		
+
 		String coordinate = getCoordinate(ordine.getIdProdotto());
 		Connection connection = db.getConnection();
 		PreparedStatement inserter = connection.prepareStatement(query);
@@ -151,7 +205,7 @@ public class ManagerAcquisti {
 		{
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	public String getCoordinate(String nomeProdotto) throws ClassNotFoundException, SQLException 
@@ -176,10 +230,10 @@ public class ManagerAcquisti {
 		{
 			e.printStackTrace();
 		}
-		
+
 		return null;
 	}
-	
+
 	public void creaIncludeStore(Ordine ordine) throws ClassNotFoundException, SQLException
 	{
 		String query = "INSERT INTO INCLUDE_STORE VALUES(?,?)";
@@ -198,48 +252,48 @@ public class ManagerAcquisti {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void aggiornaQuantitaNomeProdotto(Ordine ordine) throws ClassNotFoundException, SQLException
 	{
-		  PreparedStatement inserter;
-		  Connection connection = db.getConnection();
-		  ResultSet result;
-		  String template;
-		  boolean cambiare_nome = false;
-		  if(ordine.getTipo().equals("store"))
-			  template = "UPDATE STORE SET quantita=quantita-? WHERE nome=?";
-		  else
-		  {
-			  if(ordine.getNomeProdotto().equals(ordine.getIdProdotto()))
-			  {
-				  template = "UPDATE STELLE SET quantita=quantita-? WHERE nome=?";
-			  }
-			  else
-			  {
-				  cambiare_nome = true;
-				  template = "UPDATE STELLE SET quantita=quantita-?, nome=? WHERE nome=?";
-			  }
-		  }
-		  
-			try
+		PreparedStatement inserter;
+		Connection connection = db.getConnection();
+		ResultSet result;
+		String template;
+		boolean cambiare_nome = false;
+		if(ordine.getTipo().equals("store"))
+			template = "UPDATE STORE SET quantita=quantita-? WHERE nome=?";
+		else
+		{
+			if(ordine.getNomeProdotto().equals(ordine.getIdProdotto()))
 			{
-				inserter = connection.prepareStatement(template);
-				inserter.setInt(1, ordine.getQuantita());
-				if(cambiare_nome == true)
-				{
-					inserter.setString(2, ordine.getNomeProdotto());
-					inserter.setString(3, ordine.getIdProdotto());
-				}
-				else
-					inserter.setString(2, ordine.getNomeProdotto());
-				
-				inserter.executeUpdate();
-				inserter.close();
-				connection.close();
-			} catch (SQLException e)
-			{
-				e.printStackTrace();
+				template = "UPDATE STELLE SET quantita=quantita-? WHERE nome=?";
 			}
+			else
+			{
+				cambiare_nome = true;
+				template = "UPDATE STELLE SET quantita=quantita-?, nome=? WHERE nome=?";
+			}
+		}
+
+		try
+		{
+			inserter = connection.prepareStatement(template);
+			inserter.setInt(1, ordine.getQuantita());
+			if(cambiare_nome == true)
+			{
+				inserter.setString(2, ordine.getNomeProdotto());
+				inserter.setString(3, ordine.getIdProdotto());
+			}
+			else
+				inserter.setString(2, ordine.getNomeProdotto());
+
+			inserter.executeUpdate();
+			inserter.close();
+			connection.close();
+		} catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
 	}
-	
+
 }
