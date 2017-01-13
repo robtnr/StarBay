@@ -7,7 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+/**
+ * ServletVisualizzaRicavoTotale
+ * Classe control che si occupa della visualizzazione del ricavo totale
+ */
 @WebServlet("/ServletVisualizzaRicavoTotale")
 public class ServletVisualizzaRicavoTotale extends HttpServlet 
 {
