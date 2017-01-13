@@ -106,7 +106,7 @@ public class ManagerUtenti
 				ordine.setData(result.getString(2));
 				ordine.setOra(result.getString(3));
 				ordine.setIdDettaglioOrdine(Integer.parseInt(result.getString(4)));
-				ordine.setQuantita(Integer.parseInt(result.getString(4)));
+				ordine.setQuantita(Integer.parseInt(result.getString(5)));
 				ordine.setPrezzo(Double.parseDouble(result.getString(6)));
 				ordine.setIdProdotto(result.getString(7));
 				ordine.setNomeProdotto(result.getString(8));
@@ -125,7 +125,7 @@ public class ManagerUtenti
 				ordine.setData(result.getString(2));
 				ordine.setOra(result.getString(3));
 				ordine.setIdDettaglioOrdine(Integer.parseInt(result.getString(4)));
-				ordine.setQuantita(Integer.parseInt(result.getString(4)));
+				ordine.setQuantita(Integer.parseInt(result.getString(5)));
 				ordine.setPrezzo(Double.parseDouble(result.getString(6)));
 				ordine.setIdProdotto(result.getString(7));
 				ordine.setTipo("store");
