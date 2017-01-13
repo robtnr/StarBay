@@ -17,7 +17,7 @@ import it.starbay.gestionebean.Store;
 
 /**
  * ServletCaricaUltimiProdotti
- * Classe control che si occupa del caricamento dei prodotti cercati in base alla chiave di ricerca
+ * Classe control che si occupa del caricamento degli ultimi prodotti
  */
 @WebServlet("/ServletCaricaUltimiProdotti")
 public class ServletCaricaUltimiProdotti extends HttpServlet {
