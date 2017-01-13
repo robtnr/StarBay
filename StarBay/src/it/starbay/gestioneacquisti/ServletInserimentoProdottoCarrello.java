@@ -20,7 +20,8 @@ import it.starbay.gestionebean.ProdottoCarrello;
 import jdk.nashorn.internal.ir.RuntimeNode.Request;
 
 /**
- * Servlet implementation class ServletInserimentoCarrello
+ * ServletInserimentoProdottoCarrello
+ * Classe control che si occupa dell'inserimento del prodotto nel carrello
  */
 @WebServlet("/ServletInserimentoProdottoCarrello")
 public class ServletInserimentoProdottoCarrello extends HttpServlet {
@@ -246,6 +247,11 @@ public class ServletInserimentoProdottoCarrello extends HttpServlet {
 	}
 
 
+	/**
+	 * Calcola la pagina da reindirizzare
+	 * @param request 
+	 * @param response
+	 */
 	public void calcoloHeaderIndirizzamento(HttpServletRequest request, HttpServletResponse response) 
 	{
 		HttpSession sessione = request.getSession();
