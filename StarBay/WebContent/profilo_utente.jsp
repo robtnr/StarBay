@@ -75,29 +75,38 @@
 						      </tr>
 						    </thead>
 						    <tbody>
-						      <%
-						     	ManagerUtenti mu = new ManagerUtenti();
-								Cliente c = (Cliente) session.getAttribute("cliente");
-								ArrayList<Ordine> ordini = mu.dammiOrdiniUtente(c.getUsername());
-								double totale = 0;
-								if (ordini != null)
-								{
-									PdfMaker pdf = null;
-									String path = getServletContext().getRealPath("/");
-							      	for (Ordine o: ordini)
-							      	{
-							      		if (o.getTipo().equals("stella"))
-							      		{
-							      			pdf = new PdfMaker(path, c, o);
-							      			out.println("<tr><td>"+o.getIdOrdine()+"</td><td>"+o.getNomeProdotto()+"</td><td>"+o.getPrezzo()+"&euro;</td><td>"+o.getQuantita()+"</td><td style='text-align: center'><a target='_blank' href='"+pdf.getPath()+"'><img src='images/pdf.png' style='width: 30px' /></a></td></tr>");
-							      		}
-							      		else if(o.getTipo().equals("store"))
-							      			out.println("<tr><td>"+o.getIdOrdine()+"</td><td>"+o.getIdProdotto()+"</td><td>"+o.getPrezzo()+"&euro;</td><td>"+o.getQuantita()+"</td><td></td></tr>");
-							      		totale += o.getPrezzo();
-							      	}
-								}
-								else
-									out.println("<tr><td colspan='5'><div style='text-align:center; font-size:18px;'>Non hai effettuato nessun ordine</div></td></tr>");
+						  
+						    	<%
+						    	double totale = 0;
+						    	if(session.getAttribute("ordini")==null) 
+						    	{
+						    		RequestDispatcher disp = request.getRequestDispatcher("/ServletCaricaOrdiniUtente");
+									disp.forward(request, response);
+						    	}
+						    	else
+						    	{
+						    		ArrayList<Ordine> ordini = (ArrayList<Ordine>) session.getAttribute("ordini");
+						    		Cliente c = (Cliente) session.getAttribute("cliente");
+									if (ordini.isEmpty() == false)
+									{
+										PdfMaker pdf = null;
+										String path = getServletContext().getRealPath("/");
+								      	for (Ordine o: ordini)
+								      	{
+								      		if (o.getTipo().equals("stella"))
+								      		{
+								      			pdf = new PdfMaker(path, c, o);
+								      			out.println("<tr><td>"+o.getIdOrdine()+"</td><td>"+o.getNomeProdotto()+"</td><td>"+o.getPrezzo()+"&euro;</td><td>"+o.getQuantita()+"</td><td style='text-align: center'><a target='_blank' href='"+pdf.getPath()+"'><img src='images/pdf.png' style='width: 30px' /></a></td></tr>");
+								      		}
+								      		else if(o.getTipo().equals("store"))
+								      			out.println("<tr><td>"+o.getIdOrdine()+"</td><td>"+o.getIdProdotto()+"</td><td>"+o.getPrezzo()+"&euro;</td><td>"+o.getQuantita()+"</td><td></td></tr>");
+								      		totale += o.getPrezzo();
+								      	}
+									}
+									else
+										out.println("<tr><td colspan='5'><div style='text-align:center; font-size:18px;'>Non hai effettuato nessun ordine</div></td></tr>");
+						    	}
+								
 						      %>
 						    </tbody>
 						    </table>

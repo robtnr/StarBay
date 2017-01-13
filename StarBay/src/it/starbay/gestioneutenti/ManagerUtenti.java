@@ -137,8 +137,6 @@ public class ManagerUtenti
 		{
 			e.printStackTrace();
 		}
-		
-		if (ordini.isEmpty()) return null;
 		return ordini;
 	}
 

@@ -147,6 +147,7 @@ public class ServletAcquistaCarrello extends HttpServlet {
 				sessione.removeAttribute("prodotti_store");
 				sessione.removeAttribute("store_ultimi_prodotti");
 				sessione.removeAttribute("stelle_ultimi_prodotti");
+				sessione.removeAttribute("ordini");
 			}
 			else
 			{
