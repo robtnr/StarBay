@@ -13,8 +13,8 @@ import javax.servlet.http.HttpSession;
 import it.starbay.gestionebean.Cliente;
 
 /**
- * Servlet Login Utente
- * Servlet che viene richiamata quando un utente tenta di fare il login
+ * ServletLoginUtente
+ * Classe control che si occupa di effettuare il login
  */
 @WebServlet("/ServletLoginUtente")
 public class ServletLoginUtente extends HttpServlet {
