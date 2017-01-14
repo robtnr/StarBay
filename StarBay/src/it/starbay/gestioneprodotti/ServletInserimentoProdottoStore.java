@@ -122,7 +122,6 @@ public class ServletInserimentoProdottoStore extends HttpServlet {
                         parametri.add("images/store/"+fileName);
                         // saves the file on disk
                         item.write(storeFile);
-                        System.out.println(filePath);
                     }
                     else
                     {
