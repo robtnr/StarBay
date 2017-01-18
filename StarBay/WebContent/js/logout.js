@@ -19,6 +19,6 @@ function logOut()
 				
 			}
 		}
-		http.open("POST", "http://localhost:8080/StarBay/ServletLogout", true);
+		http.open("POST", "ServletLogout", true);
 		http.send();
 }
