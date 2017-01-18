@@ -16,7 +16,7 @@ public class OrdineTest {
 	{
 		ordine = new Ordine();
 		ordine.setIdOrdine(1);
-		ordine.setUsername("robtnr");
+		ordine.setUsername("robtnr94");
 		ordine.setDescrizione("Prodotto di prezzo accessibile con una distanza focale di 500 mm, quindi con un notevole zoom standard senza ingrandimenti e un diametro dell’ottica di 50 mm.");
 		ordine.setData("2016-12-09");
 		ordine.setOra("20:45:20");
@@ -39,7 +39,7 @@ public class OrdineTest {
 	public void testGetUsername() 
 	{
 		String username = ordine.getUsername();
-		assertEquals("robtnr", username);
+		assertEquals("robtnr94", username);
 	}
 
 	@Test
