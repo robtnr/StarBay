@@ -120,7 +120,7 @@
 					 else
 					 {
 					 %>
-					<div id="scontrino_acquista"><input class="submit_acquista" type="submit" value="acquista" onclick="acquistaCarrello()"></div>
+					<div id="scontrino_acquista"><input class="submit_acquista" type="submit" value="Acquista" onclick="acquistaCarrello()"></div>
 					 <%
 					 }
 					 %>
