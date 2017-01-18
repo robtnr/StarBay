@@ -33,7 +33,7 @@ function eliminaProdottoStore(x)
 				
 			}
 		}
-		http.open("POST", "http://localhost:8080/StarBay/ServletEliminaProdotto", true);
+		http.open("POST", "ServletEliminaProdotto", true);
 		http.setRequestHeader("nome",td[0].childNodes[0].nodeValue);
 		http.setRequestHeader("tipo","store");
 		http.send();
