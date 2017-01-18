@@ -18,7 +18,7 @@ function modificaProdottoStella(x)
 				open("modifica_prodotto_singolo_stella.jsp","_self");	
 			}
 		}
-		http.open("POST", "http://localhost:8080/StarBay/ServletModificaProdotto", true);
+		http.open("POST", "ServletModificaProdotto", true);
 		http.setRequestHeader("nome",td[0].childNodes[0].nodeValue);
 		http.setRequestHeader("descrizione",td[1].childNodes[0].nodeValue);
 		http.setRequestHeader("coordinate",td[2].childNodes[0].nodeValue);
