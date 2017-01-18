@@ -39,7 +39,7 @@ function controlloDati()
 				
 			}
 		}
-		http.open("POST", "http://localhost:8080/StarBay/ServletLoginUtente", true);
+		http.open("POST", "ServletLoginUtente", true);
 		http.setRequestHeader("username", document.getElementById("inputUsername").value);
 		http.setRequestHeader("password", document.getElementById("inputPassword").value);
 		http.send();
