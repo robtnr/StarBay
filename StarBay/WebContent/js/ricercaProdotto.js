@@ -16,7 +16,7 @@ function ricercaProdotto()
 		
 		open("risultati_cerca.jsp?chiave="+chiave,"_self");
 	}
-	http.open("POST", "http://localhost:8080/StarBay/ServletRicercaProdotto", true);
+	http.open("POST", "ServletRicercaProdotto", true);
 	http.setRequestHeader("chiave",chiave);
 	http.send();
 	
