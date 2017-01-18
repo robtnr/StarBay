@@ -59,7 +59,7 @@ function aggiungiStellaCarrello()
 			}
 		}
 	}
-	http.open("POST", "http://localhost:8080/StarBay/ServletInserimentoProdottoCarrello", true);
+	http.open("POST", "ServletInserimentoProdottoCarrello", true);
 	http.setRequestHeader("nome_stella_nuova",nome_stella_nuova);
 	http.setRequestHeader("tipo","stella");
 	http.send();
