@@ -73,7 +73,7 @@ function controlloDatiSingoloStore()
 				
 			}
 		}
-		http.open("POST", "http://localhost:8080/StarBay/ServletModificaProdottoSingolo", true);
+		http.open("POST", "ServletModificaProdottoSingolo", true);
 		http.setRequestHeader("nome",document.getElementById("inputNome").value);
 		http.setRequestHeader("descrizione",document.getElementById("inputDescrizione").value);
 		http.setRequestHeader("prezzo_vendita",document.getElementById("inputPrezzoVendita").value);
