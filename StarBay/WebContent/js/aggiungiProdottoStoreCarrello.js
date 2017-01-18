@@ -55,7 +55,7 @@ function aggiungiProdottoStoreCarrello(x)
 			}
 		}
 	}
-	http.open("POST", "http://localhost:8080/StarBay/ServletInserimentoProdottoCarrello", true);
+	http.open("POST", "ServletInserimentoProdottoCarrello", true);
 	http.setRequestHeader("nome_prodotto_store",nome_prodotto_store);
 	http.setRequestHeader("prezzo",prezzo);
 	http.setRequestHeader("quantita",quantita);
