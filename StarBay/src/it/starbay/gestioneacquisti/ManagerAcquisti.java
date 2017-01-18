@@ -161,7 +161,7 @@ public class ManagerAcquisti {
 
 			Ordine ordine = null;
 			statement = connection.createStatement();
-			result = statement.executeQuery("SELECT idOrdine, data, ora, idDettaglioOrdine, quantita, prezzo, coordinate, nome, descrizione FROM ORDINI NATURAL JOIN DETTAGLI_ORDINI NATURAL JOIN INCLUDE_STELLE NATURAL JOIN STELLE WHERE username = '"+username+"'");
+			result = statement.executeQuery("SELECT idOrdine, dataAcquisto, ora, idDettaglioOrdine, quantitaAcquistata, prezzo, coordinate, nome, descrizione FROM ORDINI NATURAL JOIN DETTAGLI_ORDINI NATURAL JOIN INCLUDE_STELLE NATURAL JOIN STELLE WHERE username = '"+username+"'");
 
 			while(result.next())
 			{
@@ -180,7 +180,7 @@ public class ManagerAcquisti {
 				ordini.add(ordine);
 			}
 
-			result = statement.executeQuery("SELECT idOrdine, data, ora, idDettaglioOrdine, quantita, prezzo, nome FROM ORDINI NATURAL JOIN DETTAGLI_ORDINI NATURAL JOIN INCLUDE_STORE NATURAL JOIN STORE WHERE username = '"+username+"'");
+			result = statement.executeQuery("SELECT idOrdine, dataAcquisto, ora, idDettaglioOrdine, quantitaAcquistata, prezzo, nome FROM ORDINI NATURAL JOIN DETTAGLI_ORDINI NATURAL JOIN INCLUDE_STORE NATURAL JOIN STORE WHERE username = '"+username+"'");
 
 			while(result.next())
 			{
