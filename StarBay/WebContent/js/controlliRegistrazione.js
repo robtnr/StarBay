@@ -78,7 +78,7 @@ function controlloDati()
 					
 				}
 			}
-			http.open("POST", "http://localhost:8080/StarBay/ServletRegistrazione", true);
+			http.open("POST", "ServletRegistrazione", true);
 			http.setRequestHeader("nome", document.getElementById("inputNome").value);
 			http.setRequestHeader("cognome", document.getElementById("inputCognome").value);
 			http.setRequestHeader("comune", document.getElementById("inputComune").value);
