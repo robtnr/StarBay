@@ -67,8 +67,7 @@
 							<table class="table">
 						    <thead>
 						      <tr style="background-color:#070d19; color:#ffc307;">
-						        <th>ID Ordine</th>
-						        <th>Nome</th>
+						        <th colspan="2">Nome</th>
 						        <th>Prezzo</th>
 						        <th>Quantità</th>
 						       	<th style='text-align: center'>Contratto</th>
@@ -96,10 +95,10 @@
 								      		if (o.getTipo().equals("stella"))
 								      		{
 								      			pdf = new PdfMaker(path, c, o);
-								      			out.println("<tr><td>"+o.getIdOrdine()+"</td><td>"+o.getNomeProdotto()+"</td><td>"+o.getPrezzo()+"&euro;</td><td>"+o.getQuantita()+"</td><td style='text-align: center'><a target='_blank' href='"+pdf.getPath()+"'><img src='images/pdf.png' style='width: 30px' /></a></td></tr>");
+								      			out.println("<tr><td colspan='2'>"+o.getNomeProdotto()+"</td><td>"+o.getPrezzo()+"&euro;</td><td>1</td><td style='text-align: center'><a target='_blank' href='"+pdf.getPath()+"'><img src='images/pdf.png' style='width: 30px' /></a></td></tr>");
 								      		}
 								      		else if(o.getTipo().equals("store"))
-								      			out.println("<tr><td>"+o.getIdOrdine()+"</td><td>"+o.getIdProdotto()+"</td><td>"+o.getPrezzo()+"&euro;</td><td>"+o.getQuantita()+"</td><td></td></tr>");
+								      			out.println("<tr><td colspan='2'>"+o.getIdProdotto()+"</td><td>"+o.getPrezzo()+"&euro;</td><td>"+o.getQuantita()+"</td><td></td></tr>");
 								      		totale += o.getPrezzo();
 								      	}
 									}
