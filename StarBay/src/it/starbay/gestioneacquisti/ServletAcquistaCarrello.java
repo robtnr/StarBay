@@ -215,10 +215,9 @@ public class ServletAcquistaCarrello extends HttpServlet {
 		int aa = oggi.get(Calendar.YEAR);
 		ordine.setData("" + aa + "-" + (mm+1) + "-" + gg);
 		
-		int ore = oggi.get(Calendar.HOUR);
+		int ore = oggi.get(Calendar.HOUR_OF_DAY);
 		int min = oggi.get(Calendar.MINUTE);
-		int sec = oggi.get(Calendar.SECOND);
-		ordine.setOra(""+ore+":"+min+":"+sec);
+		ordine.setOra(""+ore+":"+min+"");
 		
 		ordine.setUsername(carrello.getUsername());
 		
