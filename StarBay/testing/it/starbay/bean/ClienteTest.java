@@ -19,7 +19,7 @@ public class ClienteTest {
 		cliente.setEmail("roberto.cont@gmail.com");
 		cliente.setComune("Nocera Inferiore");
 		cliente.setIndirizzo("Via gennaro orlando 41");
-		cliente.setUsername("robtnr");
+		cliente.setUsername("robtnr94");
 		cliente.setPassword("juventus");
 		cliente.setIban("IT05G9636699139646736576803");
 		assertNotNull(cliente);
@@ -70,7 +70,7 @@ public class ClienteTest {
 	public void TestGetUsername()
 	{
 		String username = cliente.getUsername();
-		assertEquals("robtnr", username);
+		assertEquals("robtnr94", username);
 	}
 	
 	@Test
@@ -138,9 +138,9 @@ public class ClienteTest {
 	@Test
 	  public void testSetPassword()
 	  {
-	    String password = "giandark1";
+	    String password = "giandark";
 	    cliente.setPassword(password);
-	    assertEquals("giandark1", cliente.getPassword());
+	    assertEquals("giandark", cliente.getPassword());
 	  }
 	
 	@Test
