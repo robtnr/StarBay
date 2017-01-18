@@ -31,7 +31,7 @@ function eliminaProdottoStella(x)
 					});
 			}
 		}
-		http.open("POST", "http://localhost:8080/StarBay/ServletEliminaProdotto", true);
+		http.open("POST", "ServletEliminaProdotto", true);
 		http.setRequestHeader("coordinate",td[2].childNodes[0].nodeValue);
 		http.setRequestHeader("tipo","stella");
 		http.send();
