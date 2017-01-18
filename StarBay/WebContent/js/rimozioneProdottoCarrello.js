@@ -34,7 +34,7 @@ function rimozioneProdottoCarrello(x)
 			
 		}
 	}
-	http.open("POST", "http://localhost:8080/StarBay/ServletRimozioneProdottoCarrello", true);
+	http.open("POST", "ServletRimozioneProdottoCarrello", true);
 	http.setRequestHeader("nome_prodotto",nome_prodotto);
 	http.setRequestHeader("quantita",quantita);
 	http.setRequestHeader("prezzo",prezzo);
