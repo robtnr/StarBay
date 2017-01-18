@@ -25,7 +25,7 @@ public class ServletLoginUtente extends HttpServlet {
 		username = request.getHeader("username");
 		password = request.getHeader("password");
 		sessione = request.getSession();
-		if(username.equals("admin") && password.equals("admin"))
+		if(username.equals("starbay1") && password.equals("starbay1"))
 		{
 			response.setHeader("esito_login","admin");
 		}
