@@ -92,7 +92,7 @@ function acquistaCarrello()
 				}
 			}
 		}
-	http.open("POST", "http://localhost:8080/StarBay/ServletAcquistaCarrello", true);
+	http.open("POST", "ServletAcquistaCarrello", true);
 	http.send();
 	}
 	
