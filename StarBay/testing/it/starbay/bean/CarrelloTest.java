@@ -20,7 +20,7 @@ public class CarrelloTest {
 		carrello = new Carrello();
 		carrello.setProdotti(new ProdottoCarrello());
 		carrello.setTotale(30, "incrementa");
-		carrello.setUsername("robtnr");
+		carrello.setUsername("robtnr94");
 		assertNotNull(carrello);
 		
 	}
@@ -36,7 +36,7 @@ public class CarrelloTest {
 	public void testGetUsername() 
 	{
 		String username = carrello.getUsername();
-		assertEquals("robtnr", username);
+		assertEquals("robtnr94", username);
 	}
 
 	@Test
