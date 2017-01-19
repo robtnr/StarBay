@@ -111,7 +111,7 @@
 								      	}
 									}
 									else
-										out.println("<tr><td colspan='5'><div style='text-align:center; font-size:18px;'>Non hai effettuato nessun ordine</div></td></tr>");
+										out.println("<tr><td colspan='6'><div style='text-align:center; font-size:18px;'>Non hai effettuato nessun ordine</div></td></tr>");
 						    	}
 								
 						      %>
