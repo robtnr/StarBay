@@ -14,7 +14,7 @@ public class StellaTest
 	public void setUp() throws Exception 
 	{
 		stella = new Stella();
-		stella.setCoordinate("267,98 -36,54 144,13 -41,67");
+		stella.setCoordinate("267,98 -36,54 144,13");
 		stella.setNome("Urania");
 		stella.setPrezzo(30);
 		stella.setSrc("images/stelle/urania.jpg");
@@ -33,7 +33,7 @@ public class StellaTest
 	public void TestGetCoordinate()
 	{
 		String coordinate = stella.getCoordinate();
-		assertEquals("267,98 -36,54 144,13 -41,67", coordinate);
+		assertEquals("267,98 -36,54 144,13", coordinate);
 	}
 	
 	@Test
@@ -74,9 +74,9 @@ public class StellaTest
 	@Test
 	  public void testSetCoordinate()
 	  {
-	    String coordinate = "220,98 +34,67 111,13 -44,67";
+	    String coordinate = "220,98 +34,67 111,13";
 	    stella.setCoordinate(coordinate);
-	    assertEquals("220,98 +34,67 111,13 -44,67", stella.getCoordinate());
+	    assertEquals("220,98 +34,67 111,13", stella.getCoordinate());
 	  }
 	
 	@Test
@@ -118,5 +118,4 @@ public class StellaTest
 	    stella.setDescrizione(descrizione);
 	    assertEquals("È una stella australe che splende nella parte sud-est della costellazione del Cane, in corrispondenza della punta della coda. È ben visibile solo nelle zone temperate dell'emisfero boreale.", stella.getDescrizione());
 	  }
-
 }
