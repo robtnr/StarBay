@@ -26,6 +26,10 @@
 <script	src="js/gestore.js"></script>
 </head>
 <body>
+	<%
+	if(session.getAttribute("admin")==null)
+		response.sendError(response.SC_UNAUTHORIZED,"Non sei autorizzato!");
+	%>
 
 	<%@ include file="includes/headerLoggatoAdmin.jsp"%>
 
