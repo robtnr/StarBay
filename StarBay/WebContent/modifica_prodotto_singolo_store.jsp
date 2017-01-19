@@ -55,7 +55,7 @@
 						<div id="divNome" class="form-group">
 							<label id="labelNome" for="inputNome">Nome</label> <input
 								id="inputNome" class="form-control" name="nome"
-								placeholder="Nome" type="text" value="<%= p.getNome() %>" /> <span
+								placeholder="Nome" type="text" onblur="controlloNome(this)" value="<%= p.getNome() %>" /> <span
 								id="spanNome" style="display: none" class="help-block"></span> <span
 								id="iconNome" style="display: none"
 								class="glyphicon glyphicon-remove form-control-feedback"></span>
@@ -66,7 +66,7 @@
 							<label id="labelPrezzoAcquisto" for="inputPrezzoAcquisto">Prezzo
 								d'acquisto</label> <input id="inputPrezzoAcquisto" class="form-control"
 								name="prezzoAcquisto" placeholder="Prezzo d'acquisto"
-								type="text" value="<%= p.getPrezzoAcquisto() %>" /> <span
+								type="text" onblur="controlloPrezzoAcquisto(this)" value="<%= p.getPrezzoAcquisto() %>" /> <span
 								id="spanPrezzoAcquisto" style="display: none" class="help-block"></span>
 							<span id="iconPrezzoAcquisto" style="display: none"
 								class="glyphicon glyphicon-remove form-control-feedback"></span>
@@ -75,7 +75,7 @@
 						<div id="divPrezzoVendita" class="form-group">
 							<label id="labelPrezzoVendita" for="inputPrezzoVendita">Prezzo
 								di vendita</label> <input id="inputPrezzoVendita" class="form-control"
-								name="prezzoVendita" placeholder="Prezzo di vendita" type="text"
+								name="prezzoVendita" placeholder="Prezzo di vendita" type="text" onblur="controlloPrezzoVendita(this)"
 							    value="<%=p.getPrezzoVendita() %>"  /> <span
 								id="spanPrezzoVendita" style="display: none" class="help-block"></span>
 							<span id="iconPrezzoVendita" style="display: none"
@@ -84,7 +84,7 @@
 						<div id="divQuantita" class="form-group">
 							<label id="labelQuantita" for="inputQuantita">Quantità</label> <input
 								id="inputQuantita" class="form-control" name="quantita"
-								placeholder="Quantità" type="text"
+								placeholder="Quantità" type="text" onblur="controlloQuantita(this)"
 								value="<%= p.getQuantita() %>"  /> <span id="spanQuantita"
 								style="display: none" class="help-block"></span> <span
 								id="iconQuantita" style="display: none"
@@ -92,7 +92,7 @@
 						</div>
 						<div id="divDescrizione" class="form-group">
 								<label id="labelDescrizione" for="inputDescrizione">Descrizione</label>
-								<textarea id="inputDescrizione" class="form-control" name="descrizione" row="5" type="text"><%= p.getDescrizione() %></textarea>
+								<textarea id="inputDescrizione" class="form-control" name="descrizione" row="5" type="text" onblur="controlloDescrizione(this)"><%= p.getDescrizione() %></textarea>
 								<span id="spanDescrizione" style="display: none" class="help-block"></span>
 								<span id="iconDescrizione" style="display: none" class="glyphicon glyphicon-remove form-control-feedback"></span>
 						</div>
