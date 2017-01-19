@@ -135,7 +135,7 @@ public class ManagerProdottiTest {
 	public void testModificaProdottoStella() throws SQLException, ClassNotFoundException 
 	{
 		Stella oldStella = new Stella();
-		oldStella.setCoordinate("220,98 +34,67 111,13");
+		oldStella.setCoordinate("220,98 +34,67 11,13");
 		oldStella.setDescrizione("È una stella australe che splende nella parte sud-est della costellazione del Cane, in corrispondenza della punta della coda. È ben visibile solo nelle zone temperate dell'emisfero boreale.");
 		oldStella.setSrc("images/stelle/melissa.jpg");
 		oldStella.setPrezzo(26);
