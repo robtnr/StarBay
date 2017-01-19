@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%
+	if(session.getAttribute("admin")==null)
+		response.sendError(response.SC_UNAUTHORIZED,"Non sei autorizzato!");
+	else
+	{
+	%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,10 +32,6 @@
 <script	src="js/gestore.js"></script>
 </head>
 <body>
-	<%
-	if(session.getAttribute("admin")==null)
-		response.sendError(response.SC_UNAUTHORIZED,"Non sei autorizzato!");
-	%>
 
 	<%@ include file="includes/headerLoggatoAdmin.jsp"%>
 
@@ -79,3 +81,6 @@
 	<%@ include file="includes/footer.jsp"%>
 </body>
 </html>
+<%
+	}
+%>
