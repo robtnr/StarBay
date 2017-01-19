@@ -28,6 +28,7 @@ public class ServletLoginUtente extends HttpServlet {
 		if(username.equals("starbay1") && password.equals("starbay1"))
 		{
 			response.setHeader("esito_login","admin");
+			sessione.setAttribute("admin","starbay1");
 		}
 		else
 		{
