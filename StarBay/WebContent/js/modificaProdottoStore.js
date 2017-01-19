@@ -21,11 +21,10 @@ function modificaProdottoStore(x)
 		http.open("POST", "http://localhost:8080/StarBay/ServletModificaProdotto", true);
 		http.setRequestHeader("nome",td[0].childNodes[0].nodeValue);
 		http.setRequestHeader("descrizione",td[1].childNodes[0].nodeValue);
-		http.setRequestHeader("src",td[2].childNodes[0].nodeValue);
-		http.setRequestHeader("prezzo_vendita",td[3].childNodes[0].nodeValue);
-		http.setRequestHeader("prezzo_acquisto",td[4].childNodes[0].nodeValue);
-		http.setRequestHeader("quantita",td[5].childNodes[0].nodeValue);
-		http.setRequestHeader("data",td[6].childNodes[0].nodeValue);
+		http.setRequestHeader("prezzo_vendita",td[2].childNodes[0].nodeValue);
+		http.setRequestHeader("prezzo_acquisto",td[3].childNodes[0].nodeValue);
+		http.setRequestHeader("quantita",td[4].childNodes[0].nodeValue);
+		http.setRequestHeader("data",td[5].childNodes[0].nodeValue);
 		http.setRequestHeader("tipo","store");
 		http.send();
 }
