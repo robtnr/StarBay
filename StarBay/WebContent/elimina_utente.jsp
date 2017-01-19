@@ -43,6 +43,9 @@
 		<div class="row">
 			<section class="col-md-10 col-md-offset-1">
 				<div class="row">
+				<div id="back_admin">
+						<a href="gestore.jsp"><img src="images/arrow_left.png"></a>
+					</div>
 				<div style="margin-top:30px; margin-bottom:25px" class="col-md-12 table-responsive">
 				<center>
 					<label style="font-size: 20px; margin-bottom: 20px;">Catalogo delle stelle</label>

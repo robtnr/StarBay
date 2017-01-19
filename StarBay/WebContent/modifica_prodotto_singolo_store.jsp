@@ -43,6 +43,9 @@
 		<div class="row">
 			<section class="col-md-10 col-md-offset-1">
 				<div class="row">
+				<div id="back_admin">
+						<a href="modifica_prodotto_store.jsp"><img src="images/arrow_left.png"></a>
+					</div>
 				<div id="form" class="col-md-12" style="margin: 15px 0;">
 					<form id="formStore" action="#" class="col-md-8 col-md-offset-2"
 						style="margin-top: 20px; margin-bottom: 20px;">
