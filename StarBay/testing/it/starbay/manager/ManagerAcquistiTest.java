@@ -118,19 +118,19 @@ public class ManagerAcquistiTest {
 		o.setIdProdotto("Melissa");
 		o.setIdDettaglioOrdine(300);
 		ma.creaIncludeStella(o);
-		result = statement.executeQuery("SELECT idDettaglioOrdine, coordinate FROM INCLUDE_STELLE WHERE coordinate='220,98 +34,67 111,13 -44,67'");
+		result = statement.executeQuery("SELECT idDettaglioOrdine, coordinate FROM INCLUDE_STELLE WHERE coordinate='220,98 +34,67 111,13'");
 		Ordine newO = new Ordine();
 		newO.setIdDettaglioOrdine(result.getInt(1));
 		newO.setIdProdotto(result.getString(2));
-		assertEquals("220,98 +34,67 111,13 -44,67", newO.getIdProdotto());
+		assertEquals("220,98 +34,67 111,13", newO.getIdProdotto());
 		assertEquals(""+o.getIdDettaglioOrdine(), ""+newO.getIdDettaglioOrdine());
-		statement.executeUpdate("DELETE FROM INCLUDE_STELLE WHERE coordinate='220,98 +34,67 111,13 -44,67'");
+		statement.executeUpdate("DELETE FROM INCLUDE_STELLE WHERE coordinate='220,98 +34,67 111,13'");
 	}
 
 	@Test
 	public void testGetCoordinate() throws ClassNotFoundException, SQLException 
 	{
-		assertEquals("220,98 +34,67 111,13 -44,67", ma.getCoordinate("Melissa"));
+		assertEquals("220,98 +34,67 111,13", ma.getCoordinate("Melissa"));
 	}
 
 	@Test
