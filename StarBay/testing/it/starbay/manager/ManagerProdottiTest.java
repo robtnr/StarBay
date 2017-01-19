@@ -54,18 +54,18 @@ public class ManagerProdottiTest {
 	@Test
 	public void testRegistraProdottoStella() throws Exception 
 	{
-		stella.setCoordinate("111,1 -111,1 111,1 -111,1");
+		stella.setCoordinate("111,1 -111,1 111,1");
 		stella.setData(" ");
 		stella.setDescrizione(" ");
 		stella.setNome(" ");
 		stella.setPrezzo(0);
 		stella.setSrc(" ");
 		mp.registraProdottoStella(stella);
-		result = statement.executeQuery("SELECT coordinate FROM STELLE WHERE coordinate='111,1 -111,1 111,1 -111,1'");
+		result = statement.executeQuery("SELECT coordinate FROM STELLE WHERE coordinate='111,1 -111,1 111,1'");
 		Stella newStella = new Stella();
 		newStella.setCoordinate(result.getString(1));
 		assertEquals(stella.getCoordinate(), newStella.getCoordinate());
-		statement.executeUpdate("DELETE FROM STELLE WHERE coordinate='111,1 -111,1 111,1 -111,1'");
+		statement.executeUpdate("DELETE FROM STELLE WHERE coordinate='111,1 -111,1 111,1'");
 	}
 
 	@Test
@@ -135,7 +135,7 @@ public class ManagerProdottiTest {
 	public void testModificaProdottoStella() throws SQLException, ClassNotFoundException 
 	{
 		Stella oldStella = new Stella();
-		oldStella.setCoordinate("220,98 +34,67 111,13 -44,67");
+		oldStella.setCoordinate("220,98 +34,67 111,13");
 		oldStella.setDescrizione("È una stella australe che splende nella parte sud-est della costellazione del Cane, in corrispondenza della punta della coda. È ben visibile solo nelle zone temperate dell'emisfero boreale.");
 		oldStella.setSrc("images/stelle/melissa.jpg");
 		oldStella.setPrezzo(26);
@@ -143,7 +143,7 @@ public class ManagerProdottiTest {
 		oldStella.setData("2016-08-09");
 		
 		Stella newStella = new Stella();
-		newStella.setCoordinate("111 111 111 111");
+		newStella.setCoordinate("111 111 111");
 		newStella.setDescrizione(" ");
 		newStella.setSrc(" ");
 		newStella.setPrezzo(0);
@@ -153,7 +153,7 @@ public class ManagerProdottiTest {
 		mp.modificaProdottoStella(oldStella, newStella);
 		(new ManagerProdotti()).registraProdottoStella(oldStella);	
 		
-		result = statement.executeQuery("SELECT coordinate, descrizione, src, prezzoVendita, nome, data FROM STELLE WHERE coordinate='111 111 111 111'");
+		result = statement.executeQuery("SELECT coordinate, descrizione, src, prezzoVendita, nome, data FROM STELLE WHERE coordinate='111 111 111'");
 
 		Stella checkStella = new Stella();
 		checkStella.setCoordinate(result.getString(1));
@@ -163,7 +163,7 @@ public class ManagerProdottiTest {
 		checkStella.setNome(result.getString(5));
 		checkStella.setData(result.getString(6));
 		
-		statement.executeUpdate("DELETE FROM STELLE WHERE coordinate='111 111 111 111'");
+		statement.executeUpdate("DELETE FROM STELLE WHERE coordinate='111 111 111'");
 		
 		assertEquals(newStella.getCoordinate(), checkStella.getCoordinate());
 		assertEquals(newStella.getDescrizione(), checkStella.getDescrizione());
@@ -176,16 +176,16 @@ public class ManagerProdottiTest {
 	public void testEliminaStella() throws SQLException, ClassNotFoundException 
 	{
 		Stella oldStella = new Stella();
-		oldStella.setCoordinate("220,98 +34,67 111,13 -44,67");
+		oldStella.setCoordinate("220,98 +34,67 111,13");
 		oldStella.setDescrizione("È una stella australe che splende nella parte sud-est della costellazione del Cane, in corrispondenza della punta della coda. È ben visibile solo nelle zone temperate dell'emisfero boreale.");
 		oldStella.setSrc("images/stelle/melissa.jpg");
 		oldStella.setPrezzo(26);
 		oldStella.setNome("Melissa");
 		oldStella.setData("2016-08-09");
 		
-		mp.eliminaStella("220,98 +34,67 111,13 -44,67");
+		mp.eliminaStella("220,98 +34,67 111,13");
 		
-		result = statement.executeQuery("SELECT coordinate FROM STELLE WHERE coordinate LIKE '220,98 +34,67 111,13 -44,67'");
+		result = statement.executeQuery("SELECT coordinate FROM STELLE WHERE coordinate LIKE '220,98 +34,67 111,13'");
 		new ManagerProdotti().registraProdottoStella(oldStella);
 		assertFalse(result.next());
 	}
