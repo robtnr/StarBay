@@ -2,6 +2,13 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
+<%
+	if(session.getAttribute("admin")==null)
+		response.sendError(response.SC_UNAUTHORIZED,"Non sei autorizzato!");
+	else
+	{
+	%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +36,7 @@
     <link rel="stylesheet" href="dist/sweetalert.css">	
 </head>
 <body>
-
+	
 	<%@ include file="includes/headerLoggatoAdmin.jsp"%>
 
 	<div class="container">
@@ -63,3 +70,6 @@
 	<%@ include file="includes/footer.jsp"%>
 </body>
 </html>
+<%
+	}
+%>
