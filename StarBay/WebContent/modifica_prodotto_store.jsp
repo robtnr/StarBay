@@ -2,6 +2,12 @@
 <%@page import="it.starbay.gestionebean.Store"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%
+	if(session.getAttribute("admin")==null)
+		response.sendError(response.SC_UNAUTHORIZED,"Non sei autorizzato!");
+	else
+	{
+	%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -92,3 +98,6 @@
 	<%@ include file="includes/footer.jsp"%>
 </body>
 </html>
+<%
+	}
+%>
