@@ -67,38 +67,6 @@ img#logout:hover
 	opacity:0.8;
 }
 
-@media screen and (max-width: 768px)
-{
-	/*Mobile div Benvenuto*/
-	#benvenuto
-	{
-		display: inline;
-	    width: auto;
-	    height: auto;
-	    background-color: #070d19;
-	    font-family: "myFont";
-	    color: #ffc307;
-	    font-size: 20px;
-	    position: relative;
-	    top: 9px;
-	    float: right;
-		padding: 5px;
-	    padding-left: 14px;
-	    padding-right: 11px;
-	    padding-bottom:11px;
-	    right: -15px;
-	    border-top-left-radius: 22px;
-	}
-	
-	#logout
-	{
-		width:25px;
-		margin-left: 13px;
-	    margin-top: -6px;
-	}
-
-}
-
 /*Menu*/
 #menu
 {
@@ -382,15 +350,37 @@ button#bottonePiu:hover
 
 /*Menu Gestore*/
 
+#back_admin
+{
+	background-color: #070d19;
+    position: relative;
+    display: inline;
+    padding-left: 1px;
+    padding-right: 5px;
+    padding-top: 17px;
+    padding-bottom: 20px;
+    border-bottom-right-radius: 11px;
+}
+
+#back_admin img
+{
+	width:50px;
+}
+
 #menu_gestione
 {
 	font-family: "Times New Roman", Georgia, Serif;
-    height: auto;
+    height: 390px;
     background-color: #070d19;
     margin-bottom: 150px;
     margin-top: 100px;
     border-radius:5px;
     padding: 1px 5px;
+}
+
+#riga_gestione
+{
+	height: 60px;
 }
 
 #menu_gestione #wrap
@@ -400,8 +390,7 @@ button#bottonePiu:hover
 
 #menu_gestione #wrap div
 {
-	height: 32px;
-	margin-bottom: 20px;
+	
 }
 
 #menu_gestione .wup
@@ -422,7 +411,8 @@ button#bottonePiu:hover
 
 #menu_gestione .wdown button
 {
-	margin: 0 10px;
+	margin-left: 8px;
+    margin-top: 1px;
 	float: left;
 	border: 0px;
 	background-color: #cbcbcb;
@@ -607,4 +597,52 @@ img#modifica_prodotto, img#elimina_utente
 img#modifica_prodotto:hover
 {
 	opacity:0.8;	
+}
+
+@media screen and (max-width: 768px)
+{
+	/*Mobile div Benvenuto*/
+	#benvenuto
+	{
+		display: inline;
+	    width: auto;
+	    height: auto;
+	    background-color: #070d19;
+	    font-family: "myFont";
+	    color: #ffc307;
+	    font-size: 20px;
+	    position: relative;
+	    top: 9px;
+	    float: right;
+		padding: 5px;
+	    padding-left: 14px;
+	    padding-right: 11px;
+	    padding-bottom:11px;
+	    right: -15px;
+	    border-top-left-radius: 22px;
+	}
+	
+	#logout
+	{
+		width:25px;
+		margin-left: 13px;
+	    margin-top: -6px;
+	}
+	
+	/*Gestione*/
+	#riga_gestione
+	{
+		height: 95px;
+	}
+	
+	#menu_gestione
+	{	
+    	height: 600px;
+	}
+	
+	#tool
+	{
+		display: none;
+	}
+
 }

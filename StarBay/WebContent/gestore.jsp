@@ -43,34 +43,46 @@
 					<div id="menu_gestione" class="col-md-6 col-md-offset-3">
 					<img id="tool" alt="tool" src="images/gestore.png" />				
 					<div id="wrap">
-						<div class="wup">Inserimento prodotto:</div>
-						<div class="wdown">
+					<div class="row" id="riga_gestione">
+						<div class="wup col-sm-5">Inserimento prodotto:</div>
+						<div class="wdown col-sm-5">
 							<button onclick="window.open('inserimento_prodotto_stella.jsp','_self');"><img src="images/star.png" /> Stella</button>
 							<button onclick="window.open('inserimento_prodotto_store.jsp','_self');"><img src="images/telescopio.png" /> Store</button>
 						</div>
-						<div class="wup">Modifica prodotto:</div>
-						<div class="wdown">
+					</div>
+					<div class="row" id="riga_gestione">
+						<div class="wup col-md-5">Modifica prodotto:</div>
+						<div class="wdown col-md-5">
 							<button onclick="window.open('modifica_prodotto_stella.jsp','_self');"><img src="images/star.png" /> Stella</button>
 							<button onclick="window.open('modifica_prodotto_store.jsp','_self');"><img src="images/telescopio.png" /> Store</button>
 						</div>
-						<div class="wup">Elimina prodotto:</div>
-						<div class="wdown">
+					</div>
+					<div class="row" id="riga_gestione">
+						<div class="wup col-md-5">Elimina prodotto:</div>
+						<div class="wdown col-md-5">
 							<button onclick="window.open('elimina_prodotto_stella.jsp','_self');"><img src="images/star.png" /> Stella</button>
 							<button onclick="window.open('elimina_prodotto_store.jsp','_self');"><img src="images/telescopio.png" /> Store</button>
 						</div>
-						<div class="wup">Gestione utenti:</div>
-						<div class="wdown">
+					</div>
+					<div class="row" id="riga_gestione">
+						<div class="wup col-md-5">Gestione utenti:</div>
+						<div class="wdown col-md-5">
 							<button onclick="window.open('elimina_utente.jsp','_self');" style="width: 179px;"><img src="images/user.png" /> Elimina utente</button>
 						</div>
-						<div class="wup">Visualizza:</div>
-						<div class="wdown">
+					</div>
+					<div class="row" id="riga_gestione">
+						<div class="wup col-md-5">Visualizza:</div>
+						<div class="wdown col-md-5">
 							<button onclick="visualizzaGuadagno()" style="margin-right: 23px" /> Guadagno</button>
 							<button onclick="visualizzaRicavo()" /> Ricavo</button>
 						</div>
-						<div class="wup">Visualizza guadagno:</div>
-						<div class="wdown">
+					</div>
+					<div class="row" id="riga_gestione">
+						<div class="wup col-md-5">Visualizza guadagno:</div>
+						<div class="wdown col-md-5">
 							<button onclick="window.open('visualizza_guadagno_singolo_prodotto.jsp','_self');" style="width: 179px;"><img src="images/earn.png" /> Singolo prodotto</button>
 						</div>
+					</div>
 					</div>
 					</div>
 				</div>
