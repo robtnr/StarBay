@@ -25,7 +25,6 @@ public class ServletModificaProdotto extends HttpServlet
 		{
 			String nome = request.getHeader("nome");
 			String descrizione = request.getHeader("descrizione");
-			String src = request.getHeader("src");
 			String prezzo_vendita = request.getHeader("prezzo_vendita");
 			String prezzo_acquisto = request.getHeader("prezzo_acquisto");
 			String quantita = request.getHeader("quantita");
@@ -35,7 +34,6 @@ public class ServletModificaProdotto extends HttpServlet
 			Store prodotto_store = new Store();
 			prodotto_store.setNome(nome);
 			prodotto_store.setDescrizione(descrizione);
-			prodotto_store.setSrc(src);
 			prodotto_store.setPrezzoVendita(Double.parseDouble(prezzo_vendita));
 			prodotto_store.setPrezzoAcquisto(Double.parseDouble(prezzo_acquisto));
 			prodotto_store.setQuantita(Integer.parseInt(quantita));
