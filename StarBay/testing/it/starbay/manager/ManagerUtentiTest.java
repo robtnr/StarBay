@@ -53,17 +53,17 @@ public class ManagerUtentiTest {
 		c.setComune("San Giuseppe Vesuviano");
 		c.setIndirizzo("Via Nappi 25");
 		c.setEmail("angnap@live.it");
-		c.setUsername("angnap");
+		c.setUsername("angnap93");
 		c.setPassword("consiglia");
 		c.setIban("IT60X0542811101000000123456");
 		assertFalse(mu.registraUtente(c));
-		statement.executeUpdate("DELETE FROM UTENTI WHERE username='angnap'");
+		statement.executeUpdate("DELETE FROM UTENTI WHERE username='angnap93'");
 	}
 
 	@Test
 	public void testControlloCredenziali() 
 	{
-		c = mu.controlloCredenziali("giandark", "g4");
+		c = mu.controlloCredenziali("giandark", "giandark");
 		assertFalse(c.getNome().equals("none"));
 	}
 
@@ -76,9 +76,9 @@ public class ManagerUtentiTest {
 	@Test
 	public void testEliminaUtente() 
 	{
-		c = mu.controlloCredenziali("giandark", "g4");
+		c = mu.controlloCredenziali("giandark", "giandark");
 		mu.eliminaUtente("giandark");
-		assertTrue(mu.controlloCredenziali("giandark", "g4").getNome().equals("none"));
+		assertTrue(mu.controlloCredenziali("giandark", "giandark").getNome().equals("none"));
 		mu.registraUtente(c);
 	}
 }
