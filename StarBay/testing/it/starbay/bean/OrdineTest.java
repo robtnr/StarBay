@@ -198,7 +198,7 @@ public class OrdineTest {
 		else
 		{
 			String idProdotto = ordine.getIdProdotto();
-			assertEquals("267,98 -36,54 144,13 -41,67", idProdotto);
+			assertEquals("267,98 -36,54 144,13", idProdotto);
 		}
 	}
 
@@ -213,9 +213,9 @@ public class OrdineTest {
 		}
 		else
 		{
-			String idProdotto = "220,98 +34,67 111,13 -44,67";
+			String idProdotto = "220,98 +34,67 111,13";
 			ordine.setIdProdotto(idProdotto);
-			assertEquals("220,98 +34,67 111,13 -44,67", ordine.getIdProdotto());
+			assertEquals("220,98 +34,67 111,13", ordine.getIdProdotto());
 		}
 	}
 
