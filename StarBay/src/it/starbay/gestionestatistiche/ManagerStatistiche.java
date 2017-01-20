@@ -76,7 +76,10 @@ public class ManagerStatistiche
 			guadagnoTotale = result.getString(1);
 			
 			result = statement.executeQuery("SELECT (quantitaAcquistata*prezzoAcquisto) FROM DETTAGLI_ORDINI D NATURAL JOIN INCLUDE_STORE NATURAL JOIN STORE");
-			spesa = result.getString(1);
+			if(result.next())
+				spesa = result.getString(1);
+			else
+				spesa = "0";
 		}
 		catch (Exception e)
 		{
