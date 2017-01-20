@@ -193,7 +193,7 @@ public class PdfMaker
 		tabella.addCell(new Paragraph(coordinate, subFont));
 		tabella.addCell(new Paragraph(nome, subFont));
 		tabella.addCell(new Paragraph(descrizione, subFont));
-		tabella.addCell(new Paragraph(prezzo, subFont));
+		tabella.addCell(new Paragraph(prezzo+"€", subFont));
 		tabella.addCell(" ");
 		tabella.addCell(" ");
 		tabella.addCell(" ");
