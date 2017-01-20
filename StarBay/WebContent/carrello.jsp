@@ -114,7 +114,7 @@
 					 	</p>
 					 </div>
 					 <%
-					 if(session.getAttribute("carrello")==null)
+					 if(session.getAttribute("carrello")==null || ((Carrello)session.getAttribute("carrello")).getProdotti().size()==0)
 				     { 
 				     }
 					 else
