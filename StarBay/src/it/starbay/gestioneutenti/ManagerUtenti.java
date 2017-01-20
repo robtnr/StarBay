@@ -146,7 +146,7 @@ public class ManagerUtenti
 		try 
 		{
 			statement = connection.createStatement();
-			result = statement.executeQuery("DELETE FROM UTENTI WHERE username='" + utente+"'");
+			statement.executeUpdate("DELETE FROM UTENTI WHERE username='" + utente+"'");
 		}
 		catch (Exception e) 
 		{

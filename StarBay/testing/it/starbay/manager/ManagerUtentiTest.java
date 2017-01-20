@@ -77,8 +77,8 @@ public class ManagerUtentiTest {
 	public void testEliminaUtente() 
 	{
 		c = mu.controlloCredenziali("giandark", "giandark");
-		mu.eliminaUtente("giandark");
-		assertTrue(mu.controlloCredenziali("giandark", "giandark").getNome().equals("none"));
-		mu.registraUtente(c);
+		(new ManagerUtenti()).eliminaUtente("giandark");
+		assertTrue((new ManagerUtenti()).controlloCredenziali("giandark", "giandark").getNome().equals("none"));
+		(new ManagerUtenti()).registraUtente(c);
 	}
 }
