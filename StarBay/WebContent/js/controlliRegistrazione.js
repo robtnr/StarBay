@@ -316,7 +316,7 @@ function controlloDati()
 		{
 			document.getElementById("divUsername").setAttribute("class", "form-group has-error has-feedback");
 			document.getElementById("labelUsername").setAttribute("class", "control-label");
-			document.getElementById("spanUsername").innerHTML = "L'username deve contenere minimo 8 e massimo 40 caratteri";
+			document.getElementById("spanUsername").innerHTML = "L'username deve contenere minimo 8 e massimo 30 caratteri";
 			document.getElementById("spanUsername").style.display="block";
 			document.getElementById("iconUsername").setAttribute("class", "glyphicon glyphicon-remove form-control-feedback");
 			document.getElementById("iconUsername").style.display="block";
@@ -358,7 +358,7 @@ function controlloDati()
 		{
 			document.getElementById("divPassword").setAttribute("class", "form-group has-error has-feedback");
 			document.getElementById("labelPassword").setAttribute("class", "control-label");
-			document.getElementById("spanPassword").innerHTML = "La password deve contenere minimo 8 e massimo 40 caratteri";
+			document.getElementById("spanPassword").innerHTML = "La password deve contenere minimo 8 e massimo 30 caratteri";
 			document.getElementById("spanPassword").style.display="block";
 			document.getElementById("iconPassword").setAttribute("class", "glyphicon glyphicon-remove form-control-feedback");
 			document.getElementById("iconPassword").style.display="block";
