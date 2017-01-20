@@ -63,13 +63,13 @@
 				<div class="row">
 					<div class="col-md-5 col-md-offset-3">
 						<div id="divNome" class="form-group" style="margin-top:30px; margin-bottom:20px;">
-								<label id="labelNome" for="inputNome">Inserisci nome nuovo oppure lascia quello predefinito</label>
+								<label id="labelNome" for="inputNome">Modifica nome stella oppure lascia quello predefinito</label>
 								<input id="inputNome" class="form-control" name="nome" placeholder="Nome stella" type="text" value="<%= nome_stella%>"/>
 								<span id="spanNome" style="display: none" class="help-block"></span>
 								<span id="iconNome" style="display: none" class="glyphicon glyphicon-remove form-control-feedback"></span>
 						</div>
 						<button id="buttonLogin" onclick="aggiungiStellaCarrello()" class="btn btn-default col-md-4 col-md-offset-4">
-									Modifica
+									Conferma
 						</button>
 						<div style="margin-top:150px"></div>
 					</div>
