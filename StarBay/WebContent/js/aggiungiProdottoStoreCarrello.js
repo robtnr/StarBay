@@ -42,7 +42,7 @@ function aggiungiProdottoStoreCarrello(x)
 			{
 				swal({
 					  title: "Prodotto store esaurito!",
-					  type: "success",
+					  type: "error",
 					  showCancelButton: false,
 					  confirmButtonText: "OK",
 					  closeOnConfirm: false,
