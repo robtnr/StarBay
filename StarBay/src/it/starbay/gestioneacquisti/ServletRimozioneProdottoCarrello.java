@@ -52,15 +52,11 @@ public class ServletRimozioneProdottoCarrello extends HttpServlet {
 						if(stelle_inserite.get(i).equals(nome_prodotto) || stelle_inserite.get(i+1).equals(nome_prodotto))
 						{
 							indice=i;
-							System.out.println(indice);
 							break;
 						}
 					}
 	
-					
-					System.out.println(stelle_inserite.get(indice));
 					stelle_inserite.remove(indice);
-					System.out.println(stelle_inserite.get(indice));
 					stelle_inserite.remove(indice);
 					sessione.setAttribute("stelle_inserite",stelle_inserite);
 					
