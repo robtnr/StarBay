@@ -71,7 +71,7 @@
 				    	</li>
 				    </ul>
 
-					<form class="navbar-form" role="search" style="border:none; float:left;">
+					<form action="javascript:void(0)" class="navbar-form" role="search" style="border:none; float:left;">
 						<div class="input-group">
 							<input id="ricerca_prodotto" type="text" class="form-control pull-right" style="width: 128px; margin-left: 60px; border: 1px solid black; background-color: #cbcbcb; font-family: Arial; margin-top: 6px;" placeholder="Cerca">
 							<span class="input-group-btn">
