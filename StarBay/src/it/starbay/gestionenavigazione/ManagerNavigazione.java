@@ -150,7 +150,7 @@ public class ManagerNavigazione
 		{
 			connection = db.getConnection();
 			statement = connection.createStatement();
-			result = statement.executeQuery("SELECT* FROM STORE WHERE quantita>0 ORDER BY data");
+			result = statement.executeQuery("SELECT* FROM STORE WHERE quantita>0 ORDER BY data DESC");
 			
 			while(result.next())
 			{
