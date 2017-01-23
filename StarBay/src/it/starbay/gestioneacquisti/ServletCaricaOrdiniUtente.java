@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 
 import it.starbay.gestionebean.Cliente;
 import it.starbay.gestionebean.Ordine;
-import it.starbay.gestioneutenti.ManagerUtenti;
 
 /**
  * ServletCaricaOrdiniUtente
